@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5"/>
+    <meta name="keywords" content=""/>
+    <title>L</title>
+    <meta name="description" content="">
+    <style>
+        body {
+            font-size: 0;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            height: 60px;
+            box-shadow: 0 1px 10px 0 #999999;
+            /*background-color: #589edf;*/
+            background: linear-gradient(to left bottom, rgba(255, 0, 0, 0.46), rgba(0, 0, 255, 0.48),
+            rgba(255, 127, 80, 0.51), rgba(33, 113, 192, 0.48), #feb139);
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+
+        .header ul {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .header ul li {
+            display: inline-block;
+        }
+
+        .header ul li > a {
+            padding: 0 20px;
+            line-height: 60px;
+            display: inline-block;
+
+            &:hover {
+                background-color: #feb139;
+            }
+        }
+
+        .header ul li.one {
+            position: relative;
+        }
+
+        .header ul li .two {
+            visibility: hidden;
+            position: absolute;
+            display: block;
+
+            & li a {
+                display: block;
+                width: 100px;
+                padding-left: 20px;
+                background-color: rgba(88, 158, 223, 0.56);
+
+                &:hover {
+                    background-color: #feb139;
+
+                }
+            }
+        }
+
+        .nav a, .header a {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            font-size: initial;
+            color: initial;
+            text-decoration: none;
+        }
+
+        .nav ul, .header ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .nav {
+            height: 100vh;
+            box-sizing: border-box;
+            box-shadow: 0 1px 10px 0 #999999;
+            background: linear-gradient(to bottom, rgba(255, 0, 0, 0.46), rgba(0, 0, 255, 0.48), rgba(255, 127, 80, 0.51), rgba(33, 113, 192, 0.48), #feb139);
+        }
+
+        .main {
+            margin: 2px 5px;
+            flex: 1;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            box-shadow: 0 1px 10px 0 #999999 inset;
+            /*background: linear-gradient(to  bottom, rgba(255, 0, 0, 0.46), rgba(0, 0, 255, 0.48), rgba(255, 127, 80, 0.51), rgba(33, 113, 192, 0.48), #feb139);*/
+        }
+
+        .content {
+            height: calc(100vh - 80px);
+            font-size: initial;
+            margin: 5px;
+            border: 5px outset transparent;
+            border-radius: 8px;
+            box-shadow: 0 1px 20px 0 rgba(105, 105, 105, 0.92);
+        }
+
+        .content #fid {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .nav ul li .two {
+            visibility: hidden;
+            position: absolute;
+            margin-top: -50px;
+            margin-left: 140px;
+
+            & li a {
+                display: block;
+                width: 100px;
+                padding-left: 20px;
+                background-color: rgba(226, 195, 129, 0.6);
+
+                &:hover {
+                    background-color: #feb139;
+                }
+            }
+        }
+
+        .nav ul li > a {
+            display: block;
+            padding-left: 20px;
+            width: 120px;
+            line-height: 50px;
+            /*box-sizing: border-box;*/
+            border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+
+            &:hover {
+                background-color: #feb139;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            <ul class="one">
+                <li><a data-action="wyy" href="javascript:void(0)">网易云旧版</a></li>
+                <li><a data-action="ryf" href="javascript:void(0)">阮一峰博客</a></li>
+                <li><a data-action="git" href="javascript:void(0)">git在线练习</a></li>
+                <li class="one">
+                    <a href="javascript:void(0)">一级导航C</a>
+                    <ul class="two">
+                        <li><a href="javascript:void(0)">二级导航a</a></li>
+                        <li><a href="javascript:void(0)">二级导航b</a></li>
+                        <li><a href="javascript:void(0)">二级导航c</a></li>
+                        <li><a href="javascript:void(0)">二级导航d</a></li>
+                    </ul>
+                </li>
+                <li><a data-action="dy" href="javascript:void(0)">抖音娱乐版</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="nav">
+                <ul class="one">
+                    <li><a data-action="wyy" href="javascript:void(0)">网易云旧版</a></li>
+                    <li><a data-action="ryf" href="javascript:void(0)">阮一峰博客</a></li>
+                    <li><a data-action="git" href="javascript:void(0)">git在线练习</a></li>
+                    <li class="one">
+                        <a href="javascript:void(0)">一级导航C</a>
+                        <ul class="two">
+                            <li><a href="javascript:void(0)">二级导航a</a></li>
+                            <li><a href="javascript:void(0)">二级导航b</a></li>
+                            <li><a href="javascript:void(0)">二级导航c</a></li>
+                            <li><a href="javascript:void(0)">二级导航d</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-action="dy" href="javascript:void(0)">抖音娱乐版</a></li>
+                </ul>
+            </div>
+            <div class="main">
+                <div class="content">
+                    <iframe id="fid" src="" name="iframe_my">
+
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    addVisible(document.querySelector(".nav .one>a"), document.querySelector(".nav .two"))
+    addVisible(document.querySelector(".header .one>a"), document.querySelector(".header .two"))
+
+    function addVisible(one, two) {
+        one.addEventListener("mouseenter", () => {
+            two.style.visibility = "visible";
+        })
+        one.addEventListener("mouseout", () => {
+            two.style.visibility = "hidden";
+        })
+
+        two.addEventListener("mouseover", () => {
+            two.style.visibility = "visible";
+        })
+        two.addEventListener("mouseout", () => {
+            two.style.visibility = "hidden";
+        })
+    }
+
+    let fid = document.getElementById("fid");
+
+    let map = new Map();
+    map.set("wyy", "https://music.163.com/#/song?id=2130796760");
+    map.set("ryf", "https://www.ruanyifeng.com/blog/");
+    map.set("git", "https://learngitbranching.js.org/?locale=zh_CN");
+    map.set("dy", "https://www.douyin.com/");
+    //节流
+    let src;
+    let timer
+    function flowD(action) {
+        if (!timer) {
+            fid.src = map.get(action);
+            timer = setTimeout(() => {
+                timer = null;
+            }, 2000);
+        }
+    }
+
+    let arr = [document.querySelector(".nav .one"), document.querySelector(".header .one")];
+    arr.forEach(elem => elem.addEventListener("click", (e) => {
+        if (e.target.dataset.action) {
+            flowD(e.target.dataset.action);
+        }
+    }));
+
+
+</script>
