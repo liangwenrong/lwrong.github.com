@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5"/>
+    <meta name="keywords" content=""/>
+    <title>Carousel</title>
+    <meta name="description" content="轮播图">
+    <style>
+        :root {
+            --carousel-width: 670px;
+        }
+
+        body {
+            height: 100vh;
+        }
+
+        /*
+            carousel 轮播图 第一版 无法轮播
+        */
+        .carousel {
+            position: relative;
+            width: var(--carousel-width);
+            top: 10%;
+            margin: 0 auto;
+        }
+
+        .carousel .btn {
+            position: absolute;
+            display: flex;
+            margin: 10px 0;
+            width: calc(var(--carousel-width) + 20px);
+            height: 220px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .carousel .btn a {
+            display: inline-block;
+            border: 15px solid transparent;
+
+            &.left {
+                border-right-color: rgba(214, 231, 55, 0.8);
+
+                &:active {
+                    border-right-color: #DFF802;
+                }
+            }
+
+            &.right {
+                border-left-color: rgba(214, 231, 55, 0.8);
+
+                &:active {
+                    border-left-color: #DFF802;
+                }
+            }
+        }
+
+        .carousel .img {
+            width: var(--carousel-width);
+            border: 10px inset gold;
+            box-shadow: 1px 2px 10px 2px #999999 inset;
+        }
+
+        .carousel .img ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            justify-content: start;
+            align-items: center;
+        }
+
+        .carousel .img ul li {
+            font-size: 0;
+            margin: 10px;
+            box-shadow: 1px 1px 10px #999999;
+            border: 1px outset #feb139;
+            transition: order 0.1s;
+        }
+
+        .carousel .img ul li img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            object-position: 50% 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="btn">
+            <a class="left" href="javascript:carouselFn('carouselLeft')"></a>
+            <a class="right" href="javascript:carouselFn('carouselRight')"></a>
+        </div>
+        <div class="img">
+            <ul>
+                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
+                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
+                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
+                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
+                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
+                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
+                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
+                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    const cors_anywhere = "http://cors.lwrong.com:29999/";
+
+    fetch(generateUrl(cors_anywhere), {headers: {"x-requested-with": "XMLHttpRequest"}})
+        .then(resp => resp.json())
+        .then(json => json.data.slice(0, 8).map(img => img["hoverURL"]).filter(url => url && url.startsWith("http")))
+        .then(urlList => carousel.init(urlList))
+        .catch(e => console.dir(e));
+
+    function generateUrl(cors_anywhere) {
+        let cl = Math.random().toFixed(1) * 10;
+        let word = "%E5%A4%B4%E5%83%8F" + cl; //头像
+        let baidu_url = "https://image.baidu.com/search/acjson" +
+            "?tn=resultjson_com&logid=&ipn=rj&ct=201326592&is=&fp=result&fr=&word=" + word + "&cg=head" +
+            "&queryWord=" + word + "&cl=" + cl + "&lm=-1&ie=utf-8&oe=utf-8&adpicid=&st=-1&z=0&ic=0&hd=0&latest=0" +
+            "&copyright=0&s=&se=&tab=&width=&height=&face=0&istype=2&qc=&nc=1&expermode=&nojc=&isAsync=&pn=60" +
+            "&rn=30&gsm=3c&1719215707903=";
+        return cors_anywhere + baidu_url;
+    }
+
+    let carousel = (() => {
+        let flag = 0;
+        let srcList;
+        const liNodeList = document.querySelectorAll(".carousel div.img li");
+        return {
+            init(urlList) {
+                srcList = urlList;
+                urlList.forEach((imgSrc, index) => {
+                    liNodeList[index].children[0].src = imgSrc;
+                })
+            },
+            carouselLeft() {
+                if (flag > 0) {
+                    flag--;
+                    for (let i = 0; i < srcList.length; i++) {
+                        if (i >= flag && i < flag + 3) {
+                            liNodeList[i].style.order = i - 10 + "";
+                        } else {
+                            liNodeList[i].style.order = "0";
+                        }
+                    }
+                }
+            },
+            carouselRight() {
+                if (flag < srcList.length - 3) {
+                    flag++;
+                    for (let i = 0; i < srcList.length; i++) {
+                        if (i >= flag && i < flag + 3) {
+                            liNodeList[i].style.order = i - 10 + "";
+                        } else {
+                            liNodeList[i].style.order = "0";
+                        }
+                    }
+                }
+            }
+        }
+    })();
+
+    function carouselFn(method) {
+        carousel[method]();
+    }
+</script>
+</html>
