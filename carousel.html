@@ -3,211 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.5"/>
-    <meta name="keywords" content=""/>
-    <title>Carousel</title>
-    <meta name="description" content="轮播图">
+    <meta name="keywords" content="轮播"/>
+    <title>轮播图</title>
+    <meta name="description" content="手写轮播图">
     <style>
         :root {
-            --carousel-width: 670px;
+            --img-w: 200px;
+            --img-h: 200px;
+            --img-m: 10px;
+            --img-x: calc(var(--img-w) + var(--img-m) * 2);
         }
 
         body {
-            height: 100vh;
-        }
-
-        /*
-            carousel 轮播图 第一版 无法轮播
-        */
-        .carousel {
-            position: relative;
-            width: var(--carousel-width);
-            top: 10%;
-            margin: 0 auto;
-        }
-
-        .carousel .btn {
-            position: absolute;
-            display: flex;
-            margin: 10px 0;
-            width: calc(var(--carousel-width) + 20px);
-            height: 220px;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .carousel .btn a {
-            display: inline-block;
-            border: 15px solid transparent;
-
-            &.left {
-                border-right-color: rgba(214, 231, 55, 0.8);
-
-                &:active {
-                    border-right-color: #DFF802;
-                }
-            }
-
-            &.right {
-                border-left-color: rgba(214, 231, 55, 0.8);
-
-                &:active {
-                    border-left-color: #DFF802;
-                }
-            }
-        }
-
-        .carousel .img {
-            width: var(--carousel-width);
-            border: 10px inset gold;
-            box-shadow: 1px 2px 10px 2px #999999 inset;
-        }
-
-        .carousel .img ul {
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-wrap: nowrap;
-            overflow: hidden;
-            justify-content: start;
-            align-items: center;
+            width: 100vw;
         }
 
-        .carousel .img ul li {
+        .carousel {
             font-size: 0;
-            margin: 10px;
-            box-shadow: 1px 1px 10px #999999;
-            border: 1px outset #feb139;
-            transition: order 0.1s;
+            width: calc(var(--img-x) * 3);
+            position: relative;
+            top: 100px;
+            margin: 0 auto;
+            border: 10px inset rebeccapurple;
+            box-shadow: 1px 1px 20px 5px #999999;
+            overflow: hidden;
         }
 
-        .carousel .img ul li img {
-            width: 200px;
-            height: 200px;
+        .carousel ul {
+            white-space: nowrap;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            animation: my_translate 10s ease 1s infinite alternate;
+        }
+
+
+        @keyframes my_translate {
+            from {
+            }
+            16% {
+                translate: 0;
+            }
+            33% {
+                translate: calc(-1 * var(--img-x));
+            }
+            49% {
+                translate: calc(-2 * var(--img-x));
+            }
+            65% {
+                translate: calc(-3 * var(--img-x));
+            }
+            81% {
+                translate: calc(-4 * var(--img-x));
+            }
+            to {
+                translate: calc(-5 * var(--img-x));
+            }
+            /*100% {translate: calc(-6 * var(--img-w));}*/
+            /*100% {translate: calc(-7 * var(--img-w));}*/
+        }
+
+        .carousel ul li {
+            display: inline-block;
+        }
+
+        .carousel ul li img {
+            width: var(--img-w);
+            height: var(--img-h);
+            margin: 15px var(--img-m);
+            border: 10px outset gold;
+            box-sizing: border-box;
+            box-shadow: 1px 1px 10px 5px dimgrey;
             object-fit: cover;
-            object-position: 50% 50%;
+            object-position: center center;
         }
 
     </style>
 </head>
 <body>
-    <div class="carousel">
-        <div class="btn">
-            <a class="left" href="javascript:carouselFn('carouselLeft')"></a>
-            <a class="right" href="javascript:carouselFn('carouselRight')"></a>
-        </div>
-        <div class="img">
+    <div id="app">
+        <div class="carousel">
             <ul>
-                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
-                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
-                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
-                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
-                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
-                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
-                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
-                <li><img referrerpolicy="no-referrer" src="" alt=""/></li>
+                <li><img src="" alt=""/></li>
+                <li><img src="" alt=""/></li>
+                <li><img src="" alt=""/></li>
+                <li><img src="" alt=""/></li>
+                <li><img src="" alt=""/></li>
+                <li><img src="" alt=""/></li>
+                <li><img src="" alt=""/></li>
+                <li><img src="" alt=""/></li>
             </ul>
         </div>
     </div>
 </body>
 <script>
-    document.addEventListener("DOMContentLoaded", ev => carousel.init())
-    let carousel = (() => {
-        let flag = 0;
-        let srcList;
-        const liNodeList = document.querySelectorAll(".carousel div.img li");
-        const cors_anywhere = "http://cors.lwrong.com:29999/";
-        let generateUrl = cors_anywhere => {
-            let cl = Math.random().toFixed(1) * 10;
-            let word = "%E5%A4%B4%E5%83%8F" + cl; //头像
-            let baidu_url = "https://image.baidu.com/search/acjson" +
-                "?tn=resultjson_com&logid=&ipn=rj&ct=201326592&is=&fp=result&fr=&word=" + word + "&cg=head" +
-                "&queryWord=" + word + "&cl=" + cl + "&lm=-1&ie=utf-8&oe=utf-8&adpicid=&st=-1&z=0&ic=0&hd=0&latest=0" +
-                "&copyright=0&s=&se=&tab=&width=&height=&face=0&istype=2&qc=&nc=1&expermode=&nojc=&isAsync=&pn=60" +
-                "&rn=30&gsm=3c&1719215707903=";
-            return cors_anywhere + baidu_url;
-        }
-        let clicked = false;
-        let clickedRight;
-        let carouselPlay = canRight => {
-            if (clicked) {
-                clicked = false;
-                return clickedRight;
-            }
-            if (canRight && carousel.carouselRight()) {
-                console.log("右边走了一步");
-                return true;
-            } else {
-                let left = carousel.carouselLeft();
-                if (left) {
-                    console.log("左边走了一步")
-                    return false;
-                } else {
-                    console.log("右边走了一步")
-                    return carousel.carouselRight();
-                }
-            }
-        };
-        return {
-            clicked(method) {
-                clicked = true;
-                clickedRight = Object.is(method, this.carouselRight.name);
-            },
-            init() {
-                fetch(generateUrl(cors_anywhere), {headers: {"x-requested-with": "XMLHttpRequest"}})
-                    .then(resp => resp.json())
-                    .then(json => json.data.slice(0, 8).map(img => img["hoverURL"]).filter(url => url && url.startsWith("http")))
-                    .then(urlList => this.render(urlList))
-                    .then(() => {
-                        setTimeout(function recursion(canRight) {
-                            setTimeout(recursion, 2000, carouselPlay(canRight));
-                        }, 2000, true);
-                    })
-                    .catch(e => console.dir(e));
-            },
-            render(urlList) {
-                if (urlList?.length < 0) {
-                    return Promise.reject("urlList length not correct");
-                }
-                srcList = urlList;
-                urlList.forEach((imgSrc, index) => {
-                    liNodeList[index].children[0].src = imgSrc;
-                })
-            }
-            ,
-            carouselLeft() {
-                if (flag <= 0) {
-                    return false;
-                }
-                flag--;
-                for (let i = 0; i < srcList.length; i++) {
-                    if (i >= flag && i < flag + 3) {
-                        liNodeList[i].style.order = i - 10 + "";
-                    } else {
-                        liNodeList[i].style.order = "0";
-                    }
-                }
-                return true;
-            },
-            carouselRight() {
-                if (flag >= srcList.length - 3) {
-                    return false;
-                }
-                flag++;
-                for (let i = 0; i < srcList.length; i++) {
-                    if (i >= flag && i < flag + 3) {
-                        liNodeList[i].style.order = i - 10 + "";
-                    } else {
-                        liNodeList[i].style.order = "0";
-                    }
-                }
-                return true;
-            },
-        }
-    })();
-
-    function carouselFn(method) {
-        carousel[method]();
-        carousel.clicked(method);
-    }
+    const srcString = "'https://img2.baidu.com/it/u=421347826,2792415000&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500', " +
+        "'https://img2.baidu.com/it/u=3123880262,455523890&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500', " +
+        "'https://img0.baidu.com/it/u=4139606063,194286789&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500', " +
+        "'https://img0.baidu.com/it/u=130504489,1044576680&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500', " +
+        "'https://img0.baidu.com/it/u=2696759067,1221490204&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500', " +
+        "'https://img1.baidu.com/it/u=1423197334,186448263&fm=253&fmt=auto&app=138&f=JPEG?w=491&h=492', " +
+        "'https://img2.baidu.com/it/u=2391751777,1392423538&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500', " +
+        "'https://img1.baidu.com/it/u=2241852295,652512022&fm=253&fmt=auto&app=138&f=JPEG?w=523&h=500'";
+    const imgNodeList = document.querySelectorAll(".carousel ul li img");
+    srcString.split(", ").forEach((src, index) => {
+        imgNodeList[index].setAttribute("src", src.substring(1, src.length - 1));
+    });
 </script>
 </html>
