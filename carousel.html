@@ -110,65 +110,104 @@
     </div>
 </body>
 <script>
-    const cors_anywhere = "http://cors.lwrong.com:29999/";
-
-    fetch(generateUrl(cors_anywhere), {headers: {"x-requested-with": "XMLHttpRequest"}})
-        .then(resp => resp.json())
-        .then(json => json.data.slice(0, 8).map(img => img["hoverURL"]).filter(url => url && url.startsWith("http")))
-        .then(urlList => carousel.init(urlList))
-        .catch(e => console.dir(e));
-
-    function generateUrl(cors_anywhere) {
-        let cl = Math.random().toFixed(1) * 10;
-        let word = "%E5%A4%B4%E5%83%8F" + cl; //头像
-        let baidu_url = "https://image.baidu.com/search/acjson" +
-            "?tn=resultjson_com&logid=&ipn=rj&ct=201326592&is=&fp=result&fr=&word=" + word + "&cg=head" +
-            "&queryWord=" + word + "&cl=" + cl + "&lm=-1&ie=utf-8&oe=utf-8&adpicid=&st=-1&z=0&ic=0&hd=0&latest=0" +
-            "&copyright=0&s=&se=&tab=&width=&height=&face=0&istype=2&qc=&nc=1&expermode=&nojc=&isAsync=&pn=60" +
-            "&rn=30&gsm=3c&1719215707903=";
-        return cors_anywhere + baidu_url;
-    }
-
+    document.addEventListener("DOMContentLoaded", ev => carousel.init())
     let carousel = (() => {
         let flag = 0;
         let srcList;
         const liNodeList = document.querySelectorAll(".carousel div.img li");
+        const cors_anywhere = "http://cors.lwrong.com:29999/";
+        let generateUrl = cors_anywhere => {
+            let cl = Math.random().toFixed(1) * 10;
+            let word = "%E5%A4%B4%E5%83%8F" + cl; //头像
+            let baidu_url = "https://image.baidu.com/search/acjson" +
+                "?tn=resultjson_com&logid=&ipn=rj&ct=201326592&is=&fp=result&fr=&word=" + word + "&cg=head" +
+                "&queryWord=" + word + "&cl=" + cl + "&lm=-1&ie=utf-8&oe=utf-8&adpicid=&st=-1&z=0&ic=0&hd=0&latest=0" +
+                "&copyright=0&s=&se=&tab=&width=&height=&face=0&istype=2&qc=&nc=1&expermode=&nojc=&isAsync=&pn=60" +
+                "&rn=30&gsm=3c&1719215707903=";
+            return cors_anywhere + baidu_url;
+        }
+        let clicked = false;
+        let clickedRight;
+        let carouselPlay = canRight => {
+            if (clicked) {
+                clicked = false;
+                return clickedRight;
+            }
+            if (canRight && carousel.carouselRight()) {
+                console.log("右边走了一步");
+                return true;
+            } else {
+                let left = carousel.carouselLeft();
+                if (left) {
+                    console.log("左边走了一步")
+                    return false;
+                } else {
+                    console.log("右边走了一步")
+                    return carousel.carouselRight();
+                }
+            }
+        };
         return {
-            init(urlList) {
+            clicked(method) {
+                clicked = true;
+                clickedRight = Object.is(method, this.carouselRight.name);
+            },
+            init() {
+                fetch(generateUrl(cors_anywhere), {headers: {"x-requested-with": "XMLHttpRequest"}})
+                    .then(resp => resp.json())
+                    .then(json => json.data.slice(0, 8).map(img => img["hoverURL"]).filter(url => url && url.startsWith("http")))
+                    .then(urlList => this.render(urlList))
+                    .then(() => {
+                        setTimeout(function recursion(canRight) {
+                            setTimeout(recursion, 2000, carouselPlay(canRight));
+                        }, 2000, true);
+                    })
+                    .catch(e => console.dir(e));
+            },
+            render(urlList) {
+                if (urlList?.length < 0) {
+                    return Promise.reject("urlList length not correct");
+                }
                 srcList = urlList;
                 urlList.forEach((imgSrc, index) => {
                     liNodeList[index].children[0].src = imgSrc;
                 })
-            },
+            }
+            ,
             carouselLeft() {
-                if (flag > 0) {
-                    flag--;
-                    for (let i = 0; i < srcList.length; i++) {
-                        if (i >= flag && i < flag + 3) {
-                            liNodeList[i].style.order = i - 10 + "";
-                        } else {
-                            liNodeList[i].style.order = "0";
-                        }
+                if (flag <= 0) {
+                    return false;
+                }
+                flag--;
+                for (let i = 0; i < srcList.length; i++) {
+                    if (i >= flag && i < flag + 3) {
+                        liNodeList[i].style.order = i - 10 + "";
+                    } else {
+                        liNodeList[i].style.order = "0";
                     }
                 }
+                return true;
             },
             carouselRight() {
-                if (flag < srcList.length - 3) {
-                    flag++;
-                    for (let i = 0; i < srcList.length; i++) {
-                        if (i >= flag && i < flag + 3) {
-                            liNodeList[i].style.order = i - 10 + "";
-                        } else {
-                            liNodeList[i].style.order = "0";
-                        }
+                if (flag >= srcList.length - 3) {
+                    return false;
+                }
+                flag++;
+                for (let i = 0; i < srcList.length; i++) {
+                    if (i >= flag && i < flag + 3) {
+                        liNodeList[i].style.order = i - 10 + "";
+                    } else {
+                        liNodeList[i].style.order = "0";
                     }
                 }
-            }
+                return true;
+            },
         }
     })();
 
     function carouselFn(method) {
         carousel[method]();
+        carousel.clicked(method);
     }
 </script>
 </html>
