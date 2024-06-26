@@ -138,6 +138,9 @@
     </div>
 </body>
 <script>
+
+    const ulElem = document.querySelector(".carousel ul");
+    const imgNodeList = document.querySelectorAll(".carousel ul li img");
     const srcString = "'https://img2.baidu.com/it/u=421347826,2792415000&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500', " +
         "'https://img2.baidu.com/it/u=3123880262,455523890&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500', " +
         "'https://img0.baidu.com/it/u=4139606063,194286789&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500', " +
@@ -146,22 +149,101 @@
         "'https://img1.baidu.com/it/u=1423197334,186448263&fm=253&fmt=auto&app=138&f=JPEG?w=491&h=492', " +
         "'https://img2.baidu.com/it/u=2391751777,1392423538&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500', " +
         "'https://img1.baidu.com/it/u=2241852295,652512022&fm=253&fmt=auto&app=138&f=JPEG?w=523&h=500'";
-    const imgNodeList = document.querySelectorAll(".carousel ul li img");
-    srcString.split(", ").forEach((src, index) => {
-        imgNodeList[index].setAttribute("src", src.substring(1, src.length - 1));
-    });
+    let srcList = srcString.split(", ");
 
-    let init_x = 0;
-    const img_x = 220;
-    const ulElem = document.querySelector(".carousel ul");
+    const carousel = (() => {
+        let init_x = 0;//定位播放位置
+        const img_x = 220;
 
-    function slide(direction) {
-        if ((init_x + direction) > 0 || (init_x + direction) < -(8 - 3)) {
-            return;
+        let autoPlay = true;
+        let direction = 1;//记录播放方向
+        let timeout;
+        let isStartPlay = false;
+
+        //手动结合自动播放
+        function slideReal(direction) {
+            if ((init_x + direction) > 0 || (init_x + direction) < -(8 - 3)) {
+                return false;
+            }
+            init_x = init_x + direction;
+            ulElem.style.translate = init_x * img_x + "px";
+            return true;
         }
-        init_x = init_x + direction;
-        ulElem.style.translate = init_x * img_x + "px";
+
+        return {
+            initSrc() {
+                srcList.forEach((src, index) => {
+                    imgNodeList[index].setAttribute("src", src.substring(1, src.length - 1));
+                });
+            },
+            startPlay() {
+                if (isStartPlay) {
+                    isStartPlay = true;
+                    return;
+                }
+                setTimeout(function setPlayTimeout() {
+                    if (autoPlay) {
+                        if (!slideReal(direction)) {
+                            direction = direction * -1;
+                            slideReal(direction);//不行就反方向
+                        }
+                    }
+                    setTimeout(() => setPlayTimeout(), 2000);
+                }, 2000);
+            },
+            paused() {
+                autoPlay = false;
+            },
+            //恢复轮播
+            resume(direct) {
+                if (direct) {
+                    direction = direct;
+                }
+                autoPlay = true;
+            },
+            //点击按钮
+            slide(direct) {
+                this.paused();
+                clearTimeout(timeout);
+                slideReal(direct);
+                timeout = setTimeout(() => {
+                    this.resume(direct);
+                }, 2000);
+            }
+        }
+    })();
+    carousel.initSrc();
+    carousel.startPlay();
+
+    function slide(direct) {
+        carousel.slide(direct);
     }
+
+    /*    动画轮播
+            const keyframes = [
+            {},
+            {translate: 0},
+            {translate: -1 * img_x + "px"},
+            {translate: -1 * img_x + "px"},
+            {translate: -2 * img_x + "px"},
+            {translate: -2 * img_x + "px"},
+            {translate: -3 * img_x + "px"},
+            {translate: -3 * img_x + "px"},
+            {translate: -4 * img_x + "px"},
+            {translate: -4 * img_x + "px"},
+            {translate: -5 * img_x + "px"},
+            {translate: -5 * img_x + "px"}
+        ];
+        ///!*animation: my_translate 10s ease 1s infinite alternate;*!/
+        const effectOptions = {
+            delay: 1000,
+            duration: 10000,
+            // easing: "ease-in-out",
+            iterations: Infinity,
+            direction: "alternate"
+
+        };
+        const animate = ulElem.animate(keyframes, effectOptions);*/
 
 </script>
 </html>
