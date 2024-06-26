@@ -151,7 +151,7 @@
         "'https://img1.baidu.com/it/u=2241852295,652512022&fm=253&fmt=auto&app=138&f=JPEG?w=523&h=500'";
     let srcList = srcString.split(", ");
 
-    const carousel = (() => {
+    const Carousel = (() => {
         let init_x = 0;//定位播放位置
         const img_x = 220;
 
@@ -170,12 +170,18 @@
             return true;
         }
 
-        return {
+        class Carousel {
+            constructor(srcList, imgNodeList) {
+                this.srcList = srcList;
+                this.imgNodeList = imgNodeList;
+            }
+
             initSrc() {
                 srcList.forEach((src, index) => {
                     imgNodeList[index].setAttribute("src", src.substring(1, src.length - 1));
                 });
-            },
+            }
+
             startPlay() {
                 if (isStartPlay) {
                     isStartPlay = true;
@@ -190,17 +196,20 @@
                     }
                     setTimeout(() => setPlayTimeout(), 2000);
                 }, 2000);
-            },
+            }
+
             paused() {
                 autoPlay = false;
-            },
+            }
+
             //恢复轮播
             resume(direct) {
                 if (direct) {
                     direction = direct;
                 }
                 autoPlay = true;
-            },
+            }
+
             //点击按钮
             slide(direct) {
                 this.paused();
@@ -211,7 +220,11 @@
                 }, 2000);
             }
         }
+
+        return Carousel;
     })();
+
+    const carousel = new Carousel(srcList, imgNodeList);
     carousel.initSrc();
     carousel.startPlay();
 
