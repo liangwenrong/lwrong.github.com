@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.3"/>
+    <meta name="keywords" content=""/>
+    <title>L</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../css/common.css">
+
+    <style>
+        .nav {
+            background-color: #333333;
+        }
+
+        .nav ul {
+            display: inline-block;
+        }
+
+        .nav ul:last-of-type {
+            float: right;
+        }
+
+        .nav ul li {
+            display: inline-block;
+            height: 40px;
+            font-size: 12px;
+        }
+
+        .nav ul li::after {
+            content: "|";
+            color: white;
+            opacity: 0.05;
+        }
+
+        .nav ul li:last-of-type::after {
+            content: "";
+            display: none;
+        }
+
+        .nav ul li a {
+            padding: 0 8px;
+            display: inline-block;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 40px;
+        }
+
+        .nav ul li a:hover {
+            color: white;
+        }
+
+        .nav ul:last-of-type li:nth-last-of-type(2) {
+            margin-right: 15px;
+        }
+
+        .nav ul:last-of-type li:nth-last-of-type(2):after {
+            content: "";
+            display: none;
+        }
+
+        .nav ul li.car a:hover {
+            background-color: white;
+            color: rgba(255, 0, 0, 0.7);
+        }
+
+        .nav ul li.car a i.i-car {
+            position: relative;
+            top: 1px;
+            left: -2px;
+            font-size: 15px;
+            margin-top: 10px;
+        }
+
+        .nav ul li.car {
+            position: relative;
+        }
+
+        .nav ul li.car a div.car-list {
+            visibility: hidden;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            z-index: 10;
+            width: 316px;
+            height: 0;
+            line-height: 0;
+            padding: 0 10px;
+            text-align: center;
+            background-color: white;
+            color: rgba(0, 0, 0, 0.8);
+            box-shadow: -5px 5px 10px -4px rgba(0, 0, 0, 0.15), 5px 5px 10px -4px rgba(0, 0, 0, 0.15);
+            /*box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);*/
+        }
+
+        .nav ul li.car a:hover div.car-list {
+            visibility: visible;
+            height: 100px;
+            line-height: 100px;
+            transition: height 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="nav">
+            <ul>
+                <li><a href="javascript:void(0)">小米官网</a></li>
+                <li><a href="javascript:void(0)">小米商城</a></li>
+                <li><a href="javascript:void(0)">小米澎湃OS</a></li>
+                <li><a href="javascript:void(0)">小米汽车</a></li>
+                <li><a href="javascript:void(0)">云服务</a></li>
+                <li><a href="javascript:void(0)">IoT</a></li>
+                <li><a href="javascript:void(0)">有品</a></li>
+                <li><a href="javascript:void(0)">小爱开放平台</a></li>
+                <li><a href="javascript:void(0)">资质证照</a></li>
+                <li><a href="javascript:void(0)">协议规则</a></li>
+                <li><a href="javascript:void(0)">下载app</a></li>
+                <li><a href="javascript:void(0)">Select Location</a></li>
+            </ul>
+            <ul>
+                <li><a href="javascript:void(0)">登录</a></li>
+                <li><a href="javascript:void(0)">注册</a></li>
+                <li><a href="javascript:void(0)">消息通知</a></li>
+                <li class="car">
+                    <a href="javascript:void(0)">
+                        <i class="iconfont i-car"></i>购物车（0）
+                        <div class="car-list">购物车中还没有商品，赶紧选购吧！</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
