@@ -1,58 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="keywords" content=""/>
-    <title>L</title>
+    <title>Home</title>
     <meta name="description" content="">
-    <link rel="stylesheet" href="./css/nav-demo.css">
-    <script defer src="./js/nav-demo.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .home {
+            display: flex;
+            margin-top: 10vh;
+            height: 80vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            flex-flow: nowrap column;
+            justify-content: start;
+            align-items: center;
+
+            vertical-align: middle;
+        }
+
+        .box {
+            display: inline-flex;
+            align-items: center;
+            /*max-width: 500px;*/
+            white-space: nowrap;
+            background-color: rgba(254, 177, 57, 0.5);
+            /*border: 1px outset rgba(254, 177, 57, 0.5);*/
+            box-sizing: border-box;
+            border-radius: 10px;
+
+            /*text-align: center;*/
+            margin-bottom: 20px;
+            box-shadow: 2px 5px 20px -5px blueviolet;
+        }
+
+        .box a {
+            font-size: 1.5rem;
+            text-shadow: #b7c37f;
+            line-height: 50px;
+            padding: 0 50px;
+        }
+
+        .box a:hover {
+            background-color: rgba(37, 169, 110, 0.5);
+            border-radius: 10px;
+        }
+
+    </style>
 </head>
 <body>
     <div id="app">
-        <div class="header">
-            <ul>
-                <li><a data-action="wyy" href="javascript:void(0)">网易云旧版</a></li>
-                <li><a data-action="ryf" href="javascript:void(0)">阮一峰博客</a></li>
-                <li><a data-action="git" href="javascript:void(0)">git在线练习</a></li>
-                <li class="one">
-                    <a href="javascript:void(0)">一级导航C</a>
-                    <ul class="two">
-                        <li><a href="javascript:void(0)">二级导航a</a></li>
-                        <li><a href="javascript:void(0)">二级导航b</a></li>
-                        <li><a href="javascript:void(0)">二级导航c</a></li>
-                        <li><a href="javascript:void(0)">二级导航d</a></li>
-                    </ul>
-                </li>
-                <li><a data-action="dy" href="javascript:void(0)">抖音娱乐版</a></li>
-            </ul>
-        </div>
-        <div class="container">
-            <div class="nav">
-                <ul>
-                    <li><a data-action="wyy" href="javascript:void(0)">网易云旧版</a></li>
-                    <li><a data-action="ryf" href="javascript:void(0)">阮一峰博客</a></li>
-                    <li><a data-action="git" href="javascript:void(0)">git在线练习</a></li>
-                    <li class="one">
-                        <a href="javascript:void(0)">一级导航C</a>
-                        <ul class="two">
-                            <li><a href="javascript:void(0)">二级导航a</a></li>
-                            <li><a href="javascript:void(0)">二级导航b</a></li>
-                            <li><a href="javascript:void(0)">二级导航c</a></li>
-                            <li><a href="javascript:void(0)">二级导航d</a></li>
-                        </ul>
-                    </li>
-                    <li><a data-action="dy" href="javascript:void(0)">抖音娱乐版</a></li>
-                </ul>
+        <div class="home">
+            <div class="box">
+                <a href="http://github.lwrong.com/html/nav-demo.html" target="_blank"
+                   rel="noopener noreferrer">第一个demo网站样例</a>
             </div>
-            <div class="main">
-                <div class="content">
-                    <iframe id="fid" src="" name="iframe_my">
+            <div class="box">
+                <a href="http://github.lwrong.com/html/carousel.html" target="_blank"
+                   rel="noopener noreferrer">轮播图</a>
+            </div>
+            <div class="box">
+                <a href="http://github.lwrong.com/html/xiaomi.html" target="_blank"
+                   rel="noopener noreferrer">仿小米商城</a>
+            </div>
 
-                    </iframe>
-                </div>
-            </div>
+
         </div>
     </div>
 </body>
