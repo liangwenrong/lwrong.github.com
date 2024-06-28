@@ -1,0 +1,32 @@
+/* 字体图标 样式*/
+@import url("./iconfont.css");
+
+/* --------通用默认样式------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 先不考虑使用通配符性能影响 */
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+/* ^^^^上面是^^^^^通用默认样式^^^^^^^^^ */
