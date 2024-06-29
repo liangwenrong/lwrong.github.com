@@ -78,6 +78,7 @@
 
 .nav ul li.car {
     position: relative;
+    z-index: 30;
 }
 
 .nav ul li.car a div.car-list {
@@ -85,7 +86,6 @@
     position: absolute;
     top: 40px;
     right: 0;
-    z-index: 20;
     width: 316px;
     height: 0;
     line-height: 0;
@@ -106,6 +106,13 @@
 
 .second {
     position: relative;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    height: 0;
+    display: block;
 }
 
 .header {
@@ -144,28 +151,85 @@
     color: rgba(0, 0, 0, 0.8);
 }
 
-.header ul li a:hover {
+.header ul li > a:hover {
     color: rgba(255, 0, 0, 0.7);
 }
 
 .header ul li.detail {
-    /*visibility: hidden;*/
+    visibility: hidden;
     position: absolute;
+    z-index: 10;
     height: 0;
+    overflow: hidden;
     width: 100%;
     top: 100px;
     left: 0;
-    z-index: 15;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(204, 204, 204, 0.5);
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.1);
     background-color: white;
 }
 
 .header ul li:not(:last-of-type):hover ~ li.detail {
     visibility: visible;
     height: 220px;
-    transition: height 0.5s;
-    border-top: 1px solid rgba(204, 204, 204, 0.5);;
+    transition: height .5s;
 }
+
+.header ul li.detail:hover {
+    visibility: visible;
+    height: 220px;
+}
+
+.header ul li.detail > div:first-child {
+    width: var(--main-width);
+    margin: 0 auto;
+}
+
+.header ul li.detail > div a {
+    position: relative;
+    margin: 30px 10px 20px 10px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.header ul li.detail > div a:not(:last-of-type):after {
+    position: absolute;
+    top: calc(50% - 20px);
+    right: -10px;
+    translate: 0 -50%;
+    display: inline-block;
+    content: "";
+    width: 1px;
+    height: 100px;
+    border-right: 1px solid rgba(204, 204, 204, 0.5);
+}
+
+.header ul li.detail > div a img {
+    width: 180px;
+    height: 120px;
+    margin: 0 0 10px 0;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.header ul li.detail > div a div {
+    display: block;
+    max-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    line-height: 20px;
+    height: 20px;
+}
+
+.header ul li.detail > div a div:last-of-type {
+    color: #fd6600;
+}
+
+
 
 .header li.search {
     position: relative;
@@ -222,11 +286,11 @@
     visibility: hidden;
     display: block;
     position: absolute;
+    z-index: 20;
     width: 250px;
     /*height: 0;*/
     top: 44px;
     left: 0;
-    z-index: 10;
     text-align: left;
     border: 1px solid rgba(255, 0, 0, 0.7);
     border-top: none;
