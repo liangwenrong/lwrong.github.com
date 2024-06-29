@@ -57,36 +57,6 @@
                     <li><a href="javascript:void(0)">社区</a></li>
                     <li class="detail">
                         <div>
-                            <a href="#">
-                                <img src="" alt="">
-                                <div>红米小米手机</div>
-                                <div>1888元</div>
-                            </a>
-                            <a href="#">
-                                <img src="" alt="">
-                                <div>红米小米手机红米小米手机</div>
-                                <div>1888元</div>
-                            </a>
-                            <a href="#">
-                                <img src="" alt="">
-                                <div></div>
-                                <div>1888元</div>
-                            </a>
-                            <a href="#">
-                                <img src="" alt="">
-                                <div></div>
-                                <div>1888元</div>
-                            </a>
-                            <a href="#">
-                                <img src="" alt="">
-                                <div></div>
-                                <div>1888元</div>
-                            </a>
-                            <a href="#">
-                                <img src="" alt="">
-                                <div></div>
-                                <div>1888元</div>
-                            </a>
                         </div>
                     </li>
                     <li class="search">
@@ -122,135 +92,195 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li>
-                        <a class="menu-item" data-pick="mobile" href="javascript:void(0)">手机
-                            <i class="iconfont i-arrow_right"></i>
-                        </a>
-                        <div class="menu-item-page"></div>
-                    </li>
-                    <li>
-                        <a class="menu-item" data-pick="tv" href="javascript:void(0)">电视
-                            <i class="iconfont i-arrow_right"></i>
-                        </a>
-                        <div class="menu-item-page"></div>
-                    </li>
-                    <li>
-                        <a class="menu-item" data-pick="appliances" href="javascript:void(0)">家电
-                            <i class="iconfont i-arrow_right"></i>
-                        </a>
-                        <div class="menu-item-page"></div>
-                    </li>
-                    <li>
-                        <a class="menu-item" data-pick="desktop" href="javascript:void(0)">笔记本 平板
-                            <i class="iconfont i-arrow_right"></i>
-                        </a>
-                        <div class="menu-item-page"></div>
-                    </li>
-                    <li>
-                        <a class="menu-item" data-pick="outdoor" href="javascript:void(0)">出行 穿戴
-                            <i class="iconfont i-arrow_right"></i>
-                        </a>
-                        <div class="menu-item-page"></div>
-                    </li>
-                    <li>
-                        <a class="menu-item" data-pick="player" href="javascript:void(0)">耳机 音响
-                            <i class="iconfont i-arrow_right"></i>
-                        </a>
-                        <div class="menu-item-page"></div>
-                    </li>
-                    <li>
-                        <a class="menu-item" data-pick="health" href="javascript:void(0)">健康 儿童
-                            <i class="iconfont i-arrow_right"></i>
-                        </a>
-                        <div class="menu-item-page"></div>
-                    </li>
-                    <li>
-                        <a class="menu-item" data-pick="life" href="javascript:void(0)">生活 箱包
-                            <i class="iconfont i-arrow_right"></i>
-                        </a>
-                        <div class="menu-item-page"></div>
-                    </li>
-                    <li>
-                        <a class="menu-item" data-pick="wifi" href="javascript:void(0)">智能 路由器
-                            <i class="iconfont i-arrow_right"></i>
-                        </a>
-                        <div class="menu-item-page"></div>
-                    </li>
-                    <li>
-                        <a class="menu-item" data-pick="power" href="javascript:void(0)">电源 配件
-                            <i class="iconfont i-arrow_right"></i>
-                        </a>
-                        <div class="menu-item-page">
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
-    <div id="menu-box" style="display: none" class="box">
-        <img src="" alt="">
-        <span></span>
+    <div class="data-area" style="display: none">
+        <div id="header-detail-div">
+            <a href="${href}">
+                <img src="${src}" alt="">
+                <div>${name}</div>
+                <div>${price}</div>
+            </a>
+        </div>
+        <ul id="menu-ul">
+            <li>
+                <a class="menu-item" data-pick="${pick}" href="javascript:void(0)">${name}
+                    <i class="iconfont i-arrow_right"></i>
+                </a>
+                <div class="menu-item-page"></div>
+            </li>
+        </ul>
+        <div id="menu-li-page-box">
+            <div class="box">
+                <img src="${src}" alt="">
+                <span>${name}</span>
+            </div>
+        </div>
     </div>
+
 </body>
 <script>
-    const detail_img_list = ["https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b4846501f1e9be04d6d2e859deb0d80e.png?thumb=1&w=160&h=110&f=webp&q=90"];
-    let detailImgElems = document.querySelectorAll(".header .detail a img");
-    detailImgElems.forEach(img => {
-        img.src = detail_img_list[0];//only one url in list
-    })
-    //加载图片
-    const carousel_img_list = ["https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/01a422c2d04a7668e6d1d4748aeadf61.jpg?thumb=1&w=1226&h=460&f=webp&q=90"];
-    let carouselImgElem = document.querySelector(".carousel .carousel-img");
-    carouselImgElem.src = carousel_img_list[0];//only one url in list
-    //监听轮播点击事件
-    let dotListElem = document.querySelector(".carousel .dot-list");
-    const dotSelected = "dot-selected";
-    dotListElem.addEventListener("click", e => {
-        if (!e.target.classList.contains(dotSelected)) {
-            document.querySelectorAll(".carousel .dot-list .dot").forEach(dotElem => dotElem.classList.remove(dotSelected));
-            e.target.classList.add(dotSelected);
-        }
-    });
+
 
     //监听菜单hover
-    let menuMap = new Map();
-    const boxSrcList = [{
-        name: "小米智能电视",
-        src: "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c2e3fdbf6fe7a13c06644f16c8dc8877.png?thumb=1&w=40&h=40&f=webp&q=90"
-    }];
-    const pageWidthVarName = "--pageWidth";
-    const oneColWidth = 248;
-    const menuBox_to_clone = document.getElementById("menu-box");
-    menuBox_to_clone.removeAttribute("id");
-    document.querySelector(".menu").addEventListener("mouseover", e => {
+    const menuRefreshLockMap = new Map();
 
-        let pick;
-        let menu_item_page;
-        if (e.target.classList.contains("menu-item")) {
-            menu_item_page = e.target.parentNode.querySelector(".menu-item-page");
-            pick = e.target.dataset.pick;
-        } else if (e.target.parentNode.classList.contains("menu-item")) {//点到菜单里的图标了
-            menu_item_page = e.target.parentNode.parentNode.querySelector(".menu-item-page");
-            pick = e.target.parentNode.dataset.pick;
-        } else {
-            //点到右边展示页面去了
-            return;
+    const MenuPageBoxTemplateInnerHTML = document.getElementById("menu-li-page-box").innerHTML;
+
+    document.addEventListener("DOMContentLoaded",
+        ev => {
+
+            fetchData("initHeaderDetail").then(dataList => initHeaderDetail("header-detail-div", dataList));
+            fetchData("initMenuLi").then(dataList => initMenuLi("menu-ul", dataList));
+
+            //加载轮播图片
+            fetchData("initCarouselImg").then(dataList => {
+                let carouselImgElems = document.querySelectorAll(".carousel .carousel-img");
+                carouselImgElems.forEach((carouselImgElem, index) => carouselImgElem.src = dataList[index]);
+            })
+
+
+            //监听轮播点击事件
+            document.querySelector(".carousel .dot-list").addEventListener("click", e => {
+                clickDot(e.target);
+            });
+            document.querySelector(".menu").addEventListener("mouseover", e => {
+
+                let target = e.target;
+                let pick;
+                let parentNode;
+                if (target.classList.contains("menu-item")) {
+                    parentNode = target.parentNode.querySelector(".menu-item-page");
+                    pick = target.dataset.pick;
+                } else if (target.parentNode.classList.contains("menu-item")) {//点到菜单里的图标了
+                    parentNode = target.parentNode.parentNode.querySelector(".menu-item-page");
+                    pick = target.parentNode.dataset.pick;
+                } else {
+                    //点到右边展示页面去了
+                    return;
+                }
+                initMenuPageBoxProxy(parentNode, pick);
+            });
+        })
+
+    function initHeaderDetail(templateId, dataList) {
+        let parentNode = document.querySelector(".header .detail div");
+        let templateInnerHTML = document.getElementById(templateId).innerHTML;
+        dataList.forEach(({href, name, price, src}) => {
+            let createdElement = document.createElement("div");
+            createdElement.innerHTML = eval("`" + templateInnerHTML + "`");
+            parentNode.appendChild(createdElement.firstElementChild)
+        });
+    }
+
+    function initMenuLi(templateId, dataList) {
+        let parentNode = document.querySelector(".menu ul");
+        let templateInnerHTML = document.getElementById(templateId).innerHTML;
+        dataList.forEach(({pick, name}) => {
+            let createdElement = document.createElement("ul");
+            createdElement.innerHTML = eval("`" + templateInnerHTML + "`");
+            parentNode.appendChild(createdElement.firstElementChild)
+
+        });
+    }
+
+    function clickDot(target) {
+        const dotSelected = "dot-selected";
+        if (!target.classList.contains(dotSelected)) {
+            document.querySelectorAll(".carousel .dot-list .dot")
+                .forEach(dotElem => dotElem.classList.remove(dotSelected));
+            target.classList.add(dotSelected);
         }
-        if (menuMap.get(pick)) {
+    }
+
+    function initMenuPageBoxProxy(parentNode, pick) {
+        if (menuRefreshLockMap.get(pick)) {
             return;//已经有过了，节流
         }
-        let size = 13;//boxSrcList.length;
+        fetchData("initMenuPageBoxProxy").then(dataList => {
+            initMenuPageBox(parentNode, dataList);
+            menuRefreshLockMap.set(pick, dataList.length);
+            setTimeout(() => menuRefreshLockMap.delete(pick), 1000 * 60);//节流
+        });
+    }
+
+    function initMenuPageBox(parentNode, dataList) {
+        const pageWidthVarName = "--pageWidth";
+        const oneColWidth = 248;
         // console.log(getComputedStyle(menu_item_page).getPropertyValue(pageWidthVarName));
-        menu_item_page.style.setProperty(pageWidthVarName, (Math.floor((size - 1) / 6) + 1) * oneColWidth + "px");
-        menu_item_page.innerHTML = "";//delete all node
-        for (let i = 0; i < size; i++) {
-            let appendChild = menu_item_page.appendChild(menuBox_to_clone.cloneNode(true));
-            appendChild.style.display = "";
-            appendChild.querySelector("img").src = boxSrcList[0].src;
-            appendChild.querySelector("span").textContent = boxSrcList[0].name;
+        parentNode.style.setProperty(pageWidthVarName, (Math.floor((dataList.length - 1) / 6) + 1) * oneColWidth + "px");
+        parentNode.innerHTML = "";//delete all node
+        dataList.forEach(({src, name}) => {
+            let createdElement = document.createElement("div");
+            createdElement.innerHTML = eval("`" + MenuPageBoxTemplateInnerHTML + "`");
+            parentNode.appendChild(createdElement.firstElementChild);
+        });
+    }
+
+    //mock数据接口
+    async function fetchData(url) {
+        switch (url) {
+            case "initHeaderDetail": {
+                const detailData = {
+                    href: "#",
+                    name: "小米手机红米手机",
+                    price: "1888元",
+                    src: "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b4846501f1e9be04d6d2e859deb0d80e.png?thumb=1&w=160&h=110&f=webp&q=90"
+                };
+                return new Array(6).fill(detailData);
+            }
+            case "initCarouselImg": {
+                const imgSrc = "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/01a422c2d04a7668e6d1d4748aeadf61.jpg?thumb=1&w=1226&h=460&f=webp&q=90";
+                return new Array(4).fill(imgSrc);
+            }
+            case "initMenuPageBoxProxy": {
+                const boxItem = {
+                    name: "小米智能电视",
+                    src: "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c2e3fdbf6fe7a13c06644f16c8dc8877.png?thumb=1&w=40&h=40&f=webp&q=90"
+                };
+                return new Array(10).fill(boxItem);
+            }
+            case "initMenuLi": {
+                return [
+                    {
+                        pick: "mobile",
+                        name: "手机"
+                    }, {
+                        pick: "tv",
+                        name: "电视"
+                    }, {
+                        pick: "appliances",
+                        name: "家电"
+                    }, {
+                        pick: "desktop",
+                        name: "笔记本 平板"
+                    }, {
+                        pick: "outdoor",
+                        name: "出行 穿戴"
+                    }, {
+                        pick: "player",
+                        name: "耳机 音响"
+                    }, {
+                        pick: "health",
+                        name: "健康 儿童"
+                    }, {
+                        pick: "life",
+                        name: "生活 箱包"
+                    }, {
+                        pick: "wifi",
+                        name: "智能 路由器"
+                    }, {
+                        pick: "power",
+                        name: "电源 配件"
+                    }
+                ];
+            }
+            default:
+                throw new Error("数据请求失败");
         }
-        menuMap.set(pick, size);
-        setTimeout(() => menuMap.delete(pick), 1000 * 60);//节流
-    });
+
+    }
 </script>
 </html>
