@@ -9,7 +9,7 @@
 }
 
 .top {
-    /*width: 100%;*/
+    min-width: var(--main-width);
     background-color: #333333;
 }
 
@@ -39,8 +39,7 @@
 }
 
 .nav ul li:last-of-type::after {
-    content: "";
-    display: none;
+    content: none;
 }
 
 .nav ul li a {
@@ -105,14 +104,8 @@
 }
 
 .second {
+    min-width: var(--main-width);
     position: relative;
-}
-
-.clearfix::after {
-    content: "";
-    clear: both;
-    height: 0;
-    display: block;
 }
 
 .header {
@@ -318,6 +311,7 @@
     --carousel-w: var(--main-width);
     position: relative;
     width: var(--carousel-w);
+    min-width: var(--main-width);
     margin: 0 auto;
 }
 
@@ -356,7 +350,7 @@
 
 .carousel .carousel_btn_left {
     left: 234px;
-    background: var(--carousel_btn-url) -82px 0 no-repeat;
+    background: var(--carousel_btn-url) -83px 0 no-repeat;
 }
 
 .carousel .carousel_btn_right {
@@ -458,6 +452,10 @@
     clear: both;
 }
 
+.menu .menu-item-page:hover {
+    visibility: visible;
+}
+
 .menu .menu-item-page .box {
     /*display: inline-block;*/
     box-sizing: border-box;
@@ -466,8 +464,8 @@
     padding: 18px 20px;
 }
 
-.menu .menu-item-page:hover {
-    visibility: visible;
+.menu .menu-item-page .box:hover span {
+    color: #ff6700;
 }
 
 .menu .menu-item-page .box img {
@@ -493,12 +491,345 @@
 .fourth {
     --fourth-w: var(--main-width);
     width: var(--fourth-w);
+    min-width: var(--main-width);
     margin: 0 auto;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fourth > div {
+    margin: 15px 0 20px;
+}
+
+.fourth div.left {
+    width: 234px;
+    height: 170px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #5f5750;
+    color: rgba(243, 243, 243, 0.6);
+    /*overflow: hidden;*/
+}
+
+.fourth div.left div.iconfont {
+    font-size: 12px;
+    width: calc(230px / 3 - 1px);
+    height: calc(170px / 2 - 1px);
+    display: flex;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    row-gap: 20px;
+    overflow: hidden;
 }
-.fourth {
 
+.fourth div.left a {
+    position: relative;
+    margin: 2px 0 0 2px;
+}
+
+.fourth div.left a:hover {
+    color: white;
+}
+
+.fourth div.left a:not(:nth-of-type(3n+1))::before {
+    position: absolute;
+    top: 18px;
+    /*left: 1px;*/
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 50px;
+    background-color: rgba(153, 153, 153, 0.1);
+}
+
+.fourth div.left a:nth-of-type(-n+3)::after {
+    position: absolute;
+    left: 39px;
+    top: 55px;
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 60px;
+    rotate: 90deg;
+    background-color: rgba(153, 153, 153, 0.1);
+}
+
+.fourth div.left div.iconfont::before {
+    font-size: 24px;
+}
+
+.fourth div.right a:hover img {
+    box-shadow: 1px 2px 15px rgba(0, 0, 0, .1);
+}
+
+.fourth div.right img {
+    width: 315px;
+    height: 170px;
+    object-position: center;
+    object-fit: cover;
+}
+
+.main {
+    background-color: #f3f3f3;
+    margin-top: 5px;
+    min-width: var(--main-width);
+}
+
+.fifth {
+    max-width: var(--main-width);
+    margin: 25px auto;
+}
+
+.fifth img {
+    width: var(--main-width);
+    height: 120px;
+}
+
+.six {
+    width: var(--main-width);
+    margin: 0 auto 20px;
+}
+
+.six .six-block {
+    float: left;
+    display: inline-block;
+    width: 234px;
+    height: 614px;
+    padding-bottom: 14px;
+}
+
+.six .six-block img {
+    width: 234px;
+    height: 614px;
+}
+
+.six .six-box {
+    float: left;
+    width: 234px;
+    height: 300px;
+    padding: 20px 0;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.six .six-box:hover {
+    transform: translate3d(0, -2px, 0);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s linear;
+}
+
+.six .six-box img {
+    width: 160px;
+    height: 160px;
+}
+
+.six .six-box span {
+    user-select: none;
+    text-align: center;
+    display: block;
+}
+
+.six .six-box span:first-of-type {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.six .six-box span:nth-of-type(2) {
+    margin-top: 3px;
+    font-size: 12px;
+    color: #999999;
+}
+
+.six .six-box span:last-of-type {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #fd6600;
+}
+
+.six .six-box span del {
+    padding-left: 10px;
+    color: #999999;
+}
+
+.six .six-box {
+    margin-left: 14px;
+}
+
+.last {
+    min-width: var(--main-width);
+    background-color: #fff;
+}
+
+.footer {
+    width: var(--main-width);
+    margin: 0 auto 30px;
+}
+
+.footer .item-list {
+    width: var(--main-width);
+    height: 80px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.footer .item-list ul li {
+    position: relative;
+    display: inline-block;
+    margin: 27px 0;
+}
+
+.footer .item-list ul li:hover a {
+    color: #ff6700;
+}
+
+.footer .item-list ul li:not(:last-of-type):after {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 25px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    translate: 0 -50%;
+    background-color: rgba(204, 204, 204, 0.5);
+
+}
+
+.footer .item-list ul li a {
+    position: relative;
+    font-size: 16px;
+    color: #666666;
+    display: inline-block;
+    width: 245px;
+    height: 25px;
+    text-align: center;
+}
+
+.footer .item-list ul li a .iconfont {
+    position: relative;
+    display: inline-block;
+    font-size: 26px;
+    translate: -5px 3px;
+}
+
+.footer .about {
+    padding: 40px 0;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+}
+
+.footer .about .service {
+    display: flex;
+    justify-content: end;
+    align-items: start;
+}
+
+.footer .about .service .service-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .about .service .service-box .service-item {
+    font-size: 12px;
+    width: 160px;
+    height: 26px;
+    line-height: 26px;
+    color: #777777;
+}
+
+.footer .about .service .service-box .service-item:hover {
+    cursor: pointer;
+    color: #ff6700;
+}
+
+.footer .about .service .service-box .service-item:active {
+    cursor: pointer;
+    color: #ff6700;
+}
+
+.footer .about .service .service-box .service-item:first-of-type {
+    line-height: 26px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: initial;
+    cursor: initial;
+}
+
+.footer .about .contact {
+    margin-left: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    flex: 0 0 245px;
+}
+
+.footer .about .contact::before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 100px;
+    left: 0;
+    background-color: rgba(204, 204, 204, 0.5);
+    position: absolute;
+}
+
+.footer .about .contact .large-mobile {
+    margin: 0 0 5px;
+    font-size: 20px;
+    color: #ff6700;
+}
+
+.footer .about .contact .min-font {
+    white-space: nowrap;
+    text-align: left;
+    width: 150px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: #666666;
+}
+
+.footer .about .contact a {
+    text-align: center;
+    font-size: 14px;
+    display: block;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    color: #ff6700;
+    border: 1px solid #ff6700;
+    margin-bottom: 25px;
+}
+
+.footer .about .contact a:hover {
+    border: none;
+    color: white;
+    background-color: #ff6700;
+}
+
+
+.footer .about .contact a .iconfont {
+    font-size: 13px;
+    padding-right: 7px;
+}
+
+.bottom {
+    background-color: #f3f3f3;
+    height: 200px;
+    min-width: var(--main-width);
+}
+
+.bottom .slogan {
+    font-size: large;
+    user-select: none;
+    margin: 50px auto;
+    text-align: center;
+    opacity: 0.5;
 }

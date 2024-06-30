@@ -10,6 +10,7 @@
     <link rel="icon" href="//resource.lwrong.com/public/img/xiaomi/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/xiaomi.css">
+    <script src="../js/xiaomi.js" defer></script>
 </head>
 <body>
     <div id="app">
@@ -42,7 +43,7 @@
                 </ul>
             </div>
         </div>
-        <div class="second clearfix">
+        <div class="second clear-after">
             <div class="header">
                 <a href="#" class="logo"><h1>关键词：小米</h1></a>
                 <ul>
@@ -57,6 +58,11 @@
                     <li><a href="javascript:void(0)">社区</a></li>
                     <li class="detail">
                         <div>
+                            <!--<a href="${href}">
+                                <img src="${src}" alt="">
+                                <div>${name}</div>
+                                <div>${price}</div>
+                            </a>-->
                         </div>
                     </li>
                     <li class="search">
@@ -95,239 +101,196 @@
             </div>
             <div class="menu">
                 <ul>
+                    <!--<li>
+                        <a class="menu-item" data-pick="${pick}" href="javascript:void(0)">${name}
+                            <i class="iconfont i-arrow_right"></i>
+                        </a>
+                        <div class="menu-item-page">
+                            <a href="${href}">
+                                <div class="box">
+                                        <img src="${src}" alt="">
+                                        <span>${name}</span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>-->
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="data-area" style="display: none">
-        <template id="header-detail-div">
-            <a href="${href}">
-                <img src="${src}" alt="">
-                <div>${name}</div>
-                <div>${price}</div>
-            </a>
-        </template>
-        <template id="menu-ul">
-            <li>
-                <a class="menu-item" data-pick="${pick}" href="javascript:void(0)">${name}
-                    <i class="iconfont i-arrow_right"></i>
+        <div class="fourth">
+            <div class="left">
+                <a href="">
+                    <div class="iconfont"></div>
                 </a>
-                <div class="menu-item-page"></div>
-            </li>
-        </template>
-        <template id="menu-li-page-box">
-            <div class="box">
-                <a href="${href}">
-                    <img src="${src}" alt="">
-                    <span>${name}</span>
+                <a href="">
+                    <div class="iconfont"></div>
+                </a>
+                <a href="">
+                    <div class="iconfont"></div>
+                </a>
+                <a href="">
+                    <div class="iconfont"></div>
+                </a>
+                <a href="">
+                    <div class="iconfont"></div>
+                </a>
+                <a href="">
+                    <div class="iconfont"></div>
                 </a>
             </div>
-        </template>
+            <div class="right"><a href=""><img src="" alt=""></a></div>
+            <div class="right"><a href=""><img src="" alt=""></a></div>
+            <div class="right"><a href=""><img src="" alt=""></a></div>
+        </div>
+        <div class="main clear-before clear-after">
+            <div class="fifth">
+                <a href="javascript:void(0)">
+                    <img src="//resource.lwrong.com/public/img/xiaomi/banner.png"
+                         alt="">
+                </a>
+            </div>
+            <div class="six clear-after">
+                <div class="six-block">
+                    <a href="">
+                        <img src="//resource.lwrong.com/public/img/xiaomi/six-left.png" alt="">
+                    </a>
+                </div>
+                <!--<a href="">
+                    <div class="six-box">
+                        <img src="" alt="">
+                        <span>Redmi Turbo 3</span>
+                        <span>性能旋风性能旋风，席卷而来</span>
+                        <span>1799元起<del>1999元</del></span>
+                    </div>
+                </a>-->
+            </div>
+        </div>
+        <div class="last">
+            <div class="footer">
+                <div class="item-list">
+                    <ul>
+                        <li><a href="javascript:void(0)"><i class="iconfont i-fix"></i>预约维修服务</a></li>
+                        <li><a href="javascript:void(0)"><i class="iconfont i-day7"></i>7天无理由退货</a></li>
+                        <li><a href="javascript:void(0)"><i class="iconfont i-day15"></i>15天免费换货</a></li>
+                        <li><a href="javascript:void(0)"><i class="iconfont i-gift"></i>满69包邮</a></li>
+                        <li><a href="javascript:void(0)"><i class="iconfont i-location"></i>1100余家售后网点</a></li>
+                    </ul>
+                </div>
+                <div class="about">
+                    <div class="service">
+                        <div class="service-box">
+                            <div class="service-item">服务中心</div>
+                            <div class="service-item">申请售后</div>
+                            <div class="service-item">售后政策</div>
+                            <div class="service-item">维修服务价格</div>
+                            <div class="service-item">订单查询</div>
+                            <div class="service-item">以旧换新</div>
+                            <div class="service-item">保障服务</div>
+                            <div class="service-item">防伪查询</div>
+                            <div class="service-item">F码通道</div>
+                        </div>
+                        <div class="service-box">
+                            <div class="service-item">服务中心</div>
+                            <div class="service-item">申请售后</div>
+                            <div class="service-item">售后政策</div>
+                            <div class="service-item">维修服务价格</div>
+                            <div class="service-item">订单查询</div>
+                            <div class="service-item">以旧换新</div>
+                            <div class="service-item">保障服务</div>
+                            <div class="service-item">防伪查询</div>
+                            <div class="service-item">F码通道</div>
+                        </div>
+                        <div class="service-box">
+                            <div class="service-item">服务中心</div>
+                            <div class="service-item">申请售后</div>
+                            <div class="service-item">售后政策</div>
+                            <div class="service-item">维修服务价格</div>
+                            <div class="service-item">订单查询</div>
+                            <div class="service-item">以旧换新</div>
+                            <div class="service-item">保障服务</div>
+                            <div class="service-item">防伪查询</div>
+                            <div class="service-item">F码通道</div>
+                        </div>
+                        <div class="service-box">
+                            <div class="service-item">服务中心</div>
+                            <div class="service-item">申请售后</div>
+                            <div class="service-item">售后政策</div>
+                            <div class="service-item">维修服务价格</div>
+                            <div class="service-item">订单查询</div>
+                            <div class="service-item">以旧换新</div>
+                            <div class="service-item">保障服务</div>
+                            <div class="service-item">防伪查询</div>
+                            <div class="service-item">F码通道</div>
+                        </div>
+                        <div class="service-box">
+                            <div class="service-item">服务中心</div>
+                            <div class="service-item">申请售后</div>
+                            <div class="service-item">售后政策</div>
+                            <div class="service-item">维修服务价格</div>
+                            <div class="service-item">订单查询</div>
+                            <div class="service-item">以旧换新</div>
+                            <div class="service-item">保障服务</div>
+                            <div class="service-item">防伪查询</div>
+                            <div class="service-item">F码通道</div>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <span class="large-mobile">400-100-5678</span>
+                        <span class="min-font">8:00-18:00（仅收市话费）</span>
+                        <div><a href="javascript:void(0)"><i class="iconfont i-msg"></i>人工客服</a></div>
+                        <span class="large-mobile">400-180-8888</span>
+                        <span class="min-font">8:00-18:00（仅收市话费）</span>
+                        <span class="min-font">适用于：MIX FOLD、巨屏电视系列</span>
+                        <div><a href="javascript:void(0)"><i class="iconfont i-msg"></i>人工客服</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom clear-before">
+            <div class="slogan">
+                让全球每个人都能享受科技带来的美好生活
+            </div>
+        </div>
+    </div>
+
+
+    <div class="data-area" style="display: none">
+        <label>
+            <textarea id="header-detail-div" disabled>
+                <a href="${href}">
+                    <img src="${src}" alt="">
+                    <div>${name}</div>
+                    <div>${price}</div>
+                </a>
+            </textarea>
+            <textarea id="menu-ul" disabled>
+                <li>
+                    <a class="menu-item" data-pick="${pick}" href="javascript:void(0)">${name}
+                        <i class="iconfont i-arrow_right"></i>
+                    </a>
+                    <div class="menu-item-page"></div>
+                </li>
+            </textarea>
+            <textarea id="menu-li-page-box" disabled>
+                <a href="${href}">
+                    <div class="box">
+                            <img src="${src}" alt="">
+                            <span>${name}</span>
+                    </div>
+                </a>
+            </textarea>
+            <textarea id="six-box" disabled>
+                <a href="${href}">
+                    <div class="six-box">
+                        <img src="${src}" alt="">
+                        <span>${name}</span>
+                        <span>${description}</span>
+                        <span>${price}${noPrice}</span>
+                    </div>
+                </a>
+            </textarea>
+        </label>
     </div>
 
 </body>
-<script>
-
-
-    let selectedIndex = 0;
-    //监听菜单hover
-    const menuRefreshLockMap = new Map();
-
-    const MenuPageBoxTemplateInnerHTML = document.getElementById("menu-li-page-box").innerHTML;
-    document.addEventListener("DOMContentLoaded",
-        ev => {
-
-            fetchData("initHeaderDetail").then(dataList => initHeaderDetail("header-detail-div", dataList));
-            fetchData("initMenuLi").then(dataList => initMenuLi("menu-ul", dataList));
-
-            //加载轮播图片
-            fetchData("initCarouselImg").then(dataList => {
-                let carouselImgElems = document.querySelectorAll(".carousel .carousel-img");
-                carouselImgElems.forEach((carouselImgElem, index) => carouselImgElem.src = dataList[index].src);
-            })
-
-            //监听轮播点击事件
-            document.querySelector(".carousel .dot-list").addEventListener("click", e => {
-                if (!e.target.classList.contains("dot-selected")) {
-                    selectedIndex = parseInt(e.target.dataset.index);
-                    switchDot(selectedIndex);
-                    switchImg(selectedIndex);
-                }
-            });
-            document.querySelectorAll(".carousel [class*='carousel_btn_']")
-                .forEach(elem => elem.addEventListener("click", e => {
-                    let direction = parseInt(e.target.dataset.direction);
-                    let newIndex = selectedIndex + direction;
-                    if ([1, -1].includes(direction)
-                        && newIndex >= 0 && newIndex <= 3) {
-                        selectedIndex = newIndex;
-                        switchDot(selectedIndex);
-                        switchImg(selectedIndex);
-                    }
-                }));
-
-            document.querySelector(".menu").addEventListener("mouseover", e => {
-
-                let target = e.target;
-                let pick;
-                let parentNode;
-                if (target.classList.contains("menu-item")) {
-                    parentNode = target.parentNode.querySelector(".menu-item-page");
-                    pick = target.dataset.pick;
-                } else if (target.parentNode.classList.contains("menu-item")) {//点到菜单里的图标了
-                    parentNode = target.parentNode.parentNode.querySelector(".menu-item-page");
-                    pick = target.parentNode.dataset.pick;
-                } else {
-                    //点到右边展示页面去了
-                    return;
-                }
-                initMenuPageBoxProxy(parentNode, pick);
-            });
-        })
-
-    function initHeaderDetail(templateId, dataList) {
-        let parentNode = document.querySelector(".header .detail div");
-        let templateInnerHTML = document.getElementById(templateId).innerHTML;
-        dataList.forEach(({href, name, price, src}) => {
-            let createdElement = document.createElement("div");
-            createdElement.innerHTML = eval("`" + templateInnerHTML + "`");
-            parentNode.appendChild(createdElement.firstElementChild)
-        });
-    }
-
-    function initMenuLi(templateId, dataList) {
-        let parentNode = document.querySelector(".menu ul");
-        let templateInnerHTML = document.getElementById(templateId).innerHTML;
-        dataList.forEach(({pick, name}) => {
-            let createdElement = document.createElement("ul");
-            createdElement.innerHTML = eval("`" + templateInnerHTML + "`");
-            parentNode.appendChild(createdElement.firstElementChild)
-
-        });
-    }
-
-
-    function switchDot(selectedIndex) {
-        const dotSelected = "dot-selected";
-        let dotList = document.querySelectorAll(".carousel .dot-list .dot");
-        dotList.forEach(dotElem => dotElem.classList.remove(dotSelected));
-        dotList.item(selectedIndex).classList.add(dotSelected);
-    }
-
-    function switchImg(selectedIndex) {
-        //切换图片
-        let imgNodes = document.querySelectorAll("img.carousel-img");
-        imgNodes.forEach((node) => node.classList.remove("opacity1"));
-        imgNodes.item(selectedIndex).classList.add("opacity1");//放外面为了先淡出在进入
-    }
-
-
-    function initMenuPageBoxProxy(parentNode, pick) {
-        if (menuRefreshLockMap.get(pick)) {
-            return;//已经有过了，节流
-        }
-        fetchData("initMenuPageBoxProxy").then(dataList => {
-            initMenuPageBox(parentNode, dataList);
-            menuRefreshLockMap.set(pick, dataList.length);
-            setTimeout(() => menuRefreshLockMap.delete(pick), 1000 * 60);//节流
-        });
-    }
-
-    function initMenuPageBox(parentNode, dataList) {
-        const pageWidthVarName = "--pageWidth";
-        const oneColWidth = 248;
-        // console.log(getComputedStyle(menu_item_page).getPropertyValue(pageWidthVarName));
-        let colNum = Math.floor((dataList.length - 1) / 6) + 1;
-        // colNum = colNum > 0 ? colNum : 1; //min-width
-        parentNode.style.setProperty(pageWidthVarName, colNum * oneColWidth + "px");
-        parentNode.innerHTML = "";//delete all node
-        dataList.forEach(({src, name, href}) => {
-            let createdElement = document.createElement("div");
-            createdElement.innerHTML = eval("`" + MenuPageBoxTemplateInnerHTML + "`");
-            parentNode.appendChild(createdElement.firstElementChild);
-        });
-    }
-
-    //mock数据接口
-    async function fetchData(url) {
-        switch (url) {
-            case "initHeaderDetail": {
-                const detailData = {
-                    href: "#",
-                    name: "小米手机红米手机",
-                    price: "1888元",
-                    src: "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b4846501f1e9be04d6d2e859deb0d80e.png?thumb=1&w=160&h=110&f=webp&q=90"
-                };
-                return new Array(6).fill(detailData);
-            }
-            case "initCarouselImg": {
-                const imgSrc1 = "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/34bf4e726f493dc212757b6c3436cf7d.png?w=2452&h=920";
-                const imgSrc2 = "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/397f2569b126d8fba446b6bbf57ef771.jpg?thumb=1&w=1226&h=460&f=webp&q=90";
-                const imgSrc3 = "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/01a422c2d04a7668e6d1d4748aeadf61.jpg?thumb=1&w=1226&h=460&f=webp&q=90";
-                const imgSrc4 = "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/69d476acc0af86cce9521b97ea29214f.jpg?thumb=1&w=1226&h=460&f=webp&q=90";
-                return [
-                    {
-                        href: "javascript:void(0)",
-                        src: imgSrc1,
-                    }, {
-                        href: "javascript:void(0)",
-                        src: imgSrc2,
-                    }, {
-                        href: "javascript:void(0)",
-                        src: imgSrc3,
-                    }, {
-                        href: "javascript:void(0)",
-                        src: imgSrc4,
-                    }
-                ];
-            }
-            case "initMenuPageBoxProxy": {
-                const boxItem = {
-                    href: "#",
-                    name: "小米智能电视",
-                    src: "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c2e3fdbf6fe7a13c06644f16c8dc8877.png?thumb=1&w=40&h=40&f=webp&q=90"
-                };
-                return new Array(10).fill(boxItem);
-            }
-            case "initMenuLi": {
-                return [
-                    {
-                        pick: "mobile",
-                        name: "手机"
-                    }, {
-                        pick: "tv",
-                        name: "电视"
-                    }, {
-                        pick: "appliances",
-                        name: "家电"
-                    }, {
-                        pick: "desktop",
-                        name: "笔记本 平板"
-                    }, {
-                        pick: "outdoor",
-                        name: "出行 穿戴"
-                    }, {
-                        pick: "player",
-                        name: "耳机 音响"
-                    }, {
-                        pick: "health",
-                        name: "健康 儿童"
-                    }, {
-                        pick: "life",
-                        name: "生活 箱包"
-                    }, {
-                        pick: "wifi",
-                        name: "智能 路由器"
-                    }, {
-                        pick: "power",
-                        name: "电源 配件"
-                    }
-                ];
-            }
-            default:
-                throw new Error("数据请求失败");
-        }
-
-    }
-</script>
 </html>

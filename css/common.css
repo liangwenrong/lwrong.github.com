@@ -1,5 +1,5 @@
 /* 字体图标 样式*/
-@import url("https://at.alicdn.com/t/c/font_4603406_lvl5obueo2i.css");
+@import url("https://at.alicdn.com/t/c/font_4603406_sqihubjhmns.css");
 
 /* --------通用默认样式------- */
 html, body {
@@ -31,6 +31,21 @@ a {
 
 table {
     border-collapse: collapse;
+}
+
+/* 清除浮动 和外边距合并 */
+.clear-after::after {
+    content: "1"; /* 不能为空 */
+    display: block;
+    font-size: 0;
+    clear: both;
+}
+
+.clear-before::before {
+    content: "1"; /* 不能为空 */
+    display: block;
+    font-size: 0;
+    clear: both;
 }
 
 /* ^^^^上面是^^^^^通用默认样式^^^^^^^^^ */
