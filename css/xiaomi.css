@@ -314,15 +314,16 @@
 }
 
 .third {
-    position: relative;
-    width: 1226px;
-    margin: 0 auto;
     --carousel-h: 460px;
+    --carousel-w: var(--main-width);
+    position: relative;
+    width: var(--carousel-w);
+    margin: 0 auto;
 }
 
 .carousel {
     position: relative;
-    width: 1226px;
+    width: var(--carousel-w);
     height: var(--carousel-h);
     margin: 0 auto;
     --carousel_btn-url: url("http://resource.lwrong.com/public/img/xiaomi/icon-slides.png");
@@ -332,7 +333,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 1226px;
+    width: var(--carousel-w);
     height: var(--carousel-h);
     opacity: 0;
     transition: opacity 1s;
@@ -487,4 +488,17 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.fourth {
+    --fourth-w: var(--main-width);
+    width: var(--fourth-w);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+}
+.fourth {
+
 }

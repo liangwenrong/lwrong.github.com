@@ -100,29 +100,29 @@
         </div>
     </div>
     <div class="data-area" style="display: none">
-        <div id="header-detail-div">
+        <template id="header-detail-div">
             <a href="${href}">
                 <img src="${src}" alt="">
                 <div>${name}</div>
                 <div>${price}</div>
             </a>
-        </div>
-        <ul id="menu-ul">
+        </template>
+        <template id="menu-ul">
             <li>
                 <a class="menu-item" data-pick="${pick}" href="javascript:void(0)">${name}
                     <i class="iconfont i-arrow_right"></i>
                 </a>
                 <div class="menu-item-page"></div>
             </li>
-        </ul>
-        <div id="menu-li-page-box">
+        </template>
+        <template id="menu-li-page-box">
             <div class="box">
                 <a href="${href}">
                     <img src="${src}" alt="">
                     <span>${name}</span>
                 </a>
             </div>
-        </div>
+        </template>
     </div>
 
 </body>
