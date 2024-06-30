@@ -19,10 +19,10 @@
         }
     }
 
-    let arr = [document.querySelector(".nav .one"), document.querySelector(".header .one")];
-    arr.forEach(elem => elem.addEventListener("click", (e) => {
-        if (e.target.dataset.action) {
-            flowD(e.target.dataset.action);
-        }
-    }));
+    document.querySelectorAll(":where(.nav, .header)")
+        .forEach(elem => elem.addEventListener("click", (e) => {
+            if (e.target.dataset.action) {
+                flowD(e.target.dataset.action);
+            }
+        }));
 })();
