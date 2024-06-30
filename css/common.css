@@ -6,6 +6,7 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 0;
 }
 
 /* 先不考虑使用通配符性能影响 */
