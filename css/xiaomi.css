@@ -317,38 +317,58 @@
     position: relative;
     width: 1226px;
     margin: 0 auto;
+    --carousel-h: 460px;
 }
 
 .carousel {
     position: relative;
     width: 1226px;
+    height: var(--carousel-h);
     margin: 0 auto;
+    --carousel_btn-url: url("http://resource.lwrong.com/public/img/xiaomi/icon-slides.png");
 }
 
-.carousel img {
+.carousel img.carousel-img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 1226px;
-    height: 460px;
+    height: var(--carousel-h);
+    opacity: 0;
+    transition: opacity 1s;
 }
 
-.carousel a[class*="i-arrow_"] {
-    color: #ccc;
-    font-size: 58px;
+.carousel img.opacity1 {
+    opacity: 1;
+}
+
+.carousel a[class*="carousel_btn_"] {
     position: absolute;
     top: 50%;
     translate: 0 -50%;
+    width: 41px;
+    height: 69px;
 }
 
-.carousel a[class*="i-arrow_"]:hover {
-    background-color: rgba(126, 126, 126, 0.5);
-    color: rgba(255, 255, 255, 0.9);
+.carousel a[class*="carousel_btn_"]:hover {
 }
 
-.carousel .i-arrow_left {
+.carousel .carousel_btn_left {
     left: 234px;
+    background: var(--carousel_btn-url) -82px 0 no-repeat;
 }
 
-.carousel .i-arrow_right {
+.carousel .carousel_btn_right {
     right: 0;
+    background: var(--carousel_btn-url) -125px 0 no-repeat;
+}
+
+.carousel .carousel_btn_left:hover {
+    background: var(--carousel_btn-url) no-repeat;
+}
+
+.carousel .carousel_btn_right:hover {
+    background: var(--carousel_btn-url) -42px 0 no-repeat;
 }
 
 .carousel .dot-list {
@@ -382,7 +402,7 @@
     width: 234px;
     background-color: rgba(115, 117, 119, 0.7);
     padding: 15px 0;
-    height: 460px;
+    height: var(--carousel-h);
     box-sizing: border-box;
 }
 
@@ -420,9 +440,9 @@
     position: absolute;
     top: 0;
     left: 234px;
-    height: 460px;
+    height: var(--carousel-h);
     width: var(--pageWidth);
-    /*min-width: var(--page-one-col);*/
+    min-width: var(--page-one-col);
     background-color: white;
     box-shadow: 0 1px 10px #ccc;
 
@@ -441,7 +461,7 @@
     /*display: inline-block;*/
     box-sizing: border-box;
     width: var(--page-one-col); /* 248px */
-    height: calc(460px / 6); /* 76px */
+    height: calc(var(--carousel-h) / 6); /* 76px */
     padding: 18px 20px;
 }
 
