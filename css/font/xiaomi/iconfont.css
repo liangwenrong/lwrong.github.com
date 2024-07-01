@@ -1,0 +1,115 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4603406 */
+  src: url('iconfont.woff2?t=1719822342330') format('woff2'),
+       url('iconfont.woff?t=1719822342330') format('woff'),
+       url('iconfont.ttf?t=1719822342330') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont", serif !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.i-person:before {
+  content: "\e606";
+}
+
+.i-top:before {
+  content: "\e76c";
+}
+
+.i-phone:before {
+  content: "\e686";
+}
+
+.i-kefu2:before {
+  content: "\e60e";
+}
+
+.i-kefu:before {
+  content: "\e621";
+}
+
+.i-phone2:before {
+  content: "\e62c";
+}
+
+.i-fix:before {
+  content: "\e62b";
+}
+
+.i-fix2:before {
+  content: "\e680";
+}
+
+.i-gift:before {
+  content: "\e601";
+}
+
+.i-day15:before {
+  content: "\e605";
+}
+
+.i-location:before {
+  content: "\e62f";
+}
+
+.i-day-7:before {
+  content: "\e6f2";
+}
+
+.i-msg:before {
+  content: "\e62a";
+}
+
+.i-day7:before {
+  content: "\e602";
+}
+
+.i-F:before {
+  content: "\e600";
+}
+
+.i-chongzhi:before {
+  content: "\e604";
+}
+
+.i-paid:before {
+  content: "\e629";
+}
+
+.i-building:before {
+  content: "\e610";
+}
+
+.i-clock:before {
+  content: "\e659";
+}
+
+.i-sim:before {
+  content: "\eb24";
+}
+
+.i-F-copy:before {
+  content: "\eb25";
+}
+
+.i-search:before {
+  content: "\e64a";
+}
+
+.i-car:before {
+  content: "\e887";
+}
+
+.i-arrow_right:before {
+  content: "\eb03";
+}
+
+.i-arrow_left:before {
+  content: "\eb04";
+}
+

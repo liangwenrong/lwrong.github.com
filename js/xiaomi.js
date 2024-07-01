@@ -62,6 +62,66 @@ document.querySelector(".menu").addEventListener("mouseover", e => {
     initMenuPageBoxProxy(parentNode, pick);
 });
 
+let backTop = document.querySelector(".back-top");
+backTop.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scroll({
+        top: 0,
+        // left: 0,
+        behavior: "smooth"
+    });
+});
+
+class Throttle {//掐住喉咙，间隔duration放一次
+    #param //记录最后一次参数，到时间就调用
+    #timer = null;
+    #this;
+
+    constructor(func, durationMillSecond) {
+        if (!Number.isInteger(durationMillSecond)) {
+            throw new TypeError("new Throttle(param) with a no number param");
+        }
+        this.func = func;
+        this.duration = durationMillSecond;
+    }
+
+    preRun(param) {
+        this.#param = param;
+        if (this.#timer !== null) {
+            return
+        }
+        this.#timer = setTimeout(() => {
+            this.func.call(this.#this, this.#param);
+            this.#timer = null;
+        }, this.duration);
+    }
+
+    setThis(aThis) {
+        this.#this = aThis;
+        return this;
+    }
+}
+
+function switchBackTop(showBackTop) {
+    if (showBackTop) {
+        backTop.classList.add("active");
+    } else {
+        backTop.classList.remove("active");
+    }
+}
+
+let scrollThrottle = new Throttle(switchBackTop, 500);
+
+listenScroll(scrollTarget => {
+    let showBackTop = scrollTarget.scrollTop > window.innerHeight / 2;
+    scrollThrottle.preRun(showBackTop);
+});
+
+function listenScroll(func, target = window) {/* 滚动窗口监听，浏览器窗口不要传target */
+    const scrollTarget = target === window ? document.querySelector("html") : target;
+    target.addEventListener("scroll", () => func(scrollTarget));
+}
+
 function addFourthIcon() {
     fetchData("addIconFourth").then(iconList => {
         document.querySelectorAll(".fourth div.left div.iconfont").forEach((elem, index) => {

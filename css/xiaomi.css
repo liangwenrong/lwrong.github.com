@@ -1,3 +1,6 @@
+/* 字体图标 样式*/
+@import url("./font/xiaomi/iconfont.css");
+
 :root {
     --main-width: 1226px;
 }
@@ -121,7 +124,7 @@
     height: 55px;
     width: 55px;
     margin: 22px 0 0 10px;
-    background: url("https://resource.lwrong.com/public/img/xiaomi/logo-mi.png") 0 0/100% no-repeat;
+    background: url("//resource.lwrong.com/public/img/xiaomi/logo-mi.png") 0 0/100% no-repeat;
     background-clip: border-box;
     overflow: hidden;
     padding-top: 55px;
@@ -320,7 +323,7 @@
     width: var(--carousel-w);
     height: var(--carousel-h);
     margin: 0 auto;
-    --carousel_btn-url: url("http://resource.lwrong.com/public/img/xiaomi/icon-slides.png");
+    --carousel_btn-url: url("//resource.lwrong.com/public/img/xiaomi/icon-slides.png");
 }
 
 .carousel img.carousel-img {
@@ -701,7 +704,6 @@
 }
 
 .footer .item-list ul li a {
-    position: relative;
     font-size: 16px;
     color: #666666;
     display: inline-block;
@@ -711,7 +713,6 @@
 }
 
 .footer .item-list ul li a .iconfont {
-    position: relative;
     display: inline-block;
     font-size: 26px;
     translate: -5px 3px;
@@ -832,4 +833,111 @@
     margin: 50px auto;
     text-align: center;
     opacity: 0.5;
+}
+
+.right-fixed {
+    position: fixed;
+    z-index: 999;
+    right: 0;
+    bottom: 15%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.right-fixed .fixed-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 84px;
+    height: 92px;
+    font-size: 13px;
+    color: #757575;
+    background-color: #fff;
+    border: 1px solid rgba(204, 204, 204, 0.2);
+}
+
+.right-fixed .fixed-box:hover {
+    color: #ff6700;
+}
+
+.right-fixed .fixed-box.mobile {
+    position: relative;
+}
+
+.right-fixed .fixed-box.mobile div.qrCode {
+    /*display: none;*/
+    width: 130px;
+    height: 192px;
+    position: absolute;
+    top: 0;
+    right: 100px;
+    text-align: center;
+    padding-top: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 20px -5px #999999;
+}
+
+.right-fixed .fixed-box.mobile div.qrCode:after {
+    content: "";
+    position: absolute;
+    top: 21%;
+    font-size: 0;
+    border-width: 10px;
+    border-style: solid;
+    overflow: hidden;
+    right: -18px;
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #fff;
+}
+
+.right-fixed .fixed-box.mobile div.qrCode img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+.right-fixed .fixed-box.mobile div.qrCode p {
+    margin: 15px 20px;
+    color: #757575;
+}
+
+.right-fixed .fixed-box.mobile:hover div.qrCode {
+    display: block;
+}
+
+.right-fixed .fixed-box .iconfont {
+    font-size: 36px;
+}
+
+.right-fixed .fixed-box span {
+    margin-top: 4px;
+}
+
+.right-fixed .fixed-box.back-top {
+    display: none;
+    margin-top: 20px;
+}
+
+.right-fixed .back-top.active {
+    display: flex;
+}
+
+@media screen and (max-width: 1306px) {
+    .right-fixed .fixed-box {
+        width: 27px;
+        height: 42px;
+        font-size: 0;
+    }
+
+    .right-fixed .fixed-box:hover {
+        color: #ff6700;
+    }
+
+
+    .right-fixed .fixed-box .iconfont {
+        font-size: 20px;
+    }
+
+    .right-fixed .fixed-box span {
+        display: none;
+    }
 }
