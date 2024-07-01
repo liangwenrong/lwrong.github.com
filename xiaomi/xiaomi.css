@@ -866,7 +866,7 @@
 }
 
 .right-fixed .fixed-box.mobile div.qrCode {
-    /*display: none;*/
+    display: none;
     width: 130px;
     height: 192px;
     position: absolute;
@@ -880,14 +880,23 @@
 
 .right-fixed .fixed-box.mobile div.qrCode:after {
     content: "";
-    position: absolute;
-    top: 21%;
     font-size: 0;
+    position: absolute;
+    overflow: hidden;
+    top: 21%;
+    right: -18px;
     border-width: 10px;
     border-style: solid;
-    overflow: hidden;
-    right: -18px;
     border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #fff;
+
+    /* 旋转45°一样可以，这种有边框
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    transform: rotate(45deg);
+    border: 1px solid;
+    border-color: black black transparent transparent;*/
 }
 
 .right-fixed .fixed-box.mobile div.qrCode img{
