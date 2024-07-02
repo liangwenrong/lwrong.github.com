@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="edit" id="edit">
-            <form action="http//42.193.178.202:8899/blog/timeline/save" method="post" enctype="application/x-www-form-urlencoded">
+            <form action="http://42.193.178.202:8899/blog/timeline/save" method="post" enctype="application/x-www-form-urlencoded">
 <!--            <form action="//lwrong.com/api/blog/timeline/save" method="post" enctype="application/x-www-form-urlencoded">-->
                 <label>
                     <textarea name="content" class="content"></textarea>
@@ -144,7 +144,7 @@ let options1={
         // 'Content-Type': 'application/x-www-form-urlencoded',
     },
 }
-    fetch("http//42.193.178.202:8899/blog/timeline/list", options1)
+    fetch("http://42.193.178.202:8899/blog/timeline/list", options1)
         .then(resp => resp.json())
         .then(value => {
             let Timeline = {
