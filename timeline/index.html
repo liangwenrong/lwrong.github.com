@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>时间线</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <!--    <link rel="stylesheet" href="../css/common.css">-->
+    <link rel="stylesheet" href="../css/elementui.css">
+    <style>
+        .wrapper {
+            margin: 100px 50px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="app">
+            <div class="block">
+
+                <el-timeline >
+                    <el-timeline-item
+                            v-for="(activity, index) in activities"
+                            :key="index"
+                            :timestamp="activity.timestamp">
+                        {{activity.content}}
+                    </el-timeline-item>
+                </el-timeline>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- 先引入 Vue -->
+<script src="../js/vue.min.js"></script>
+<!-- 引入组件库 -->
+<script src="../js/elementui.js"></script>
+<script>
+    var Timeline = {
+        data() {
+            return {
+                activities: [
+                    {
+                        content: "Custom icon",
+                        timestamp: "2018-04-12 20:46",
+                        size: "small",
+                        type: "primary",
+                        icon: "el-icon-more"
+                    },
+                    {
+                        content: "Custom color",
+                        size: "large",
+                        icon: "el-icon-more",
+                        timestamp: "2018-04-03 20:46",
+                        color: "#0bbd87"
+                    },
+                    {
+                        content: "Custom size",
+                        timestamp: "2018-04-03 20:46",
+                        size: "small",
+                        color: "red",
+                        icon: "el-icon-star-on"
+                    },
+                    {
+                        content: "Default node",
+                        timestamp: "2018-04-03 20:46"
+                    }
+                ]
+            };
+        }
+    };
+    let Ctor = Vue.extend(Timeline);
+    new Ctor().$mount("#app");
+</script>
+</html>
