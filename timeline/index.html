@@ -13,6 +13,7 @@
             margin: 100px 50px;
             overflow: auto;
         }
+
     </style>
 </head>
 <body>
@@ -20,7 +21,7 @@
         <div id="app">
             <div class="block">
 
-                <el-timeline >
+                <el-timeline>
                     <el-timeline-item
                             v-for="(activity, index) in activities"
                             :key="index"
@@ -30,6 +31,65 @@
                 </el-timeline>
             </div>
         </div>
+        <div class="edit" id="edit">
+            <form action="//lwrong.com:8899/blog/timeline/save" method="post" enctype="application/x-www-form-urlencoded">
+<!--            <form action="//lwrong.com/api/blog/timeline/save" method="post" enctype="application/x-www-form-urlencoded">-->
+                <label>
+                    <textarea name="content" class="content"></textarea>
+                    <input class="date" name="timestamp" type="datetime-local">
+                    <input class="key" name="key" type="number" placeholder="请输入手机号接受验证码">
+                    <button type="submit">提交</button>
+                </label>
+            </form>
+            <style>
+                .edit {
+                    position: fixed;
+                    height: 350px;
+                    width: 350px;
+                    top: 50%;
+                    right: 20px;
+                    background-color: #999999;
+                }
+
+                .edit label {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: end;
+                    align-items: center;
+                    row-gap: 10px;
+                }
+
+                .edit .content {
+                    width: 300px;
+                    height: 200px;
+                }
+
+                .edit .date {
+                    margin-top: 10px;
+                    width: 300px;
+                }
+            </style>
+            <script>
+                let queryVariable = getQueryVariable("k");
+                if (queryVariable && queryVariable === "1") {
+
+                } else {
+                    document.getElementById("edit").remove();
+                }
+
+                function getQueryVariable(variable) {
+                    var query = window.location.search.substring(1);
+                    var vars = query.split("&");
+                    for (var i = 0; i < vars.length; i++) {
+                        var pair = vars[i].split("=");
+                        if (pair[0] == variable) {
+                            return pair[1];
+                        }
+                    }
+                    return (false);
+                }
+            </script>
+        </div>
     </div>
 </body>
 <!-- 先引入 Vue -->
@@ -37,40 +97,66 @@
 <!-- 引入组件库 -->
 <script src="../js/elementui.js"></script>
 <script>
-    var Timeline = {
-        data() {
-            return {
-                activities: [
-                    {
-                        content: "Custom icon",
-                        timestamp: "2018-04-12 20:46",
-                        size: "small",
-                        type: "primary",
-                        icon: "el-icon-more"
-                    },
-                    {
-                        content: "Custom color",
-                        size: "large",
-                        icon: "el-icon-more",
-                        timestamp: "2018-04-03 20:46",
-                        color: "#0bbd87"
-                    },
-                    {
-                        content: "Custom size",
-                        timestamp: "2018-04-03 20:46",
-                        size: "small",
-                        color: "red",
-                        icon: "el-icon-star-on"
-                    },
-                    {
-                        content: "Default node",
-                        timestamp: "2018-04-03 20:46"
+
+
+    function getData() {
+        return {
+            activities: [
+                {
+                    content: "1",
+                    timestamp: "2018-04-12 20:46",
+                },
+                {
+                    content: "2 color",
+                    icon: "el-icon-more",
+                    timestamp: "2018-04-03 20:46",
+                },
+                {
+                    content: "3 size",
+                    timestamp: "2018-04-03 20:46",
+                },
+                {
+                    content: "4 node",
+                    timestamp: "2018-04-03 20:46"
+                }
+            ]
+        };
+    }
+/*let options = {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+}*/
+let options1={
+    // mode: 'cors',
+    headers: {
+        // "Access-Control-Allow-Origin": "*",
+        // 'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+}
+    fetch("//lwrong.com:8899/blog/timeline/list", options1)
+        .then(resp => resp.json())
+        .then(value => {
+            let Timeline = {
+                data: function () {
+                    return {
+                        activities: value
                     }
-                ]
+                }
             };
-        }
-    };
-    let Ctor = Vue.extend(Timeline);
-    new Ctor().$mount("#app");
+            let Ctor = Vue.extend(Timeline);
+            new Ctor().$mount("#app");
+        });
+
+
 </script>
 </html>
