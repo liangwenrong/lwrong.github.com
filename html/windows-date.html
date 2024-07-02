@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>windows日历</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        :root {
+            --c-text-bright: #f0f0f0;
+            --c-text: #dddddd;
+            --c-text-grey: #aaaaaa;
+        }
+
+        body {
+            background-color: #0b49c3;
+        }
+
+
+        .wrapper {
+            width: 23rem;
+            height: 30rem;
+            font-size: 1rem;
+            margin: 10vh auto 0;
+            display: flex;
+            flex-flow: column nowrap;
+            background-color: #24262a;
+            border: 1px solid #424551;
+            box-shadow: 0 0 5px #424551;
+            padding: 0 1em;
+        }
+
+        .wrapper .header {
+            width: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: start;
+        }
+
+        .wrapper .header .time {
+            user-select: none;
+            color: var(--c-text-bright);
+            font-weight: lighter;
+            font-size: 2.6em;
+            height: 1em;
+            line-height: 1em;
+            margin-top: 0.4em;
+        }
+
+        .wrapper .header .lunar {
+            color: #A0D1F6;
+            font-size: 0.7em;
+            margin: 0.5em 0 1.2em;
+        }
+
+        .wrapper .main {
+            width: 100%;
+            border-top: 1px solid #424551;
+            font-size: 0.8em;
+            color: var(--c-text);
+        }
+
+        .wrapper .main .top {
+            height: 3.5em;
+            padding: 1em 0;
+            display: flex;
+        }
+
+        .wrapper .main .top .month {
+        }
+
+        .wrapper .main .top .up {
+            margin-left: auto;
+            width: 3rem;
+            height: 1.5em;
+        }
+
+        .wrapper .main .top .down {
+            width: 3rem;
+            height: 1.5em;
+        }
+
+        .wrapper .main .top .up:before {
+            content: "";
+            display: block;
+            width: 1em;
+            height: 1em;
+            border: 0.15em solid;
+            border-color: #aaa transparent transparent #aaa;
+            transform: translate(100%, 50%) rotate(45deg);
+        }
+
+        .wrapper .main .top .down:before {
+            content: "";
+            display: block;
+            width: 1em;
+            height: 1em;
+            border: 0.15em solid;
+            border-color: transparent #aaa #aaa transparent;
+            transform: translate(100%, -20%) rotate(45deg);
+        }
+
+        .wrapper .main .content {
+            height: 20em;
+            font-size: 1em;
+        }
+
+        @media screen and (min-width: 640px ) {
+            :root {
+                font-size: 1.5rem;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="wrapper">
+            <div class="header">
+                <div class="time">
+
+                </div>
+                <div class="lunar">
+                </div>
+            </div>
+            <div class="main">
+                <div class="top">
+                    <div class="month"></div>
+                    <div class="up"></div>
+                    <div class="down"></div>
+                </div>
+                <!--<div class="content">
+                    <div class="week"></div>
+                    <div class="day"></div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="module">
+    import {calendar} from "../js/calendar.js";
+
+    const time = document.querySelector(".header .time");
+    const lunar = document.querySelector(".header .lunar");
+    const month = document.querySelector(".main .month");
+
+    document.addEventListener("DOMContentLoaded", () => {
+        startSecondCount();
+        startMonthCount();
+
+    });
+
+    function startMonthCount() {
+        showDay();//先把日历展示
+        let dayMS = 24 * 60 * 60 * 1000;
+        setTimeout(() => {
+            setInterval(() => {// 每一天修改日历
+                showDay();
+                setTimeout(showDay, 1000);
+            }, dayMS);
+        }, dayMS - Date.now());
+
+    }
+
+    function showMonth(ym) {
+        month.innerText = ym;
+    }
+
+    function showDay() {
+        let date = new Date();
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        let cyDate = calendar.solar2lunar(year, month, day);
+        let ym = year + "年" + month + "月";
+        lunar.innerText = ym + day + "日 " + cyDate.IMonthCn + cyDate.IDayCn;
+        showMonth(ym);
+    }
+
+    function startSecondCount() {
+        time.innerText = new Date().toLocaleTimeString();
+        let delay = 1000 - Date.now() % 1000;
+        setTimeout(() => {
+            setInterval(() => {// 定时修改读秒展示
+                time.innerText = new Date().toLocaleTimeString();
+            }, 1000);
+        }, delay < 5 ? 0 : delay - 5);//为了准确提前 5毫秒 显示读秒
+    }
+
+</script>
+</html>
