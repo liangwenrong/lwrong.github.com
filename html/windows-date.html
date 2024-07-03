@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/common.css">
     <style>
         :root {
+            font-size: calc(1.56rem * 16 / 23);
             --c-text-bright: #f0f0f0;
             --c-text: #dddddd;
             --c-text-grey: #aaaaaa;
@@ -16,104 +17,157 @@
 
         body {
             background-color: #0b49c3;
+            /*overflow: clip;*/
         }
 
 
         .wrapper {
             width: 23rem;
-            height: 30rem;
-            font-size: 1rem;
+            height: 32rem;
             margin: 10vh auto 0;
-            display: flex;
-            flex-flow: column nowrap;
             background-color: #24262a;
             border: 1px solid #424551;
             box-shadow: 0 0 5px #424551;
-            padding: 0 1em;
+
+            font-size: 1rem;
         }
 
         .wrapper .header {
-            width: 100%;
             display: flex;
             flex-flow: column nowrap;
-            align-items: start;
+            padding-left: 1rem;;
         }
 
         .wrapper .header .time {
             user-select: none;
             color: var(--c-text-bright);
             font-weight: lighter;
-            font-size: 2.6em;
+            font-size: 3em;
+            margin-top: 1.2rem;
             height: 1em;
             line-height: 1em;
-            margin-top: 0.4em;
         }
 
         .wrapper .header .lunar {
             color: #A0D1F6;
-            font-size: 0.7em;
-            margin: 0.5em 0 1.2em;
+            font-size: 0.9em;
+            margin: 0.5rem 0 0.9rem;
         }
 
         .wrapper .main {
-            width: 100%;
             border-top: 1px solid #424551;
-            font-size: 0.8em;
+            border-bottom: 1px solid #424551;
+            font-size: .9em;
+            padding: 0 1rem;
             color: var(--c-text);
         }
 
         .wrapper .main .top {
-            height: 3.5em;
-            padding: 1em 0;
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(7, 3rem);
+            grid-template-rows: 3rem 2rem;
+            justify-items: center;
+            align-items: center;
         }
 
+
         .wrapper .main .top .month {
+            grid-area: 1/1 / 2/6;
+            justify-self: start;
         }
 
         .wrapper .main .top .up {
-            margin-left: auto;
-            width: 3rem;
-            height: 1.5em;
+            width: 0.8rem;
+            height: 0.8rem;
+            border: 0.15em solid;
+            border-color: #aaa transparent transparent #aaa;
+            transform-origin: 50%;
+            transform: translate(0, calc(100% * (3 / 8))) rotate(45deg);
         }
 
         .wrapper .main .top .down {
-            width: 3rem;
-            height: 1.5em;
-        }
-
-        .wrapper .main .top .up:before {
-            content: "";
-            display: block;
-            width: 1em;
-            height: 1em;
+            width: 0.8rem;
+            height: 0.8rem;
             border: 0.15em solid;
-            border-color: #aaa transparent transparent #aaa;
-            transform: translate(100%, 50%) rotate(45deg);
-        }
-
-        .wrapper .main .top .down:before {
-            content: "";
-            display: block;
-            width: 1em;
-            height: 1em;
-            border: 0.15em solid;
+            transform-origin: center;
             border-color: transparent #aaa #aaa transparent;
-            transform: translate(100%, -20%) rotate(45deg);
+            transform: translate(0, calc(-100% * (3 / 8))) rotate(45deg);
         }
 
-        .wrapper .main .content {
-            height: 20em;
-            font-size: 1em;
+        .wrapper .main .top .up:hover {
+            border-color: var(--c-text) transparent transparent var(--c-text);
+            cursor: pointer;
         }
 
-        @media screen and (min-width: 640px ) {
-            :root {
-                font-size: 1.5rem;
-            }
+        .wrapper .main .top .down:hover {
+            border-color: transparent var(--c-text) var(--c-text) transparent;
+            cursor: pointer;
         }
 
 
+        .bd-hover {
+
+        }
+
+        .bd-active {
+            background-color: #0077d6;
+        }
+
+        .wrapper .main .content .day.this-month {
+            color: #dddddd;
+            transition: color .5s;
+        }
+
+        .bd-today {
+            border: 3px solid #0077d6;
+            background-color: #0077d6;
+        }
+
+        .bd-today-active {
+
+        }
+
+        .wrapper .content {
+            height: 18rem;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(7, 3rem);
+            grid-auto-flow: row;
+            overflow-x: hidden;
+            overflow-y: auto;
+            scrollbar-width: none;
+            /*overflow: visible;*/
+        }
+
+        .wrapper .content::-webkit-scrollbar {
+            display: none;
+        / / 重点
+        }
+
+        .wrapper .content .day {
+            user-select: none;
+            color: grey;
+            font-size: 0.9em;
+            box-sizing: border-box;
+            background-clip: content-box;
+            padding: 2px;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .wrapper .content .day:hover {
+            /*border: 1px solid blue;*/
+        }
+
+        .wrapper .content .day > div {
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
@@ -129,24 +183,234 @@
             <div class="main">
                 <div class="top">
                     <div class="month"></div>
-                    <div class="up"></div>
-                    <div class="down"></div>
+                    <div class="up" ></div>
+                    <div class="down" ></div>
+                    <div class="week">一</div>
+                    <div class="week">二</div>
+                    <div class="week">三</div>
+                    <div class="week">四</div>
+                    <div class="week">五</div>
+                    <div class="week">六</div>
+                    <div class="week">日</div>
                 </div>
-                <!--<div class="content">
-                    <div class="week"></div>
-                    <div class="day"></div>
-                </div>-->
+                <div class="content">
+                </div>
             </div>
         </div>
     </div>
 </body>
-
+<script src="../js/dayjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/locale/zh-cn.js"></script>
 <script type="module">
     import {calendar} from "../js/calendar.js";
 
     const time = document.querySelector(".header .time");
     const lunar = document.querySelector(".header .lunar");
     const month = document.querySelector(".main .month");
+
+    let canAdd = 1;
+
+    const rootFontSize = getComputedStyle(document.documentElement).fontSize.replace('px', '');//1行高度
+    const rowHeight = rootFontSize * 3;
+    const content = document.querySelector(".main .content");
+    const dayjs = window.dayjs;//todo 应该被注释，否则只能用于浏览器
+    const zhCn = 'zh-cn';
+
+    let today = dayjs().locale(zhCn);//中国时区，需要插件
+    let monDay = today.startOf("week");//本周一
+
+    const position = {
+        first: {id: 0},
+        last: {id: 0},
+    }
+
+    function updown(add) {
+        let year = month.getAttribute("data-year");
+        let m = parseInt(month.getAttribute("data-month")) + add;
+        if (m < 1) {
+            year--;
+            m += 12;
+        }else if (m > 12) {
+            year++;
+            m -= 12;
+        }
+        let scrollToElem = document.querySelector(
+            ".wrapper .main .content .day" +
+            "[data-year='" + year + "']" +
+            "[data-month='" + m + "']" +
+            "[data-date='1']");
+        content.scrollTo(0, scrollToElem.offsetTop);
+    }
+
+    document.querySelector(".up").addEventListener("click", e => {
+        updown(-1);
+    })
+    document.querySelector(".down").addEventListener("click", e => {
+        updown(1);
+    })
+
+    content.addEventListener("click", e => {
+        if (e.target.classList.contains("day")) {
+            // console.dir(e)
+            // console.dir(e.target.id)
+            // console.dir(e.target.dataset)
+            let daysToDel = document.querySelectorAll(".wrapper .main .content .day.bd-active");
+            daysToDel.forEach(dayElem => dayElem.classList.remove("bd-active"));
+            e.target.classList.add("bd-active")
+        } else {
+            console.error("click inner element:" + e.target.innerText);
+        }
+    });
+    let lastScrollTop = 0;
+    content.addEventListener("scroll", e => {
+        if (content.scrollTop < lastScrollTop) {
+            if (content.scrollTop < rowHeight * 6) {
+                prePendDay(20);
+                console.log("prePendDay")
+            }
+        } else {
+            if (content.scrollTop > content.scrollHeight - rowHeight * 6 - rowHeight * 6) {
+                appendDay(20);
+                console.log("appendDay")
+            }
+        }
+        lastScrollTop = content.scrollTop;
+        switchMonth();
+    });
+
+    function media() {
+        let myWidth = Number.parseFloat(rootFontSize) * 23;
+        // window.innerHeight;
+        !(function (doc, win) {
+            var docEle = doc.documentElement, //获取html元素
+                event = "onorientationchange" in window ? "orientationchange" : "resize", //判断是屏幕旋转还是resize;
+                fn = function () {
+                    var width = docEle.clientWidth;
+                    if (width) {
+                        let size = width / 23 - 1;
+                        docEle.style.fontSize = Math.min(size, 20) + "px"; //设置html的fontSize，随着event的改变而改变。
+                    }
+                };
+
+            win.addEventListener(event, fn, false);
+            doc.addEventListener("DOMContentLoaded", fn, false);
+
+        }(document, window));
+    }
+
+    media();
+
+    function switchMonth() {
+        let middleElem = document.elementsFromPoint(
+            content.offsetLeft + rowHeight * 3.5,
+            content.offsetTop + rowHeight * 3.1)
+            .find(value => value.classList.contains("day"));
+        let dataset = middleElem.dataset;
+        month.setAttribute("data-year", dataset.year);
+        month.setAttribute("data-month", dataset.month);
+        month.innerText = dataset.year + "年" + dataset.month + "月";
+        //
+        let thisMonthClass = "this-month";
+        let thisMonthDaysToDel = document.querySelectorAll(".wrapper .main .content .day." + thisMonthClass);
+        thisMonthDaysToDel.forEach(dayElem => dayElem.classList.remove(thisMonthClass));
+        let thisMonthDays = document.querySelectorAll(
+            ".wrapper .main .content .day[data-month='" + dataset.month + "']");
+        thisMonthDays.forEach(dayElem => dayElem.classList.add(thisMonthClass));
+
+        //        //
+        let todayElem = document.querySelector(
+            ".wrapper .main .content .day" +
+            "[data-year='" + today.year() + "']" +
+            "[data-month='" + (today.month() + 1) + "']" +
+            "[data-date='" + today.date() + "']");
+        todayElem.classList.add("bd-today")
+    }
+
+    function prePendDay(row) {
+        if (canAdd < 0) {
+            return;
+        }
+        canAdd = -1;
+        let id = position.first.id;
+        for (let i = id - 1; i >= id - row * 7; i--) {
+            content.insertAdjacentElement("afterbegin", createDay(monDay.add(i, "day")));
+        }
+        position.first.id = id - row * 7;
+        canAdd = 1;
+    }
+
+    function appendDay(row) {
+        if (canAdd < 0) {
+            return;
+        }
+        canAdd = -1;
+        let id = position.last.id;
+        for (let i = id + 1; i <= id + row * 7; i++) {
+            content.append(createDay(monDay.add(i, "day")));
+        }
+        position.last.id = id + row * 7;
+        canAdd = 1;
+    }
+
+    function fillContentDay(oneDay) {
+        //往前推
+        position.first = {id: -7 * 12}
+        for (let i = 7 * 12; i > 0; i--) {
+            content.append(createDay(oneDay.subtract(i, "day")));
+        }
+        //本月 - 42天
+        for (let i = 0; i < 6; i++) {
+            for (let j = 0; j < 7; j++) {
+                content.append(createDay(oneDay.add(i * 7 + j, "day")));
+            }
+        }
+        //往后推
+        position.last = {id: 7 * 18 - 1}
+        for (let i = 7 * 6; i < 7 * 18; i++) {
+            content.append(createDay(oneDay.add(i, "day")));
+        }
+
+        switchMonth();
+    }
+
+    fillContentDay(monDay);
+
+    function createDay(day) {
+        let attributes = {
+            "id": "id" + day.diff(monDay, 'day'),
+            "data-year": day.year(),
+            "data-month": day.month() + 1,
+            "data-date": day.date(),
+            "data-day": day.day()
+        };
+        let dayDiv = createElem("div", "day", attributes);
+        dayDiv.appendChild(createElem("div", null, null, day.format("D")));
+        let cyDate = calendar.solar2lunar(day.year(), day.month() + 1, day.date());
+        dayDiv.appendChild(createElem("div", null, null, cyDate.IDayCn));
+        return dayDiv;
+    }
+
+
+    function createElem(tagName, classList, attributes, innerText) {
+        let tag = document.createElement(tagName);
+        if (classList && Array.isArray(classList)) {
+            classList.forEach(clazz => tag.classList.add(clazz));
+        } else if (typeof classList === "string") {
+            tag.classList.add(classList);
+        }
+        if (attributes && attributes instanceof Object) {
+            for (let key in attributes) {
+                tag.setAttribute(key, attributes[key]);
+            }
+        } else if (attributes) {
+            throw new TypeError("function createElem with a no Object type param :" + attributeMap.toString());
+        }
+        if (innerText) {
+            tag.innerText = innerText;
+        }
+        return tag;
+    }
+
 
     document.addEventListener("DOMContentLoaded", () => {
         startSecondCount();
@@ -166,19 +430,14 @@
 
     }
 
-    function showMonth(ym) {
-        month.innerText = ym;
-    }
-
     function showDay() {
         let date = new Date();
         let year = date.getFullYear();
         let month = date.getMonth() + 1;
         let day = date.getDate();
         let cyDate = calendar.solar2lunar(year, month, day);
-        let ym = year + "年" + month + "月";
-        lunar.innerText = ym + day + "日 " + cyDate.IMonthCn + cyDate.IDayCn;
-        showMonth(ym);
+        let ymd = year + "年" + month + "月" + day + "日 ";
+        lunar.innerText = ymd + cyDate.IMonthCn + cyDate.IDayCn;
     }
 
     function startSecondCount() {
