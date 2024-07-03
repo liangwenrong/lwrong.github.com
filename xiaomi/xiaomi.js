@@ -77,21 +77,22 @@ class Throttle {//掐住喉咙，间隔duration放一次
     #timer = null;
     #this;
 
-    constructor(func, durationMillSecond) {
+    constructor(func, durationMillSecond, that) {
         if (!Number.isInteger(durationMillSecond)) {
             throw new TypeError("new Throttle(param) with a no number param");
         }
         this.func = func;
         this.duration = durationMillSecond;
+        this.#this = that;
     }
 
-    preRun(param) {
+    preRun(...param) {
         this.#param = param;
         if (this.#timer !== null) {
             return
         }
         this.#timer = setTimeout(() => {
-            this.func.call(this.#this, this.#param);
+            this.func.apply(this.#this, [...this.#param]);
             this.#timer = null;
         }, this.duration);
     }
