@@ -1,5 +1,13 @@
 [
   {
+    "type": "root",
+    "tag": "html",
+    "desc": "Document root element.<br>文档根元素",
+    "description": "The HTML <code>&lt;html&gt;</code> element (or HTML root element) represents the root of an HTML document. All other elements must be descendants of this element.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/html",
+    "w3c": "http://www.w3.org/TR/html5/semantics.html#the-html-element-0"
+  },
+  {
     "type": "document",
     "tag": "head",
     "desc": "First element of the HTML document. Contains document metadata.<br>HTML文档中的第一个元素。包含文档元数据",
@@ -62,573 +70,6 @@
     "description": "The HTML Script Element (<code>&lt;script&gt;</code>) is used to embed or reference an executable script within an HTML or XHTML document.",
     "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/script",
     "w3c": "http://www.w3.org/TR/html5/scripting-1.html#script"
-  },
-  {
-    "type": "embedding",
-    "tag": "img",
-    "desc": "An image.<br>图像",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img",
-    "w3c": "http://www.w3.org/TR/html5/embedded-content-1.html#the-img-element"
-  },
-  {
-    "type": "embedding",
-    "tag": "area",
-    "desc": "Hyperlink area in an image map.<br>图像映射的超链接区域",
-    "description": "The HTML <code>&lt;area&gt;</code> element defines a hot-spot region on an image, and optionally associates it with a hypertext link. This element is used only within a <code>&lt;map&gt;</code> element.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/area",
-    "w3c": "http://www.w3.org/TR/html5/the-map-element.html#the-area-element"
-  },
-  {
-    "type": "embedding",
-    "tag": "map",
-    "desc": "Image map for adding hyperlinks to parts of an image.<br>在图像的一部分区域定义图像映射用于添加超链接",
-    "description": "The HTML <code>&lt;map&gt;</code> element is used with <code>&lt;area&gt;</code> elements to define an image map (a clickable link area).",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/map",
-    "w3c": "http://www.w3.org/TR/html5/the-map-element.html#the-map-element"
-  },
-  {
-    "type": "embedding",
-    "tag": "embed",
-    "desc": "Reference to non-HTML content.<br>嵌入的非HTML内容",
-    "description": "The HTML <code>&lt;embed&gt;</code> Element represents an integration point for an external application or interactive content (in other words, a plug-in).",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/embed",
-    "w3c": "http://www.w3.org/TR/html5/the-iframe-element.html#the-embed-element"
-  },
-  {
-    "type": "embedding",
-    "tag": "object",
-    "desc": "External resource such as an image, iframe or plugin.<br>嵌入的外部资源，如图像、iframe或插件",
-    "description": "The HTML Embedded Object Element (<code>&lt;object&gt;</code>) represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/object",
-    "w3c": "http://www.w3.org/TR/html5/the-iframe-element.html#the-object-element"
-  },
-  {
-    "type": "embedding",
-    "tag": "param",
-    "desc": "Parameters for the parent object.<br>父级对象的参数",
-    "description": "The HTML <code>&lt;param&gt;</code> Element (or HTML Parameter Element) defines parameters for <code>&lt;object&gt;</code>.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/param",
-    "w3c": "http://www.w3.org/TR/html5/the-iframe-element.html#the-param-element"
-  },
-  {
-    "type": "embedding",
-    "tag": "source",
-    "desc": "Alternative sources for parent video or audio elements.<br>父级视频或音频元素的资源",
-    "description": "The HTML <code>&lt;source&gt;</code> element is used to specify multiple media resources for <code>&lt;picture&gt;</code>, <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> elements. It is an empty element. It is commonly used to serve the same media in multiple formats supported by different browsers.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/source",
-    "w3c": "http://www.w3.org/TR/html5/video.html#the-source-element"
-  },
-  {
-    "type": "embedding",
-    "tag": "iframe",
-    "desc": "Nested browser frame.<br>嵌套的框架",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/iframe",
-    "w3c": "http://www.w3.org/TR/html5/the-iframe-element.html#the-iframe-element"
-  },
-  {
-    "type": "embedding",
-    "tag": "canvas",
-    "desc": "Bitmap which is editable by client side scripts.<br>可以通过客户端脚本编辑的图形（画布）",
-    "description": "The HTML <code>&lt;canvas&gt;</code> Element can be used to draw graphics via scripting (usually JavaScript). For example, it can be used to draw graphs, make photo compositions or even perform animations. You may (and should) provide alternate content inside the <code>&lt;canvas&gt;</code> block. That content will be rendered both on older browsers that don't support canvas and in browsers with JavaScript disabled.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/canvas",
-    "w3c": "http://www.w3.org/TR/html5/the-canvas-element.html#the-canvas-element"
-  },
-  {
-    "type": "embedding",
-    "tag": "track",
-    "desc": "Specifies external timing track for media elements.<br>媒体类元素的外部轨道",
-    "description": "The HTML <code>&lt;track&gt;</code> element is used as a child of the media elements—<code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code>. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in WebVTT format (.vtt files) — Web Video Text Tracks.",
-    "mdn": "http://www.w3.org/TR/html5/the-iframe-element.html#the-track-element"
-  },
-  {
-    "type": "embedding",
-    "tag": "audio",
-    "desc": "Audio file.<br>音频文件",
-    "description": "The HTML <code>&lt;audio&gt;</code> element is used to embed sound content in documents. It may contain several audio sources, represented using the src attribute or the <code>&lt;source&gt;</code> element; the browser will choose the most suitable one.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/audio",
-    "w3c": "http://www.w3.org/TR/html5/the-iframe-element.html#the-audio-element"
-  },
-  {
-    "type": "embedding",
-    "tag": "video",
-    "desc": "Video.<br>视频",
-    "description": "Use the  HTML <code>&lt;video&gt;</code> element to embed video content in a document. The video element contains one or more video sources. To specify a video source, use either the src attribute or the <code>&lt;source&gt;</code> element; the browser will choose the most suitable one.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video",
-    "w3c": "http://www.w3.org/TR/html5/the-iframe-element.html#the-video-element"
-  },
-  {
-    "type": "form",
-    "tag": "fieldset",
-    "desc": "Set of form controls grouped by theme.<br>按用途组合的一组表单控制元素",
-    "description": "The HTML <code>&lt;fieldset&gt;</code> element is used to group several controls as well as labels (<code>&lt;label&gt;</code>) within a web form.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/fieldset",
-    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-fieldset-element-0"
-  },
-  {
-    "type": "form",
-    "tag": "form",
-    "desc": "Form.<br>表单",
-    "description": "The HTML <code>&lt;form&gt;</code> element represents a document section that contains interactive controls to submit information to a web server.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/form",
-    "w3c": "http://www.w3.org/TR/html5/forms.html#the-form-element"
-  },
-  {
-    "type": "form",
-    "tag": "meter",
-    "desc": "Control for entering a numeric value in a known range.<br>控制在已知范围内输入度量值",
-    "description": "The HTML <code>&lt;meter&gt;</code> Element represents either a scalar value within a known range or a fractional value.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meter",
-    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-meter-element-0"
-  },
-  {
-    "type": "form",
-    "tag": "select",
-    "desc": "Control for selecting from multiple options.<br>有多选值的下拉列表",
-    "description": "The HTML select (<code>&lt;select&gt;</code>) element represents a control that presents a menu of options. The options within the menu are represented by <code>&lt;option&gt;</code> elements, which can be grouped by <code>&lt;optgroup&gt;</code> elements. Options can be pre-selected for the user.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/select",
-    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-select-element-0"
-  },
-  {
-    "type": "form",
-    "tag": "legend",
-    "desc": "Define a name for a fieldset.<br>图例或表的说明",
-    "description": "The HTML <code>&lt;legend&gt;</code> Element (or HTML Legend Field Element) represents a caption for the content of its parent <code>&lt;fieldset&gt;</code>.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/legend",
-    "w3c": "http://www.w3.org/TR/html5/forms.html#the-legend-element"
-  },
-  {
-    "type": "form",
-    "tag": "optgroup",
-    "desc": "Group of option.<br>选项组",
-    "description": "In a Web form, the HTML <code>&lt;optgroup&gt;</code> element  creates a grouping of options within a <code>&lt;select&gt;</code> element.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/optgroup",
-    "w3c": "http://www.w3.org/TR/html5/the-button-element.html#the-optgroup-element"
-  },
-  {
-    "type": "form",
-    "tag": "label",
-    "desc": "Caption for a form control.<br>表单控件的标题（标签）",
-    "description": "The HTML Label Element (<code>&lt;label&gt;</code>) represents a caption for an item in a user interface. It can be associated with a control either by placing the control element inside the <code>&lt;label&gt;</code> element, or by using the for attribute. Such a control is called the labeled control of the label element. With one input can be assosiated few labels.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label",
-    "w3c": "http://www.w3.org/TR/html5/forms.html#the-label-element"
-  },
-  {
-    "type": "form",
-    "tag": "option",
-    "desc": "Single option within a select control.<br>下拉列表中的单一选项",
-    "description": "In a Web form, the HTML <code>&lt;option&gt;</code> element is used to create a control representing an item within a <code>&lt;select&gt;</code>, an <code>&lt;optgroup&gt;</code> or a <code>&lt;datalist&gt;</code> HTML5 element.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/option",
-    "w3c": "http://www.w3.org/TR/html5/the-button-element.html#the-option-element"
-  },
-  {
-    "type": "form",
-    "tag": "datalist",
-    "desc": "Define sets of options.<br>定义选项列表",
-    "description": "The HTML Datalist Element (<code>&lt;datalist&gt;</code>) contains a set of <code>&lt;option&gt;</code> elements that represent the values available for other controls.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/datalist",
-    "w3c": "http://www.w3.org/TR/html5/the-button-element.html#the-datalist-element"
-  },
-  {
-    "type": "form",
-    "tag": "input",
-    "desc": "Generic form input.<br>表单中的输入字段",
-    "description": "The HTML element <code>&lt;input&gt;</code> is used to create interactive controls for web-based forms in order to accept data from the user. How an <code>&lt;input&gt;</code> works varies considerably depending on the value of its type attribute.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input",
-    "w3c": "http://www.w3.org/TR/html5/the-input-element.html#the-input-element"
-  },
-  {
-    "type": "form",
-    "tag": "output",
-    "desc": "Contains the results of a calculation.<br>输出的结果",
-    "description": "The HTML <code>&lt;output&gt;</code> element represents the result of a calculation or user action.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/output",
-    "w3c": "http://www.w3.org/TR/html5/the-button-element.html#the-output-element"
-  },
-  {
-    "type": "form",
-    "tag": "keygen",
-    "desc": "Generates private-public key pairs.<br>生成密钥对",
-    "description": "The HTML <code>&lt;keygen&gt;</code> element exists to facilitate generation of key material, and submission of the public key as part of an HTML form. This mechanism is designed for use with Web-based certificate management systems. It is expected that the <code>&lt;keygen&gt;</code> element will be used in an HTML form along with other information needed to construct a certificate request, and that the result of the process will be a signed certificate.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/keygen",
-    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-keygen-element-0"
-  },
-  {
-    "type": "form",
-    "tag": "textarea",
-    "desc": "Multiline free-form text input.<br>多行的文本输入区域",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea",
-    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-textarea-element-0"
-  },
-  {
-    "type": "form",
-    "tag": "button",
-    "desc": "A button.<br>按钮",
-    "description": "The HTML <code>&lt;button&gt;</code> Element represents a clickable button.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button",
-    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-button-element-0"
-  },
-  {
-    "type": "form",
-    "tag": "progress",
-    "desc": "Control for displaying progress of a task.<br>运行中的进度控制",
-    "description": "The HTML <code>&lt;progress&gt;</code> Element is used to view the completion progress of a task. While the specifics of how it's displayed is left up to the browser developer, it's typically displayed as a progress bar. Javascript can be used to manipulate the value of progress bar.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/progress",
-    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-progress-element-0"
-  },
-  {
-    "type": "grouping",
-    "tag": "div",
-    "desc": "Container with no semantic meaning.<br>无语义的容器",
-    "description": "The HTML <code>&lt;div&gt;</code> element (or HTML Document Division Element) is the generic container for flow content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the class or id attributes), or because they share attribute values, such as lang. It should be used only when no other semantic element (such as <code>&lt;article&gt;</code> or <code>&lt;nav&gt;</code>) is appropriate.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/div",
-    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-div-element"
-  },
-  {
-    "type": "grouping",
-    "tag": "pre",
-    "desc": "Text that is preformatted in the HTML code.<br>在HTML代码中预先格式化的文本",
-    "description": "The HTML <code>&lt;pre&gt;</code> element (or HTML Preformatted Text) represents preformatted text. Text within this element is typically displayed in a non-proportional font exactly as it is laid out in the file. Whitespaces inside this element are displayed as typed.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/pre",
-    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-pre-element"
-  },
-  {
-    "type": "grouping",
-    "tag": "br",
-    "desc": "Line break.<br>换行符",
-    "description": "The HTML element line break <code>&lt;br&gt;</code> produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/br",
-    "w3c": "http://www.w3.org/TR/html5/text-level-semantics.html#the-br-element"
-  },
-  {
-    "type": "grouping",
-    "tag": "p",
-    "desc": "Paragraph content.<br>段落内容",
-    "description": "The HTML <code>&lt;p&gt;</code> element (or HTML Paragraph Element) represents a paragraph of text.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p",
-    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-p-element"
-  },
-  {
-    "type": "grouping",
-    "tag": "blockquote",
-    "desc": "Quote from another source.<br>从其它源引用的内容",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/blockquote",
-    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-blockquote-element"
-  },
-  {
-    "type": "grouping",
-    "tag": "hr",
-    "desc": "Thematic break within a paragraph.<br>水平线/内容主题的变化",
-    "description": "The HTML <code>&lt;hr&gt;</code> element represents a thematic break between paragraph-level elements (for example, a change of scene in a story, or a shift of topic with a section). In previous versions of HTML, it represented a horizontal rule. It may still be displayed as a horizontal rule in visual browsers, but is now defined in semantic terms, rather than presentational terms.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hr",
-    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-hr-element-0"
-  },
-  {
-    "type": "grouping",
-    "tag": "ol",
-    "desc": "Ordered list.<br>有序列表",
-    "description": "The HTML <code>&lt;ol&gt;</code> Element (or HTML Ordered List Element) represents an ordered list of items. Typically, ordered-list items are displayed with a preceding numbering, which can be of any form, like numerals, letters or Romans numerals or even simple bullets. This numbered style is not defined in the HTML description of the page, but in its associated CSS, using the list-style-type property.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/ol",
-    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-ol-element"
-  },
-  {
-    "type": "grouping",
-    "tag": "dl",
-    "desc": "List of term-description pairs.<br>带定义的列表",
-    "description": "The HTML <code>&lt;dl&gt;</code> element (or HTML Description List Element) encloses a list of pairs of terms and descriptions. Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dl",
-    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-dl-element"
-  },
-  {
-    "type": "grouping",
-    "tag": "figcaption",
-    "desc": "Caption for a figure.<br>图片的标题，图题",
-    "description": "The HTML <code>&lt;figcaption&gt;</code> element represents a caption or a legend associated with a figure or an illustration described by the rest of the data of the <code>&lt;figure&gt;</code> element which is its immediate ancestor which means <code>&lt;figcaption&gt;</code> can be the first or last element inside a <code>&lt;figure&gt;</code> block. Also, the HTML Figcaption Element is optional; if not provided, then the parent figure element will have no caption.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/figcaption",
-    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-figcaption-element"
-  },
-  {
-    "type": "grouping",
-    "tag": "ul",
-    "desc": "Unordered list.<br>无序列表",
-    "description": "The HTML <code>&lt;ul&gt;</code> element (or HTML Unordered List Element) represents an unordered list of items, namely a collection of items that do not have a numerical ordering, and their order in the list is meaningless. Typically, unordered-list items are displayed with a bullet, which can be of several forms, like a dot, a circle or a squared. The bullet style is not defined in the HTML description of the page, but in its associated CSS, using the list-style-type property.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/ul",
-    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-ul-element"
-  },
-  {
-    "type": "grouping",
-    "tag": "dt",
-    "desc": "Term which will be described.<br>带定义的列表中的项目",
-    "description": "The HTML <code>&lt;dt&gt;</code> element (or HTML Definition Term Element) identifies a term in a definition list. This element can occur only as a child element of a <code>&lt;dl&gt;</code>. It is usually followed by a <code>&lt;dd&gt;</code> element; however, multiple <code>&lt;dt&gt;</code> elements in a row indicate several terms that are all defined by the immediate next <code>&lt;dd&gt;</code> element.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dt",
-    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-dt-element"
-  },
-  {
-    "type": "grouping",
-    "tag": "figure",
-    "desc": "Contains elements related to single concept, such as an illustration or code example.<br>独立的内容，如图像、代码等",
-    "description": "The HTML <code>&lt;figure&gt;</code> element represents self-contained content, frequently with a caption (<code>&lt;figcaption&gt;</code>), and is typically referenced as a single unit. While it is related to the main flow, its position is independent of the main flow. Usually this is an image, an illustration, a diagram, a code snippet, or a schema that is referenced in the main text, but that can be moved to another page or to an appendix without affecting the main flow.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/figure",
-    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-figure-element"
-  },
-  {
-    "type": "grouping",
-    "tag": "li",
-    "desc": "List item.<br>列表项目",
-    "description": "The HTML <code>&lt;li&gt;</code> element (or HTML List Item Element) is used to represent an item in a list. It must be contained in a parent element: an ordered list (<code>&lt;ol&gt;</code>), an unordered list (<code>&lt;ul&gt;</code>), or a menu (<code>&lt;menu&gt;</code>). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/li",
-    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-li-element"
-  },
-  {
-    "type": "grouping",
-    "tag": "dd",
-    "desc": "Description for the preceding term.<br>带定义列表中对项目的描述",
-    "description": "The HTML <code>&lt;dd&gt;</code> element (HTML Description Element) indicates the description of a term in a description list (<code>&lt;dl&gt;</code>) element. This element can occur only as a child element of a definition list and it must follow a <code>&lt;dt&gt;</code> element.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dd",
-    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-dd-element"
-  },
-  {
-    "type": "interactive",
-    "tag": "menu",
-    "desc": "Set of commands.<br>菜单列表",
-    "description": "The HTML <code>&lt;menu&gt;</code> element represents a group of commands that a user can perform or activate. This includes both list menus, which might appear across the top of a screen, as well as context menus, such as those that might appear underneath a button after it has been clicked.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/menu",
-    "w3c": "http://www.w3.org/TR/html5/interactive-elements.html#menus"
-  },
-  {
-    "type": "interactive",
-    "tag": "command",
-    "desc": "Command the user can perform, such as publishing an article.<br>用户可以执行的命令，如发表一篇文章",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/command",
-    "w3c": "http://www.w3.org/TR/html5/interactive-elements.html#the-command"
-  },
-  {
-    "type": "interactive",
-    "tag": "summary",
-    "desc": "Caption of a details element.<br>dedails元素的标题",
-    "description": "The HTML summary element (<code>&lt;summary&gt;</code>) is used as a summary, caption, or legend for the content of a <code>&lt;details&gt;</code> element.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/summary",
-    "w3c": "http://www.w3.org/TR/html5/interactive-elements.html#the-summary-element"
-  },
-  {
-    "type": "interactive",
-    "tag": "details",
-    "desc": "Contains additional information, such as the contents of an accordian view.<br>附加的详细信息",
-    "description": "The HTML Details Element (<code>&lt;details&gt;</code>) is used as a disclosure widget from which the user can retrieve additional information.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/details",
-    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-details-element-0"
-  },
-  {
-    "type": "root",
-    "tag": "html",
-    "desc": "Document root element.<br>文档根元素",
-    "description": "The HTML <code>&lt;html&gt;</code> element (or HTML root element) represents the root of an HTML document. All other elements must be descendants of this element.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/html",
-    "w3c": "http://www.w3.org/TR/html5/semantics.html#the-html-element-0"
-  },
-  {
-    "type": "sections",
-    "tag": "body",
-    "desc": "Document content.<br>文档的主体",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/body",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-body-element-0"
-  },
-  {
-    "type": "sections",
-    "tag": "h1",
-    "desc": "Heading for the current section.<br>当前章节的标题",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
-  },
-  {
-    "type": "sections",
-    "tag": "section",
-    "desc": "Contains elements grouped by theme, for example a chapter or tab box.<br>包含同主题一组元素的容器，例如文档的章节",
-    "description": "The HTML <code>&lt;section&gt;</code> element represents a generic section of a document, i.e., a thematic grouping of content, typically with a heading. Each <code>&lt;section&gt;</code> should be identified, typically by including a heading (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> element) as a child of the <code>&lt;section&gt;</code> element.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/section",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-section-element"
-  },
-  {
-    "type": "sections",
-    "tag": "aside",
-    "desc": "Content related to surrounding elements that doesn't belong inline, such as a advertising or quotes.<br>与周围元素相关的内容，但分开显示",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/aside",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-aside-element"
-  },
-  {
-    "type": "sections",
-    "tag": "h2",
-    "desc": "Heading for the current section.<br>当前章节的标题",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
-  },
-  {
-    "type": "sections",
-    "tag": "header",
-    "desc": "Navigation or introductory elements for the current section.<br>当前章节的导航或引导性元素",
-    "description": "The HTML <code>&lt;header&gt;</code> element represents a group of introductory or navigational aids. It may contain some heading elements but also other elements like a logo, wrapped section's header, a search form, and so on.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/header",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-header-element"
-  },
-  {
-    "type": "sections",
-    "tag": "address",
-    "desc": "Contact information for the current article.<br>当前文章的联系信息",
-    "description": "The HTML <code>&lt;address&gt;</code> element supplies contact information for its nearest <code>&lt;article&gt;</code> or <code>&lt;body&gt;</code> ancestor; in the latter case, it applies to the whole document.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/address",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-address-element"
-  },
-  {
-    "type": "sections",
-    "tag": "h3",
-    "desc": "Heading for the current section.<br>当前章节的标题",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
-  },
-  {
-    "type": "sections",
-    "tag": "nav",
-    "desc": "Contains a collection of links.<br>导航链接的容器",
-    "description": "The HTML <code>&lt;nav&gt;</code> element (HTML Navigation Element) represents a section of a page that links to other pages or to parts within the page: a section with navigation links.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/nav",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-nav-element"
-  },
-  {
-    "type": "sections",
-    "tag": "h4",
-    "desc": "Heading for the current section.<br>当前章节的标题",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
-  },
-  {
-    "type": "sections",
-    "tag": "article",
-    "desc": "Section of the page content, such as a blog or forum post.页面内容的独立部分，如博客文章、论坛帖子",
-    "description": "The HTML <code>&lt;article&gt;</code> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). This could be a forum post, a magazine or newspaper article, a blog entry, an object, or any other independent item of content. Each <code>&lt;article&gt;</code> should be identified, typically by including a heading (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> element) as a child of the <code>&lt;article&gt;</code> element.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/article",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-article-element"
-  },
-  {
-    "type": "sections",
-    "tag": "h5",
-    "desc": "Heading for the current section.<br>当前章节的标题",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
-  },
-  {
-    "type": "sections",
-    "tag": "footer",
-    "desc": "Footer of the current section.<br>当前章节的页脚",
-    "description": "The HTML <code>&lt;footer&gt;</code> element represents a footer for its nearest sectioning content or sectioning root element. A footer typically contains information about the author of the section, copyright data or links to related documents.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/footer",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-footer-element"
-  },
-  {
-    "type": "sections",
-    "tag": "h6",
-    "desc": "Heading for the current section.<br>当前章节的标题",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
-  },
-  {
-    "type": "sections",
-    "tag": "hgroup",
-    "desc": "Collection of headings for the current section. The highest ranked heading represents the group in the document outline.<br>当前章节各标题的组合",
-    "description": "The HTML <code>&lt;hgroup&gt;</code> Element (HTML Headings Group Element) represents the heading of a section. It defines a single title that participates in the outline of the document as the heading of the implicit or explicit section that it belongs to.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hgroup",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-hgroup-element"
-  },
-  {
-    "type": "table",
-    "tag": "col",
-    "desc": "Columns in a table.<br>表格中的列",
-    "description": "The HTML Table Column Element (<code>&lt;col&gt;</code>) defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <code>&lt;colgroup&gt;</code> element.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/col",
-    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-col-element"
-  },
-  {
-    "type": "table",
-    "tag": "table",
-    "desc": "Table of multi-dimensional data.<br>表格",
-    "description": "The HTML Table Element (<code>&lt;table&gt;</code>) represents data in two dimensions or more.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/table",
-    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-table-element"
-  },
-  {
-    "type": "table",
-    "tag": "colgroup",
-    "desc": "Defines a group of columns in a table.<br>对表格中的若干列进行组合",
-    "description": "The HTML Table Column Group Element (<code>&lt;colgroup&gt;</code>) defines a group of columns within a table.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/colgroup",
-    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-colgroup-element"
-  },
-  {
-    "type": "table",
-    "tag": "tr",
-    "desc": "A row of cells.<br>表格中的一行单元",
-    "description": "The HTML element table row <code>&lt;tr&gt;</code> defines a row of cells in a table. Those can be a mix of <code>&lt;td&gt;</code> and <code>&lt;th&gt;</code> elements.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/tr",
-    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-tr-element"
-  },
-  {
-    "type": "table",
-    "tag": "caption",
-    "desc": "Title of a table.<br>表格的标题",
-    "description": "The HTML <code>&lt;caption&gt;</code> Element (or HTML Table Caption Element) represents the title of a table. Though it is always the first descendant of a <code>&lt;table&gt;</code>, its styling, using CSS, may place it elsewhere, relative to the table.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/caption",
-    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-caption-element"
-  },
-  {
-    "type": "table",
-    "tag": "td",
-    "desc": "Table cell.<br>表格单元格",
-    "description": "The Table cell HTML element (<code>&lt;td&gt;</code>) defines a cell of a table that contains data. It participates in the table model.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/td",
-    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-td-element"
-  },
-  {
-    "type": "table",
-    "tag": "th",
-    "desc": "Table heading.<br>表头",
-    "description": "The HTML element table header cell <code>&lt;th&gt;</code> defines a cell that is a header for a group of cells of a table. The group of cells that the header refers to is defined by the scope and headers attribute.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/th",
-    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-th-element"
-  },
-  {
-    "type": "table",
-    "tag": "tbody",
-    "desc": "Contains rows that hold the table's data.<br>表格主体",
-    "description": "The HTML Table Body Element (<code>&lt;tbody&gt;</code>) defines one or more <code>&lt;tr&gt;</code> element data-rows to be the body of its parent <code>&lt;table&gt;</code> element (as long as no <code>&lt;tr&gt;</code> elements are immediate children of that table element.)  In conjunction with a preceding <code>&lt;thead&gt;</code> and/or <code>&lt;tfoot&gt;</code> element, <code>&lt;tbody&gt;</code> provides additional semantic information for devices such as printers and displays. Of the parent table's child elements, <code>&lt;tbody&gt;</code> represents the content which, when longer than a page, will most likely differ for each page printed; while the content of <code>&lt;thead&gt;</code> and <code>&lt;tfoot&gt;</code> will be the same or similar for each page printed. For displays, <code>&lt;tbody&gt;</code> will enable separate scrolling of the <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code>, and <code>&lt;caption&gt;</code> elements of the same parent <code>&lt;table&gt;</code> element.  Note that unlike the <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code>, and <code>&lt;caption&gt;</code> elements however, multiple <code>&lt;tbody&gt;</code> elements are permitted (if consecutive), allowing the data-rows in long tables to be divided into different sections, each separately formatted as needed.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/tbody",
-    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-tbody-element"
-  },
-  {
-    "type": "table",
-    "tag": "thead",
-    "desc": "Contains rows with table headings.<br>表格中的表头行",
-    "description": "The HTML Table Head Element (<code>&lt;thead&gt;</code>) defines a set of rows defining the head of the columns of the table.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/thead",
-    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-thead-element"
-  },
-  {
-    "type": "table",
-    "tag": "tfoot",
-    "desc": "Contains rows with summary of data.<br>表格的页脚/脚注行",
-    "description": "The HTML Table Foot Element (<code>&lt;tfoot&gt;</code>) defines a set of rows summarizing the columns of the table.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/tfoot",
-    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-tfoot-element"
   },
   {
     "type": "text",
@@ -851,5 +292,564 @@
     "description": "The HTML Code Element <code>&lt;code&gt;</code> represents a fragment of computer code. By default, it is displayed in the browser's default monospace font.",
     "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/phrase_elements",
     "w3c": "http://www.w3.org/TR/html5/text-level-semantics.html#the-code-element"
+  },
+  {
+    "type": "grouping",
+    "tag": "div",
+    "desc": "Container with no semantic meaning.<br>无语义的容器",
+    "description": "The HTML <code>&lt;div&gt;</code> element (or HTML Document Division Element) is the generic container for flow content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the class or id attributes), or because they share attribute values, such as lang. It should be used only when no other semantic element (such as <code>&lt;article&gt;</code> or <code>&lt;nav&gt;</code>) is appropriate.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/div",
+    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-div-element"
+  },
+  {
+    "type": "grouping",
+    "tag": "pre",
+    "desc": "Text that is preformatted in the HTML code.<br>在HTML代码中预先格式化的文本",
+    "description": "The HTML <code>&lt;pre&gt;</code> element (or HTML Preformatted Text) represents preformatted text. Text within this element is typically displayed in a non-proportional font exactly as it is laid out in the file. Whitespaces inside this element are displayed as typed.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/pre",
+    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-pre-element"
+  },
+  {
+    "type": "grouping",
+    "tag": "br",
+    "desc": "Line break.<br>换行符",
+    "description": "The HTML element line break <code>&lt;br&gt;</code> produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/br",
+    "w3c": "http://www.w3.org/TR/html5/text-level-semantics.html#the-br-element"
+  },
+  {
+    "type": "grouping",
+    "tag": "p",
+    "desc": "Paragraph content.<br>段落内容",
+    "description": "The HTML <code>&lt;p&gt;</code> element (or HTML Paragraph Element) represents a paragraph of text.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p",
+    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-p-element"
+  },
+  {
+    "type": "grouping",
+    "tag": "blockquote",
+    "desc": "Quote from another source.<br>从其它源引用的内容",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/blockquote",
+    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-blockquote-element"
+  },
+  {
+    "type": "grouping",
+    "tag": "hr",
+    "desc": "Thematic break within a paragraph.<br>水平线/内容主题的变化",
+    "description": "The HTML <code>&lt;hr&gt;</code> element represents a thematic break between paragraph-level elements (for example, a change of scene in a story, or a shift of topic with a section). In previous versions of HTML, it represented a horizontal rule. It may still be displayed as a horizontal rule in visual browsers, but is now defined in semantic terms, rather than presentational terms.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hr",
+    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-hr-element-0"
+  },
+  {
+    "type": "grouping",
+    "tag": "ol",
+    "desc": "Ordered list.<br>有序列表",
+    "description": "The HTML <code>&lt;ol&gt;</code> Element (or HTML Ordered List Element) represents an ordered list of items. Typically, ordered-list items are displayed with a preceding numbering, which can be of any form, like numerals, letters or Romans numerals or even simple bullets. This numbered style is not defined in the HTML description of the page, but in its associated CSS, using the list-style-type property.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/ol",
+    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-ol-element"
+  },
+  {
+    "type": "grouping",
+    "tag": "dl",
+    "desc": "List of term-description pairs.<br>带定义的列表",
+    "description": "The HTML <code>&lt;dl&gt;</code> element (or HTML Description List Element) encloses a list of pairs of terms and descriptions. Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dl",
+    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-dl-element"
+  },
+  {
+    "type": "grouping",
+    "tag": "figcaption",
+    "desc": "Caption for a figure.<br>图片的标题，图题",
+    "description": "The HTML <code>&lt;figcaption&gt;</code> element represents a caption or a legend associated with a figure or an illustration described by the rest of the data of the <code>&lt;figure&gt;</code> element which is its immediate ancestor which means <code>&lt;figcaption&gt;</code> can be the first or last element inside a <code>&lt;figure&gt;</code> block. Also, the HTML Figcaption Element is optional; if not provided, then the parent figure element will have no caption.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/figcaption",
+    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-figcaption-element"
+  },
+  {
+    "type": "grouping",
+    "tag": "ul",
+    "desc": "Unordered list.<br>无序列表",
+    "description": "The HTML <code>&lt;ul&gt;</code> element (or HTML Unordered List Element) represents an unordered list of items, namely a collection of items that do not have a numerical ordering, and their order in the list is meaningless. Typically, unordered-list items are displayed with a bullet, which can be of several forms, like a dot, a circle or a squared. The bullet style is not defined in the HTML description of the page, but in its associated CSS, using the list-style-type property.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/ul",
+    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-ul-element"
+  },
+  {
+    "type": "grouping",
+    "tag": "dt",
+    "desc": "Term which will be described.<br>带定义的列表中的项目",
+    "description": "The HTML <code>&lt;dt&gt;</code> element (or HTML Definition Term Element) identifies a term in a definition list. This element can occur only as a child element of a <code>&lt;dl&gt;</code>. It is usually followed by a <code>&lt;dd&gt;</code> element; however, multiple <code>&lt;dt&gt;</code> elements in a row indicate several terms that are all defined by the immediate next <code>&lt;dd&gt;</code> element.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dt",
+    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-dt-element"
+  },
+  {
+    "type": "grouping",
+    "tag": "figure",
+    "desc": "Contains elements related to single concept, such as an illustration or code example.<br>独立的内容，如图像、代码等",
+    "description": "The HTML <code>&lt;figure&gt;</code> element represents self-contained content, frequently with a caption (<code>&lt;figcaption&gt;</code>), and is typically referenced as a single unit. While it is related to the main flow, its position is independent of the main flow. Usually this is an image, an illustration, a diagram, a code snippet, or a schema that is referenced in the main text, but that can be moved to another page or to an appendix without affecting the main flow.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/figure",
+    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-figure-element"
+  },
+  {
+    "type": "grouping",
+    "tag": "li",
+    "desc": "List item.<br>列表项目",
+    "description": "The HTML <code>&lt;li&gt;</code> element (or HTML List Item Element) is used to represent an item in a list. It must be contained in a parent element: an ordered list (<code>&lt;ol&gt;</code>), an unordered list (<code>&lt;ul&gt;</code>), or a menu (<code>&lt;menu&gt;</code>). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/li",
+    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-li-element"
+  },
+  {
+    "type": "grouping",
+    "tag": "dd",
+    "desc": "Description for the preceding term.<br>带定义列表中对项目的描述",
+    "description": "The HTML <code>&lt;dd&gt;</code> element (HTML Description Element) indicates the description of a term in a description list (<code>&lt;dl&gt;</code>) element. This element can occur only as a child element of a definition list and it must follow a <code>&lt;dt&gt;</code> element.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dd",
+    "w3c": "http://www.w3.org/TR/html5/grouping-content.html#the-dd-element"
+  },
+  {
+    "type": "form",
+    "tag": "fieldset",
+    "desc": "Set of form controls grouped by theme.<br>按用途组合的一组表单控制元素",
+    "description": "The HTML <code>&lt;fieldset&gt;</code> element is used to group several controls as well as labels (<code>&lt;label&gt;</code>) within a web form.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/fieldset",
+    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-fieldset-element-0"
+  },
+  {
+    "type": "form",
+    "tag": "form",
+    "desc": "Form.<br>表单",
+    "description": "The HTML <code>&lt;form&gt;</code> element represents a document section that contains interactive controls to submit information to a web server.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/form",
+    "w3c": "http://www.w3.org/TR/html5/forms.html#the-form-element"
+  },
+  {
+    "type": "form",
+    "tag": "meter",
+    "desc": "Control for entering a numeric value in a known range.<br>控制在已知范围内输入度量值",
+    "description": "The HTML <code>&lt;meter&gt;</code> Element represents either a scalar value within a known range or a fractional value.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meter",
+    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-meter-element-0"
+  },
+  {
+    "type": "form",
+    "tag": "select",
+    "desc": "Control for selecting from multiple options.<br>有多选值的下拉列表",
+    "description": "The HTML select (<code>&lt;select&gt;</code>) element represents a control that presents a menu of options. The options within the menu are represented by <code>&lt;option&gt;</code> elements, which can be grouped by <code>&lt;optgroup&gt;</code> elements. Options can be pre-selected for the user.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/select",
+    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-select-element-0"
+  },
+  {
+    "type": "form",
+    "tag": "legend",
+    "desc": "Define a name for a fieldset.<br>图例或表的说明",
+    "description": "The HTML <code>&lt;legend&gt;</code> Element (or HTML Legend Field Element) represents a caption for the content of its parent <code>&lt;fieldset&gt;</code>.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/legend",
+    "w3c": "http://www.w3.org/TR/html5/forms.html#the-legend-element"
+  },
+  {
+    "type": "form",
+    "tag": "optgroup",
+    "desc": "Group of option.<br>选项组",
+    "description": "In a Web form, the HTML <code>&lt;optgroup&gt;</code> element  creates a grouping of options within a <code>&lt;select&gt;</code> element.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/optgroup",
+    "w3c": "http://www.w3.org/TR/html5/the-button-element.html#the-optgroup-element"
+  },
+  {
+    "type": "form",
+    "tag": "label",
+    "desc": "Caption for a form control.<br>表单控件的标题（标签）",
+    "description": "The HTML Label Element (<code>&lt;label&gt;</code>) represents a caption for an item in a user interface. It can be associated with a control either by placing the control element inside the <code>&lt;label&gt;</code> element, or by using the for attribute. Such a control is called the labeled control of the label element. With one input can be assosiated few labels.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label",
+    "w3c": "http://www.w3.org/TR/html5/forms.html#the-label-element"
+  },
+  {
+    "type": "form",
+    "tag": "option",
+    "desc": "Single option within a select control.<br>下拉列表中的单一选项",
+    "description": "In a Web form, the HTML <code>&lt;option&gt;</code> element is used to create a control representing an item within a <code>&lt;select&gt;</code>, an <code>&lt;optgroup&gt;</code> or a <code>&lt;datalist&gt;</code> HTML5 element.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/option",
+    "w3c": "http://www.w3.org/TR/html5/the-button-element.html#the-option-element"
+  },
+  {
+    "type": "form",
+    "tag": "datalist",
+    "desc": "Define sets of options.<br>定义选项列表",
+    "description": "The HTML Datalist Element (<code>&lt;datalist&gt;</code>) contains a set of <code>&lt;option&gt;</code> elements that represent the values available for other controls.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/datalist",
+    "w3c": "http://www.w3.org/TR/html5/the-button-element.html#the-datalist-element"
+  },
+  {
+    "type": "form",
+    "tag": "input",
+    "desc": "Generic form input.<br>表单中的输入字段",
+    "description": "The HTML element <code>&lt;input&gt;</code> is used to create interactive controls for web-based forms in order to accept data from the user. How an <code>&lt;input&gt;</code> works varies considerably depending on the value of its type attribute.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input",
+    "w3c": "http://www.w3.org/TR/html5/the-input-element.html#the-input-element"
+  },
+  {
+    "type": "form",
+    "tag": "output",
+    "desc": "Contains the results of a calculation.<br>输出的结果",
+    "description": "The HTML <code>&lt;output&gt;</code> element represents the result of a calculation or user action.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/output",
+    "w3c": "http://www.w3.org/TR/html5/the-button-element.html#the-output-element"
+  },
+  {
+    "type": "form",
+    "tag": "keygen",
+    "desc": "Generates private-public key pairs.<br>生成密钥对",
+    "description": "The HTML <code>&lt;keygen&gt;</code> element exists to facilitate generation of key material, and submission of the public key as part of an HTML form. This mechanism is designed for use with Web-based certificate management systems. It is expected that the <code>&lt;keygen&gt;</code> element will be used in an HTML form along with other information needed to construct a certificate request, and that the result of the process will be a signed certificate.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/keygen",
+    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-keygen-element-0"
+  },
+  {
+    "type": "form",
+    "tag": "textarea",
+    "desc": "Multiline free-form text input.<br>多行的文本输入区域",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea",
+    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-textarea-element-0"
+  },
+  {
+    "type": "form",
+    "tag": "button",
+    "desc": "A button.<br>按钮",
+    "description": "The HTML <code>&lt;button&gt;</code> Element represents a clickable button.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button",
+    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-button-element-0"
+  },
+  {
+    "type": "form",
+    "tag": "progress",
+    "desc": "Control for displaying progress of a task.<br>运行中的进度控制",
+    "description": "The HTML <code>&lt;progress&gt;</code> Element is used to view the completion progress of a task. While the specifics of how it's displayed is left up to the browser developer, it's typically displayed as a progress bar. Javascript can be used to manipulate the value of progress bar.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/progress",
+    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-progress-element-0"
+  },
+  {
+    "type": "sections",
+    "tag": "body",
+    "desc": "Document content.<br>文档的主体",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/body",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-body-element-0"
+  },
+  {
+    "type": "sections",
+    "tag": "h1",
+    "desc": "Heading for the current section.<br>当前章节的标题",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
+  },
+  {
+    "type": "sections",
+    "tag": "section",
+    "desc": "Contains elements grouped by theme, for example a chapter or tab box.<br>包含同主题一组元素的容器，例如文档的章节",
+    "description": "The HTML <code>&lt;section&gt;</code> element represents a generic section of a document, i.e., a thematic grouping of content, typically with a heading. Each <code>&lt;section&gt;</code> should be identified, typically by including a heading (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> element) as a child of the <code>&lt;section&gt;</code> element.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/section",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-section-element"
+  },
+  {
+    "type": "sections",
+    "tag": "aside",
+    "desc": "Content related to surrounding elements that doesn't belong inline, such as a advertising or quotes.<br>与周围元素相关的内容，但分开显示",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/aside",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-aside-element"
+  },
+  {
+    "type": "sections",
+    "tag": "h2",
+    "desc": "Heading for the current section.<br>当前章节的标题",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
+  },
+  {
+    "type": "sections",
+    "tag": "header",
+    "desc": "Navigation or introductory elements for the current section.<br>当前章节的导航或引导性元素",
+    "description": "The HTML <code>&lt;header&gt;</code> element represents a group of introductory or navigational aids. It may contain some heading elements but also other elements like a logo, wrapped section's header, a search form, and so on.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/header",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-header-element"
+  },
+  {
+    "type": "sections",
+    "tag": "address",
+    "desc": "Contact information for the current article.<br>当前文章的联系信息",
+    "description": "The HTML <code>&lt;address&gt;</code> element supplies contact information for its nearest <code>&lt;article&gt;</code> or <code>&lt;body&gt;</code> ancestor; in the latter case, it applies to the whole document.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/address",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-address-element"
+  },
+  {
+    "type": "sections",
+    "tag": "h3",
+    "desc": "Heading for the current section.<br>当前章节的标题",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
+  },
+  {
+    "type": "sections",
+    "tag": "nav",
+    "desc": "Contains a collection of links.<br>导航链接的容器",
+    "description": "The HTML <code>&lt;nav&gt;</code> element (HTML Navigation Element) represents a section of a page that links to other pages or to parts within the page: a section with navigation links.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/nav",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-nav-element"
+  },
+  {
+    "type": "sections",
+    "tag": "h4",
+    "desc": "Heading for the current section.<br>当前章节的标题",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
+  },
+  {
+    "type": "sections",
+    "tag": "article",
+    "desc": "Section of the page content, such as a blog or forum post.页面内容的独立部分，如博客文章、论坛帖子",
+    "description": "The HTML <code>&lt;article&gt;</code> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). This could be a forum post, a magazine or newspaper article, a blog entry, an object, or any other independent item of content. Each <code>&lt;article&gt;</code> should be identified, typically by including a heading (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> element) as a child of the <code>&lt;article&gt;</code> element.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/article",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-article-element"
+  },
+  {
+    "type": "sections",
+    "tag": "h5",
+    "desc": "Heading for the current section.<br>当前章节的标题",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
+  },
+  {
+    "type": "sections",
+    "tag": "footer",
+    "desc": "Footer of the current section.<br>当前章节的页脚",
+    "description": "The HTML <code>&lt;footer&gt;</code> element represents a footer for its nearest sectioning content or sectioning root element. A footer typically contains information about the author of the section, copyright data or links to related documents.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/footer",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-footer-element"
+  },
+  {
+    "type": "sections",
+    "tag": "h6",
+    "desc": "Heading for the current section.<br>当前章节的标题",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
+  },
+  {
+    "type": "sections",
+    "tag": "hgroup",
+    "desc": "Collection of headings for the current section. The highest ranked heading represents the group in the document outline.<br>当前章节各标题的组合",
+    "description": "The HTML <code>&lt;hgroup&gt;</code> Element (HTML Headings Group Element) represents the heading of a section. It defines a single title that participates in the outline of the document as the heading of the implicit or explicit section that it belongs to.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hgroup",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-hgroup-element"
+  },
+  {
+    "type": "interactive",
+    "tag": "menu",
+    "desc": "Set of commands.<br>菜单列表",
+    "description": "The HTML <code>&lt;menu&gt;</code> element represents a group of commands that a user can perform or activate. This includes both list menus, which might appear across the top of a screen, as well as context menus, such as those that might appear underneath a button after it has been clicked.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/menu",
+    "w3c": "http://www.w3.org/TR/html5/interactive-elements.html#menus"
+  },
+  {
+    "type": "interactive",
+    "tag": "command",
+    "desc": "Command the user can perform, such as publishing an article.<br>用户可以执行的命令，如发表一篇文章",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/command",
+    "w3c": "http://www.w3.org/TR/html5/interactive-elements.html#the-command"
+  },
+  {
+    "type": "interactive",
+    "tag": "summary",
+    "desc": "Caption of a details element.<br>dedails元素的标题",
+    "description": "The HTML summary element (<code>&lt;summary&gt;</code>) is used as a summary, caption, or legend for the content of a <code>&lt;details&gt;</code> element.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/summary",
+    "w3c": "http://www.w3.org/TR/html5/interactive-elements.html#the-summary-element"
+  },
+  {
+    "type": "interactive",
+    "tag": "details",
+    "desc": "Contains additional information, such as the contents of an accordian view.<br>附加的详细信息",
+    "description": "The HTML Details Element (<code>&lt;details&gt;</code>) is used as a disclosure widget from which the user can retrieve additional information.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/details",
+    "w3c": "http://www.w3.org/TR/html5/rendering.html#the-details-element-0"
+  },
+  {
+    "type": "table",
+    "tag": "col",
+    "desc": "Columns in a table.<br>表格中的列",
+    "description": "The HTML Table Column Element (<code>&lt;col&gt;</code>) defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <code>&lt;colgroup&gt;</code> element.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/col",
+    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-col-element"
+  },
+  {
+    "type": "table",
+    "tag": "table",
+    "desc": "Table of multi-dimensional data.<br>表格",
+    "description": "The HTML Table Element (<code>&lt;table&gt;</code>) represents data in two dimensions or more.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/table",
+    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-table-element"
+  },
+  {
+    "type": "table",
+    "tag": "colgroup",
+    "desc": "Defines a group of columns in a table.<br>对表格中的若干列进行组合",
+    "description": "The HTML Table Column Group Element (<code>&lt;colgroup&gt;</code>) defines a group of columns within a table.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/colgroup",
+    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-colgroup-element"
+  },
+  {
+    "type": "table",
+    "tag": "tr",
+    "desc": "A row of cells.<br>表格中的一行单元",
+    "description": "The HTML element table row <code>&lt;tr&gt;</code> defines a row of cells in a table. Those can be a mix of <code>&lt;td&gt;</code> and <code>&lt;th&gt;</code> elements.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/tr",
+    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-tr-element"
+  },
+  {
+    "type": "table",
+    "tag": "caption",
+    "desc": "Title of a table.<br>表格的标题",
+    "description": "The HTML <code>&lt;caption&gt;</code> Element (or HTML Table Caption Element) represents the title of a table. Though it is always the first descendant of a <code>&lt;table&gt;</code>, its styling, using CSS, may place it elsewhere, relative to the table.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/caption",
+    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-caption-element"
+  },
+  {
+    "type": "table",
+    "tag": "td",
+    "desc": "Table cell.<br>表格单元格",
+    "description": "The Table cell HTML element (<code>&lt;td&gt;</code>) defines a cell of a table that contains data. It participates in the table model.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/td",
+    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-td-element"
+  },
+  {
+    "type": "table",
+    "tag": "th",
+    "desc": "Table heading.<br>表头",
+    "description": "The HTML element table header cell <code>&lt;th&gt;</code> defines a cell that is a header for a group of cells of a table. The group of cells that the header refers to is defined by the scope and headers attribute.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/th",
+    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-th-element"
+  },
+  {
+    "type": "table",
+    "tag": "tbody",
+    "desc": "Contains rows that hold the table's data.<br>表格主体",
+    "description": "The HTML Table Body Element (<code>&lt;tbody&gt;</code>) defines one or more <code>&lt;tr&gt;</code> element data-rows to be the body of its parent <code>&lt;table&gt;</code> element (as long as no <code>&lt;tr&gt;</code> elements are immediate children of that table element.)  In conjunction with a preceding <code>&lt;thead&gt;</code> and/or <code>&lt;tfoot&gt;</code> element, <code>&lt;tbody&gt;</code> provides additional semantic information for devices such as printers and displays. Of the parent table's child elements, <code>&lt;tbody&gt;</code> represents the content which, when longer than a page, will most likely differ for each page printed; while the content of <code>&lt;thead&gt;</code> and <code>&lt;tfoot&gt;</code> will be the same or similar for each page printed. For displays, <code>&lt;tbody&gt;</code> will enable separate scrolling of the <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code>, and <code>&lt;caption&gt;</code> elements of the same parent <code>&lt;table&gt;</code> element.  Note that unlike the <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code>, and <code>&lt;caption&gt;</code> elements however, multiple <code>&lt;tbody&gt;</code> elements are permitted (if consecutive), allowing the data-rows in long tables to be divided into different sections, each separately formatted as needed.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/tbody",
+    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-tbody-element"
+  },
+  {
+    "type": "table",
+    "tag": "thead",
+    "desc": "Contains rows with table headings.<br>表格中的表头行",
+    "description": "The HTML Table Head Element (<code>&lt;thead&gt;</code>) defines a set of rows defining the head of the columns of the table.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/thead",
+    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-thead-element"
+  },
+  {
+    "type": "table",
+    "tag": "tfoot",
+    "desc": "Contains rows with summary of data.<br>表格的页脚/脚注行",
+    "description": "The HTML Table Foot Element (<code>&lt;tfoot&gt;</code>) defines a set of rows summarizing the columns of the table.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/tfoot",
+    "w3c": "http://www.w3.org/TR/html5/tabular-data.html#the-tfoot-element"
+  },
+  {
+    "type": "embedding",
+    "tag": "img",
+    "desc": "An image.<br>图像",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img",
+    "w3c": "http://www.w3.org/TR/html5/embedded-content-1.html#the-img-element"
+  },
+  {
+    "type": "embedding",
+    "tag": "area",
+    "desc": "Hyperlink area in an image map.<br>图像映射的超链接区域",
+    "description": "The HTML <code>&lt;area&gt;</code> element defines a hot-spot region on an image, and optionally associates it with a hypertext link. This element is used only within a <code>&lt;map&gt;</code> element.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/area",
+    "w3c": "http://www.w3.org/TR/html5/the-map-element.html#the-area-element"
+  },
+  {
+    "type": "embedding",
+    "tag": "map",
+    "desc": "Image map for adding hyperlinks to parts of an image.<br>在图像的一部分区域定义图像映射用于添加超链接",
+    "description": "The HTML <code>&lt;map&gt;</code> element is used with <code>&lt;area&gt;</code> elements to define an image map (a clickable link area).",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/map",
+    "w3c": "http://www.w3.org/TR/html5/the-map-element.html#the-map-element"
+  },
+  {
+    "type": "embedding",
+    "tag": "embed",
+    "desc": "Reference to non-HTML content.<br>嵌入的非HTML内容",
+    "description": "The HTML <code>&lt;embed&gt;</code> Element represents an integration point for an external application or interactive content (in other words, a plug-in).",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/embed",
+    "w3c": "http://www.w3.org/TR/html5/the-iframe-element.html#the-embed-element"
+  },
+  {
+    "type": "embedding",
+    "tag": "object",
+    "desc": "External resource such as an image, iframe or plugin.<br>嵌入的外部资源，如图像、iframe或插件",
+    "description": "The HTML Embedded Object Element (<code>&lt;object&gt;</code>) represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/object",
+    "w3c": "http://www.w3.org/TR/html5/the-iframe-element.html#the-object-element"
+  },
+  {
+    "type": "embedding",
+    "tag": "param",
+    "desc": "Parameters for the parent object.<br>父级对象的参数",
+    "description": "The HTML <code>&lt;param&gt;</code> Element (or HTML Parameter Element) defines parameters for <code>&lt;object&gt;</code>.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/param",
+    "w3c": "http://www.w3.org/TR/html5/the-iframe-element.html#the-param-element"
+  },
+  {
+    "type": "embedding",
+    "tag": "source",
+    "desc": "Alternative sources for parent video or audio elements.<br>父级视频或音频元素的资源",
+    "description": "The HTML <code>&lt;source&gt;</code> element is used to specify multiple media resources for <code>&lt;picture&gt;</code>, <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> elements. It is an empty element. It is commonly used to serve the same media in multiple formats supported by different browsers.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/source",
+    "w3c": "http://www.w3.org/TR/html5/video.html#the-source-element"
+  },
+  {
+    "type": "embedding",
+    "tag": "iframe",
+    "desc": "Nested browser frame.<br>嵌套的框架",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/iframe",
+    "w3c": "http://www.w3.org/TR/html5/the-iframe-element.html#the-iframe-element"
+  },
+  {
+    "type": "embedding",
+    "tag": "canvas",
+    "desc": "Bitmap which is editable by client side scripts.<br>可以通过客户端脚本编辑的图形（画布）",
+    "description": "The HTML <code>&lt;canvas&gt;</code> Element can be used to draw graphics via scripting (usually JavaScript). For example, it can be used to draw graphs, make photo compositions or even perform animations. You may (and should) provide alternate content inside the <code>&lt;canvas&gt;</code> block. That content will be rendered both on older browsers that don't support canvas and in browsers with JavaScript disabled.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/canvas",
+    "w3c": "http://www.w3.org/TR/html5/the-canvas-element.html#the-canvas-element"
+  },
+  {
+    "type": "embedding",
+    "tag": "track",
+    "desc": "Specifies external timing track for media elements.<br>媒体类元素的外部轨道",
+    "description": "The HTML <code>&lt;track&gt;</code> element is used as a child of the media elements—<code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code>. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in WebVTT format (.vtt files) — Web Video Text Tracks.",
+    "mdn": "http://www.w3.org/TR/html5/the-iframe-element.html#the-track-element"
+  },
+  {
+    "type": "embedding",
+    "tag": "audio",
+    "desc": "Audio file.<br>音频文件",
+    "description": "The HTML <code>&lt;audio&gt;</code> element is used to embed sound content in documents. It may contain several audio sources, represented using the src attribute or the <code>&lt;source&gt;</code> element; the browser will choose the most suitable one.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/audio",
+    "w3c": "http://www.w3.org/TR/html5/the-iframe-element.html#the-audio-element"
+  },
+  {
+    "type": "embedding",
+    "tag": "video",
+    "desc": "Video.<br>视频",
+    "description": "Use the  HTML <code>&lt;video&gt;</code> element to embed video content in a document. The video element contains one or more video sources. To specify a video source, use either the src attribute or the <code>&lt;source&gt;</code> element; the browser will choose the most suitable one.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video",
+    "w3c": "http://www.w3.org/TR/html5/the-iframe-element.html#the-video-element"
   }
 ]
