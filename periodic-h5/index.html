@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>H5 元素周期表</title>
     <meta name="keywords" content=""/>
     <meta name="description" content="">
@@ -56,14 +56,14 @@
         .element {
             width: 120px;
             height: 160px;
-            box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.5);
+            box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
             border: 1px solid rgba(127, 255, 255, 0.25);
             text-align: center;
             cursor: default;
         }
 
         .element:hover {
-            box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.75);
+            box-shadow: 0 0 12px rgba(0, 255, 255, 0.75);
             border: 1px solid rgba(127, 255, 255, 0.75);
         }
 
@@ -78,9 +78,9 @@
         .element .symbol {
             position: absolute;
             top: 40px;
-            left: 0px;
-            right: 0px;
-            font-size: 60px;
+            left: 0;
+            right: 0;
+            font-size: 40px;
             font-weight: bold;
             color: rgba(255, 255, 255, 0.75);
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.95);
@@ -89,8 +89,8 @@
         .element .details {
             position: absolute;
             bottom: 15px;
-            left: 0px;
-            right: 0px;
+            left: 0;
+            right: 0;
             font-size: 12px;
             color: rgba(127, 255, 255, 0.75);
         }
@@ -99,7 +99,7 @@
             color: rgba(127, 255, 255, 0.75);
             background: transparent;
             outline: 1px solid rgba(127, 255, 255, 0.75);
-            border: 0px;
+            border: 0;
             padding: 5px 10px;
             cursor: pointer;
         }
@@ -161,21 +161,48 @@
         <p>The HTML <code>&lt;source&gt;</code> element is used to specify multiple media resources for <code>&lt;picture&gt;</code>,
             <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> elements. It is an empty element. It is commonly
             used to serve the same media in multiple formats supported by different browsers.</p>
-        <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/source" class="mdn">MDN文档</a>
-        <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/source" class="w3c">W3c文档</a>
+        <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/source" class="mdn">MDN文档</a>
+        <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/source" class="w3c">W3c文档</a>
     </div>
     <script>
+        let dataMap = new Map();
+        let elementData;
+
+        function initDataMap() {
+            elementData.forEach(item => {
+                dataMap.set(item.tag, item);
+            });
+        }
+
+        function listenTouch() {
+            prompt.addEventListener("touchstart",e => touchObj.down(e))
+            prompt.addEventListener("touchmove",e => touchObj.move(e))
+            prompt.addEventListener("touchend", e => touchObj.end(e));
+         //     <div v-show="showBackIndex" :class="homeBth" id="moveDiv"
+         // @mousedown="down($event)" @touchstart="down($event)"
+         // @mousemove="move($event)" @touchmove="move($event)"
+         // @mouseup="end($event)" @touchend="end($event)" @click="goIndex">
+        }
+
         document.addEventListener("DOMContentLoaded", ev => {
-            titlePlay();
-            init();
-            animate();
-            listenPopup();
+            initTableData().then(() => {
+                init();
+                animate();
+                listenPopup();
+                titlePlay();
+                initDataMap();
+                listenTouch();
+            }).catch(reason => {
+                alert(reason);
+            });
         })
 
         function titlePlay() {
-            let info = document.getElementById("info");
-            info.classList.add("show");
-            setTimeout(() => info.classList.remove("show"), 2500);
+            setTimeout(() => {
+                let info = document.getElementById("info");
+                info.classList.add("show");
+                setTimeout(() => info.classList.remove("show"), 3000);
+            }, 2000);
         }
 
         let prompt = document.getElementById("prompt");
@@ -185,6 +212,13 @@
             elements.forEach(elem => {
                 elem.addEventListener("click", evt => {
                     evt.stopPropagation();
+                    let tag = evt.currentTarget.querySelector(".symbol").innerText;
+                    let item = dataMap.get(tag);
+                    prompt.querySelector("p").innerHTML =
+                        item.description?.length > 0 ? item.description : (item.tag + "<br>" + item.desc);
+                    prompt.querySelector("a.mdn").href = item.mdn;
+                    prompt.querySelector("a.w3c").href = item.w3c;
+                    //
                     prompt.classList.add("show")
                     prompt.style.setProperty("--prompt-left", evt.x + "px");
                     prompt.style.setProperty("--prompt-top", evt.y + "px");
@@ -210,29 +244,53 @@
                 if (!contains) {//close
                     ev.stopPropagation();
                     prompt.classList.remove("show");
-
                 }
             });
         }
 
 
         var table = [
-            "H", "Hydrogen", "1.00794", 3, 1,
-            "He", "Helium", "4.002602", 8, 1,
-            "Li", "Lithium", "#6.941", 1, 2,
+            // "H", "Hydrogen", "1.00794", 3, 1,
+            // "He", "Helium", "4.002602", 8, 1,
+            // "Li", "Lithium", "#6.941", 1, 2,
         ];
 
         let rowCol = [[1, 7], [2, 6], [3, 4], [4, 4], [5, 4], [6, 4], [7, 4],
             [8, 4], [9, 4], [10, 4], [11, 6], [12, 6], [13, 6], [14, 6], [15, 6],
             [16, 6], [17, 7], [18, 7]];
-        (function fetchTableData() {
-            fetch("./periodic-h5/elements.json")
+        let map = new Map();
+        map.set("root", "根元素");
+        map.set("document", "元数据和脚本");
+        map.set("text", "文本级别语义");
+        map.set("grouping", "组合内容");
+        map.set("form", "表单");
+        map.set("sections", "文档章节");
+        map.set("interactive", "交互元素");
+        map.set("table", "表格");
+        map.set("embedding", "嵌入式内容");
+
+        async function initTableData() {
+            await fetch("./data.json")
                 .then(resp => resp.json())
                 .then(data => {
-
-
-                });
-        })();
+                    elementData = data;
+                    let entries = data.filter(item => item.type !== "embedding").entries();
+                    rowCol.forEach(([row, num]) => {
+                        for (let col = 7 - num + 1; col <= 7; col++) {
+                            let next = entries.next();
+                            next = next.value[1];
+                            if (next) {
+                                table.push(next.tag, next.type, map.get(next.type), row, col);
+                            }
+                        }
+                    });
+                    let row = 18 - 11;
+                    data.filter(item => item.type === "embedding")
+                        .forEach(item => {
+                            table.push(item.tag, item.type, map.get(item.type), row++, 9);
+                        });
+                })
+        }
 
         var camera, scene, renderer;
         var controls;
@@ -461,6 +519,68 @@
             renderer.render(scene, camera);
 
         }
+
+        const touchObj = (() => {
+            let flags = false;
+            let position = {x: 0, y: 0};
+            let nx = '';
+            let ny = '';
+            let dx = '';
+            let dy = '';
+            let xPum = '';
+            let yPum = '';
+
+            const divId = 'prompt';
+            return {
+// 实现移动端拖拽
+                down(e) {
+                    let moveDiv = document.getElementById(divId); // 根据id获取DOM元素
+                    flags = true;
+                    let touch;
+                    if (e.touches) {
+                        touch = e.touches[0];
+                    } else {
+                        touch = e;
+                    }
+                    position.x = touch.clientX;
+                    position.y = touch.clientY;
+
+                    dx = moveDiv.offsetLeft; // ts会提示moveDiv可能为空，此时要么判空，要么还可通过变量后添加 ! 操作符告诉 TypeScript 该变量此时非空
+                    dy = moveDiv.offsetTop;
+                }
+                ,
+                move(e) {
+                    let moveDiv = document.getElementById(divId);
+                    if (flags) {
+                        let touch;
+                        if (e.touches) {
+                            touch = e.touches[0];
+                        } else {
+                            touch = e;
+                        }
+                        nx = touch.clientX - position.x;
+                        ny = touch.clientY - position.y;
+                        xPum = dx + nx;
+                        yPum = dy + ny;
+
+                        moveDiv.style.left = xPum + 'px';
+                        moveDiv.style.top = yPum + 'px';
+                        // 阻止页面的滑动默认事件
+                        document.addEventListener('touchmove', () => { // 如果碰到滑动问题，请注意是否获取到 touchmove
+                            e.preventDefault(); // jq 阻止冒泡事件
+                            // e.stopPropagation(); // 如果没有引入jq 就用 stopPropagation()
+                        }, {passive: false}); // addEventListener（）的第三个参数传入对象{passive:false},只是false不生效
+                    }
+                }
+                ,
+// 鼠标释放时候的函数
+                end() {
+                    flags = false;
+                }
+            }
+
+        })
+        ();
 
     </script>
 </body>

@@ -535,35 +535,11 @@
   },
   {
     "type": "sections",
-    "tag": "h1",
-    "desc": "Heading for the current section.<br>当前章节的标题",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
-  },
-  {
-    "type": "sections",
-    "tag": "section",
-    "desc": "Contains elements grouped by theme, for example a chapter or tab box.<br>包含同主题一组元素的容器，例如文档的章节",
-    "description": "The HTML <code>&lt;section&gt;</code> element represents a generic section of a document, i.e., a thematic grouping of content, typically with a heading. Each <code>&lt;section&gt;</code> should be identified, typically by including a heading (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> element) as a child of the <code>&lt;section&gt;</code> element.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/section",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-section-element"
-  },
-  {
-    "type": "sections",
-    "tag": "aside",
-    "desc": "Content related to surrounding elements that doesn't belong inline, such as a advertising or quotes.<br>与周围元素相关的内容，但分开显示",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/aside",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-aside-element"
-  },
-  {
-    "type": "sections",
-    "tag": "h2",
-    "desc": "Heading for the current section.<br>当前章节的标题",
-    "description": "",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
+    "tag": "article",
+    "desc": "Section of the page content, such as a blog or forum post.页面内容的独立部分，如博客文章、论坛帖子",
+    "description": "The HTML <code>&lt;article&gt;</code> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). This could be a forum post, a magazine or newspaper article, a blog entry, an object, or any other independent item of content. Each <code>&lt;article&gt;</code> should be identified, typically by including a heading (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> element) as a child of the <code>&lt;article&gt;</code> element.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/article",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-article-element"
   },
   {
     "type": "sections",
@@ -575,11 +551,59 @@
   },
   {
     "type": "sections",
+    "tag": "nav",
+    "desc": "Contains a collection of links.<br>导航链接的容器",
+    "description": "The HTML <code>&lt;nav&gt;</code> element (HTML Navigation Element) represents a section of a page that links to other pages or to parts within the page: a section with navigation links.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/nav",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-nav-element"
+  },
+  {
+    "type": "sections",
+    "tag": "aside",
+    "desc": "Content related to surrounding elements that doesn't belong inline, such as a advertising or quotes.<br>与周围元素相关的内容，但分开显示",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/aside",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-aside-element"
+  },
+  {
+    "type": "sections",
+    "tag": "section",
+    "desc": "Contains elements grouped by theme, for example a chapter or tab box.<br>包含同主题一组元素的容器，例如文档的章节",
+    "description": "The HTML <code>&lt;section&gt;</code> element represents a generic section of a document, i.e., a thematic grouping of content, typically with a heading. Each <code>&lt;section&gt;</code> should be identified, typically by including a heading (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> element) as a child of the <code>&lt;section&gt;</code> element.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/section",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-section-element"
+  },
+  {
+    "type": "sections",
+    "tag": "footer",
+    "desc": "Footer of the current section.<br>当前章节的页脚",
+    "description": "The HTML <code>&lt;footer&gt;</code> element represents a footer for its nearest sectioning content or sectioning root element. A footer typically contains information about the author of the section, copyright data or links to related documents.",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/footer",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-footer-element"
+  },
+  {
+    "type": "sections",
     "tag": "address",
     "desc": "Contact information for the current article.<br>当前文章的联系信息",
     "description": "The HTML <code>&lt;address&gt;</code> element supplies contact information for its nearest <code>&lt;article&gt;</code> or <code>&lt;body&gt;</code> ancestor; in the latter case, it applies to the whole document.",
     "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/address",
     "w3c": "http://www.w3.org/TR/html5/sections.html#the-address-element"
+  },
+  {
+    "type": "sections",
+    "tag": "h1",
+    "desc": "Heading for the current section.<br>当前章节的标题",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
+  },
+  {
+    "type": "sections",
+    "tag": "h2",
+    "desc": "Heading for the current section.<br>当前章节的标题",
+    "description": "",
+    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
+    "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
   },
   {
     "type": "sections",
@@ -591,14 +615,6 @@
   },
   {
     "type": "sections",
-    "tag": "nav",
-    "desc": "Contains a collection of links.<br>导航链接的容器",
-    "description": "The HTML <code>&lt;nav&gt;</code> element (HTML Navigation Element) represents a section of a page that links to other pages or to parts within the page: a section with navigation links.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/nav",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-nav-element"
-  },
-  {
-    "type": "sections",
     "tag": "h4",
     "desc": "Heading for the current section.<br>当前章节的标题",
     "description": "",
@@ -607,27 +623,11 @@
   },
   {
     "type": "sections",
-    "tag": "article",
-    "desc": "Section of the page content, such as a blog or forum post.页面内容的独立部分，如博客文章、论坛帖子",
-    "description": "The HTML <code>&lt;article&gt;</code> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). This could be a forum post, a magazine or newspaper article, a blog entry, an object, or any other independent item of content. Each <code>&lt;article&gt;</code> should be identified, typically by including a heading (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> element) as a child of the <code>&lt;article&gt;</code> element.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/article",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-article-element"
-  },
-  {
-    "type": "sections",
     "tag": "h5",
     "desc": "Heading for the current section.<br>当前章节的标题",
     "description": "",
     "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hn/",
     "w3c": "http://www.w3.org/TR/html5/sections.html#the-h1-h2-h3-h4-h5-and-h6-elements"
-  },
-  {
-    "type": "sections",
-    "tag": "footer",
-    "desc": "Footer of the current section.<br>当前章节的页脚",
-    "description": "The HTML <code>&lt;footer&gt;</code> element represents a footer for its nearest sectioning content or sectioning root element. A footer typically contains information about the author of the section, copyright data or links to related documents.",
-    "mdn": "https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/footer",
-    "w3c": "http://www.w3.org/TR/html5/sections.html#the-footer-element"
   },
   {
     "type": "sections",
