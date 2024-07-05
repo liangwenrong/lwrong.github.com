@@ -130,6 +130,78 @@
                 width: calc(var(--w) / 1);
             }
         }
+
+        .music {
+            /*position: absolute;*/
+            width: 52vw;
+            margin: 10px auto;
+            border-bottom: 2px solid cadetblue;
+            --s: 1.8s;
+        }
+
+        .music div[class^="m"] {
+            display: inline-block;
+            width: 5vw;
+            margin: 0 0.1vw;
+            height: 10vw;
+            border-radius: 1vw 1vw 0 0;
+            background: linear-gradient(to bottom, #58a8ab33 0%, #58a8ab33 49%, #62dbe9 50%, #62DBE9 100%);
+            background-size: 200% 200%;
+            animation: music var(--s) linear 0s infinite alternate;
+        }
+
+        .music div.m1 {
+            animation-delay: calc(var(--s) * -1);
+        }
+
+        .music div.m2 {
+            animation-delay: calc(var(--s) * -0.8);
+        }
+
+        .music div.m3 {
+            animation-delay: calc(var(--s) * -0.6);
+        }
+
+        .music div.m4 {
+
+            animation-delay: calc(var(--s) * -0.4);
+        }
+
+        .music div.m5 {
+
+            animation-delay: calc(var(--s) * -0.2);
+        }
+
+        .music div.m6 {
+            animation-delay: calc(var(--s) * 0);
+        }
+
+        .music div.m7 {
+            animation-delay: calc(var(--s) * 0.2);
+        }
+
+        .music div.m8 {
+
+            animation-delay: calc(var(--s) * 0.4);
+        }
+
+        .music div.m9 {
+
+            animation-delay: calc(var(--s) * 0.6);
+        }
+
+        .music div.m10 {
+            animation-delay: calc(var(--s) * 0.8);
+        }
+
+        @keyframes music {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100% 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -139,6 +211,19 @@
         </div>
         <div class="shadow"></div>
         <div class="ground"></div>
+
+        <div class="music">
+            <div class="m1"></div>
+            <div class="m2"></div>
+            <div class="m3"></div>
+            <div class="m4"></div>
+            <div class="m5"></div>
+            <div class="m6"></div>
+            <div class="m7"></div>
+            <div class="m8"></div>
+            <div class="m9"></div>
+            <div class="m10"></div>
+        </div>
     </div>
 </body>
 <script>
