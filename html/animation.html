@@ -15,6 +15,29 @@
             --b: calc(var(--w) / 30);
         }
 
+        .home {
+            overflow: hidden;
+            position: fixed;
+            width: 100vw;
+            top: calc(50% - 25vw);
+            left: 50%;
+            height: 50vw;
+            translate: -50%;
+            /*border: 1px solid #a68d70;*/
+            /*box-shadow: 0 10px 30px #a68d70;*/
+            /*border-top-color: transparent;*/
+            background-color: rgba(66, 69, 81, 0.2);
+        }
+
+        .ground {
+            position: absolute;
+            z-index: 100;
+            width: 100%;
+            height: 1px;
+            bottom: -2px;
+            box-shadow: 0 0 10px 5px #3f2f08;
+        }
+
         .ball {
             overflow: hidden;
             position: absolute;
@@ -24,32 +47,10 @@
             height: var(--w);
             box-sizing: border-box;
             border-radius: 50%;
-            box-shadow: 0 0 20px -8px black;
+            /*box-shadow: 0 0 20px -8px black;*/
             background: radial-gradient(circle at center, #B8633A 0%, #a16142 80%);
             animation: playBall 1.8s linear infinite alternate;
-        }
-        .home {
-            position: fixed;
-            width: 100vw;
-            top: calc(50% - 25vw);
-            left: 50%;
-            height: 50vw;
-            translate: -50%;
-            border: 1px solid #a68d70;
-            box-shadow: 0 10px 30px   #a68d70;
-            border-top-color: transparent;
-        }
 
-        @keyframes playBall {
-            0% {
-                transform: translate(calc(var(--w) / 2 - 50vw), -30vw)
-            }
-            50% {
-                transform: translate(0, 0) rotate(180deg)
-            }
-            100% {
-                transform: translate(calc(50vw - var(--w) / 2), -30vw) rotate(270deg)
-            }
         }
 
 
@@ -86,6 +87,49 @@
         .ball .line::after {
             rotate: 90deg;
         }
+
+
+        @keyframes playBall {
+            0% {
+                transform: translate(calc(var(--w) / 2 - 50vw), -30vw)
+            }
+            50% {
+                transform: translate(0, 0) rotate(180deg)
+            }
+            100% {
+                transform: translate(calc(50vw - var(--w) / 2), -30vw) rotate(270deg);
+            }
+        }
+
+        .shadow {
+            overflow: hidden;
+            position: absolute;
+            bottom: 0;
+            left: calc(50vw - var(--w) / 4);
+            width: calc(var(--w) / 2);
+            height: 1vw;
+            background: transparent;
+            animation: playShadow 1.8s linear infinite alternate;
+            box-shadow: 0 19.5vw 20px black;
+        }
+
+        @keyframes playShadow {
+            0% {
+                transform: translate(calc(var(--w) / 2 - 50vw), -20vw);
+                left: calc(50vw - var(--w) / 2);
+                width: calc(var(--w) / 1);
+            }
+            50% {
+                transform: translate(0, -20vw);
+                left: calc(50vw - var(--w) / 4);
+                width: calc(var(--w) / 2);
+            }
+            100% {
+                transform: translate(calc(50vw - var(--w) / 2), -20vw);
+                left: calc(50vw - var(--w) / 2);
+                width: calc(var(--w) / 1);
+            }
+        }
     </style>
 </head>
 <body>
@@ -93,6 +137,8 @@
         <div class="ball">
             <div class="line"></div>
         </div>
+        <div class="shadow"></div>
+        <div class="ground"></div>
     </div>
 </body>
 <script>
