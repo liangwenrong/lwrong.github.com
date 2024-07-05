@@ -147,7 +147,7 @@
             border-radius: 1vw 1vw 0 0;
             background: linear-gradient(to bottom, #58a8ab33 0%, #58a8ab33 49%, #62dbe9 50%, #62DBE9 100%);
             background-size: 200% 200%;
-            animation: music var(--s) linear 0s infinite alternate;
+            animation: music var(--s) ease-in 0s infinite alternate;
         }
 
         .music div.m1 {
@@ -173,25 +173,25 @@
         }
 
         .music div.m6 {
-            animation-delay: calc(var(--s) * 0);
+            animation-delay: calc(var(--s) * -0.2);
         }
 
         .music div.m7 {
-            animation-delay: calc(var(--s) * 0.2);
+            animation-delay: calc(var(--s) * -0.4);
         }
 
         .music div.m8 {
 
-            animation-delay: calc(var(--s) * 0.4);
+            animation-delay: calc(var(--s) * -0.6);
         }
 
         .music div.m9 {
 
-            animation-delay: calc(var(--s) * 0.6);
+            animation-delay: calc(var(--s) * -0.8);
         }
 
         .music div.m10 {
-            animation-delay: calc(var(--s) * 0.8);
+            animation-delay: calc(var(--s) * -1);
         }
 
         @keyframes music {
