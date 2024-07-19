@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>时光机</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <!--    <link rel="stylesheet" href="../css/common.css">-->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wave {
+            position: absolute;
+            z-index: 1;
+            width: 100vw;
+            height: 100vh;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%232F4F4FFF' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat 0 100%;
+            opacity: 0.2;
+            background-size: 50px auto;
+            animation: waveMove .5s infinite linear;
+        }
+
+        @keyframes waveMove {
+            0% {
+                background-position: 0 100%;
+            }
+            100% {
+                background-position: -50px 100%;
+            }
+        }
+
+        #main {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: url("./jupiter.webp") no-repeat top;
+            background-size: cover;
+        }
+
+        .word-perspective {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            perspective: 10px;
+            /*perspective-origin: 200vw 50vh;*/
+        }
+
+
+        .word {
+            white-space: nowrap;
+            position: absolute;
+            left: 50vw;
+            top: 30vh;
+            font-size: .1em;
+            transform-style: preserve-3d;
+            color: white;
+            animation: move 3s cubic-bezier(1, 0, 1, .5);
+        }
+
+        @keyframes move {
+            0% {
+                opacity: 1;
+                font-size: .1em;
+            }
+            100% {
+                opacity: .5;
+                font-size: 10em;
+                transform: translateZ(15px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wave"></div>
+    <div id="main">
+        <!--<div class="word-perspective">
+            <span class="word">123</span>
+        </div>-->
+    </div>
+</body>
+<script>
+  let words = Array.from(new Array(1000).keys())
+  function getUnSortMap() {
+    let avg = Math.ceil(Math.sqrt(words.length))
+
+    let pw = Math.ceil(200 / avg)
+    let ph = Math.ceil(50 / avg)
+
+    let arr = new Array(words.length).keys()
+    arr = Array.from(arr).sort(() => Math.random() - 0.5);
+    let map = new Map();
+    let k = 0;
+    for (let i = 0; i < avg; i++) {
+      for (let j = 0; j < avg; j++) {
+        if (k === arr.length) {
+          break
+        }
+        map.set(arr[k++], {
+          pw: i * pw,
+          ph: j * ph,
+        })
+      }
+    }
+    return map
+  }
+
+  let map = getUnSortMap()
+  const speed = 100
+  let i = 0
+  setTimeout(function loop() {
+    createElem(words[i], map.get(i))
+    i++
+    if (i < words.length) {
+      setTimeout(loop, speed)
+    }
+  }, 0)
+
+  //动画关键帧
+  let keyFrame = [
+    {opacity: "1", "font-size": ".1em"},
+    {opacity: ".5", "font-size": ".1em", transform: "translateZ(15px)"},
+  ];
+  //动画播放规则
+  // delay?: number;
+  // direction?: PlaybackDirection;
+  // duration?: number | CSSNumericValue | string;
+  // easing?: string;
+  // endDelay?: number;
+  // fill?: FillMode;
+  // iterationStart?: number;
+  // iterations?: number;
+  // playbackRate?: number;
+  // }
+  const duration = 3000
+  let timing = {
+    duration: duration,
+    easing: "cubic-bezier(1, 0, 1, .5)",
+  }
+
+  function startAnimation(node) {
+    node.animate(keyFrame, timing);
+    setTimeout(() => {
+      node.parentNode.removeChild(node)
+    }, duration)
+  }
+
+
+  let main = document.getElementById("main")
+  //
+  let wordPerspective = document.createElement("div")
+  wordPerspective.classList.add("word-perspective")
+  let word = document.createElement("span")
+  word.classList.add("word")
+  wordPerspective.appendChild(word)
+
+  function createElem(word, {pw, ph}) {
+    let node = wordPerspective.cloneNode(true)
+    node.style.setProperty("perspective-origin", pw + "vw " + ph + "vh")
+    node.firstElementChild.innerText = word
+    //
+    main.appendChild(node)
+    startAnimation(node);
+  }
+
+</script>
+</html>
