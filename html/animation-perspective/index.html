@@ -28,8 +28,6 @@
             position: fixed;
             background: #f00;
             transform: rotate(45deg);
-            -webkit-transform: rotate(45deg);
-            -moz-transform: rotate(45deg);
             pointer-events: none;
             z-index: 500;
         }
@@ -211,87 +209,24 @@
     console.dir(e.target)
     if (e.target.classList.contains("word")) {
       e.target.parentNode.classList.add("none")
-      touchObj.show(e)
+      show(e)
     }
   })
 
-
-  const touchObj = (() => {
-    let flags = false;
-    let position = {x: 0, y: 0};
-    let nx = '';
-    let ny = '';
-    let dx = '';
-    let dy = '';
-    let xPum = '';
-    let yPum = '';
-
-    const divId = 'prompt';
-    return {
-      show(e) {
-        let touch;
-        if (e.touches) {
-          touch = e.touches[0];
-        } else {
-          touch = e;
-        }
-        console.log(touch.clientX, touch.clientY)
-        let heart = document.createElement("div")
-        heart.classList.add("heart")
-        heart.style.setProperty("left", touch.clientX + "px")
-        heart.style.setProperty("top", touch.clientY + "px")
-        document.body.appendChild(heart)
-      },
-// 实现移动端拖拽
-      down(e) {
-        let moveDiv = document.getElementById(divId); // 根据id获取DOM元素
-        flags = true;
-        let touch;
-        if (e.touches) {
-          touch = e.touches[0];
-        } else {
-          touch = e;
-        }
-        position.x = touch.clientX;
-        position.y = touch.clientY;
-
-        dx = moveDiv.offsetLeft; // ts会提示moveDiv可能为空，此时要么判空，要么还可通过变量后添加 ! 操作符告诉 TypeScript 该变量此时非空
-        dy = moveDiv.offsetTop;
-      }
-      ,
-      move(e) {
-        let moveDiv = document.getElementById(divId);
-        if (flags) {
-          let touch;
-          if (e.touches) {
-            touch = e.touches[0];
-          } else {
-            touch = e;
-          }
-          nx = touch.clientX - position.x;
-          ny = touch.clientY - position.y;
-          xPum = dx + nx;
-          yPum = dy + ny;
-
-          moveDiv.style.left = xPum + 'px';
-          moveDiv.style.top = yPum + 'px';
-          // 阻止页面的滑动默认事件
-          document.addEventListener('touchmove', () => { // 如果碰到滑动问题，请注意是否获取到 touchmove
-            e.preventDefault(); // jq 阻止冒泡事件
-            // e.stopPropagation(); // 如果没有引入jq 就用 stopPropagation()
-          }, {passive: false}); // addEventListener（）的第三个参数传入对象{passive:false},只是false不生效
-        }
-      }
-      ,
-// 鼠标释放时候的函数
-      end() {
-        flags = false;
-      }
+  function  show(e) {
+    let touch;
+    if (e.touches) {
+      touch = e.touches[0];
+    } else {
+      touch = e;
     }
-
-  })
-  ();
-
+    console.log(touch.clientX, touch.clientY)
+    let heart = document.createElement("div")
+    heart.classList.add("heart")
+    heart.style.setProperty("left", touch.clientX + "px")
+    heart.style.setProperty("top", touch.clientY + "px")
+    document.body.appendChild(heart)
+  }
 
 </script>
 
