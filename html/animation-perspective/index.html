@@ -8,6 +8,51 @@
     <meta name="description" content="">
     <!--    <link rel="stylesheet" href="../css/common.css">-->
     <style>
+
+        .tips {
+            white-space: nowrap;
+            margin: 0 auto;
+            position: fixed;
+            left: 50%;
+            top: 10%;
+            font-size: 3rem;
+            transform: translate(-9rem, 0);
+            width: 100px;
+            color: cadetblue;
+            z-index: 1000;
+        }
+
+        .heart {
+            width: 10px;
+            height: 10px;
+            position: fixed;
+            background: #f00;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            pointer-events: none;
+            z-index: 500;
+        }
+
+        .heart:after, .heart:before {
+            content: '';
+            width: inherit;
+            height: inherit;
+            background: inherit;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            position: fixed;
+        }
+
+        .heart:after {
+            top: -5px;
+        }
+
+        .heart:before {
+            left: -5px;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -43,15 +88,19 @@
         }
 
         .word-perspective {
+            visibility: hidden;
             position: absolute;
             width: 100%;
             height: 100%;
             perspective: 10px;
             /*perspective-origin: 200vw 50vh;*/
+            z-index: 999;
+            pointer-events: visible;
         }
 
 
         .word {
+            visibility: visible;
             white-space: nowrap;
             position: absolute;
             left: 50vw;
@@ -60,6 +109,7 @@
             transform-style: preserve-3d;
             color: white;
             animation: move 3s cubic-bezier(1, 0, 1, .5);
+            pointer-events: all;
         }
 
         @keyframes move {
@@ -73,6 +123,10 @@
                 transform: translateZ(15px);
             }
         }
+
+        .none {
+            display: none;
+        }
     </style>
 </head>
 
@@ -83,9 +137,16 @@
             <span class="word">123</span>
         </div>-->
     </div>
+    <div class="heart"></div>
+    <div class="tips">点击消除数字</div>
 </body>
 <script>
+
+  setTimeout(() => {
+    document.querySelector(".tips").classList.add("none")
+  }, 2500)
   let words = Array.from(new Array(1000).keys())
+
   function getUnSortMap() {
     let avg = Math.ceil(Math.sqrt(words.length))
 
@@ -111,7 +172,7 @@
   }
 
   let map = getUnSortMap()
-  const speed = 100
+  const speed = 300
   let i = 0
   setTimeout(function loop() {
     createElem(words[i], map.get(i))
@@ -119,36 +180,9 @@
     if (i < words.length) {
       setTimeout(loop, speed)
     }
-  }, 0)
+  }, 3000)
 
-  //动画关键帧
-  let keyFrame = [
-    {opacity: "1", "font-size": ".1em"},
-    {opacity: ".5", "font-size": ".1em", transform: "translateZ(15px)"},
-  ];
-  //动画播放规则
-  // delay?: number;
-  // direction?: PlaybackDirection;
-  // duration?: number | CSSNumericValue | string;
-  // easing?: string;
-  // endDelay?: number;
-  // fill?: FillMode;
-  // iterationStart?: number;
-  // iterations?: number;
-  // playbackRate?: number;
-  // }
   const duration = 3000
-  let timing = {
-    duration: duration,
-    easing: "cubic-bezier(1, 0, 1, .5)",
-  }
-
-  function startAnimation(node) {
-    node.animate(keyFrame, timing);
-    setTimeout(() => {
-      node.parentNode.removeChild(node)
-    }, duration)
-  }
 
 
   let main = document.getElementById("main")
@@ -165,8 +199,100 @@
     node.firstElementChild.innerText = word
     //
     main.appendChild(node)
-    startAnimation(node);
+    setTimeout(() => {
+      node.parentNode.removeChild(node)
+    }, duration)
   }
 
+  let e = window;
+  let a = document
+  let t = document;
+  document.addEventListener("click", e => {
+    console.dir(e.target)
+    if (e.target.classList.contains("word")) {
+      e.target.parentNode.classList.add("none")
+      touchObj.show(e)
+    }
+  })
+
+
+  const touchObj = (() => {
+    let flags = false;
+    let position = {x: 0, y: 0};
+    let nx = '';
+    let ny = '';
+    let dx = '';
+    let dy = '';
+    let xPum = '';
+    let yPum = '';
+
+    const divId = 'prompt';
+    return {
+      show(e) {
+        let touch;
+        if (e.touches) {
+          touch = e.touches[0];
+        } else {
+          touch = e;
+        }
+        console.log(touch.clientX, touch.clientY)
+        let heart = document.createElement("div")
+        heart.classList.add("heart")
+        heart.style.setProperty("left", touch.clientX + "px")
+        heart.style.setProperty("top", touch.clientY + "px")
+        document.body.appendChild(heart)
+      },
+// 实现移动端拖拽
+      down(e) {
+        let moveDiv = document.getElementById(divId); // 根据id获取DOM元素
+        flags = true;
+        let touch;
+        if (e.touches) {
+          touch = e.touches[0];
+        } else {
+          touch = e;
+        }
+        position.x = touch.clientX;
+        position.y = touch.clientY;
+
+        dx = moveDiv.offsetLeft; // ts会提示moveDiv可能为空，此时要么判空，要么还可通过变量后添加 ! 操作符告诉 TypeScript 该变量此时非空
+        dy = moveDiv.offsetTop;
+      }
+      ,
+      move(e) {
+        let moveDiv = document.getElementById(divId);
+        if (flags) {
+          let touch;
+          if (e.touches) {
+            touch = e.touches[0];
+          } else {
+            touch = e;
+          }
+          nx = touch.clientX - position.x;
+          ny = touch.clientY - position.y;
+          xPum = dx + nx;
+          yPum = dy + ny;
+
+          moveDiv.style.left = xPum + 'px';
+          moveDiv.style.top = yPum + 'px';
+          // 阻止页面的滑动默认事件
+          document.addEventListener('touchmove', () => { // 如果碰到滑动问题，请注意是否获取到 touchmove
+            e.preventDefault(); // jq 阻止冒泡事件
+            // e.stopPropagation(); // 如果没有引入jq 就用 stopPropagation()
+          }, {passive: false}); // addEventListener（）的第三个参数传入对象{passive:false},只是false不生效
+        }
+      }
+      ,
+// 鼠标释放时候的函数
+      end() {
+        flags = false;
+      }
+    }
+
+  })
+  ();
+
+
 </script>
+
 </html>
