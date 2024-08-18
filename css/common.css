@@ -32,8 +32,8 @@ table {
 
 /* 清除浮动 和外边距合并 */
 .clear-after::after {
-    content: "1"; /* 不能为空 */
-    display: block;
+    content: " "; /* 不能为空 */
+    display: table;
     font-size: 0;
     height: 0;
     overflow: hidden;
@@ -41,8 +41,8 @@ table {
 }
 
 .clear-before::before {
-    content: "1"; /* 不能为空 */
-    display: block;
+    content: " "; /* 不能为空 */
+    display: table;
     font-size: 0;
     height: 0;
     overflow: hidden;
